@@ -1,0 +1,323 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: test_lyu
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/feishu:0.0.7@2f65c6f5a970be7c171f3f4e97401f9eab7f93c7c5e320042cf35eca03f6ae9b
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.18@ef52c8128cefe169e4ea882a8c7d92e6cf0bd4f7da75be644ab6b09a3dcfa4f4
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-plugin
+        targetType: llm
+      id: 1783236464391-source-1783236526143-target
+      source: '1783236464391'
+      sourceHandle: source
+      target: '1783236526143'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1783236526143-source-1783236489526-target
+      source: '1783236526143'
+      sourceHandle: source
+      target: '1783236489526'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        config: {}
+        desc: 当机器人所在的群聊收到消息时激活，提供消息内容和发送者信息。
+        event_description: 当机器人所在的群聊收到消息时激活，提供消息内容和发送者信息。
+        event_label: 收到消息
+        event_name: message_receive_v1
+        event_parameters: {}
+        is_team_authorization: false
+        meta:
+          version: '1.0'
+        output_schema:
+          properties:
+            chat_id:
+              description: Chat where message was sent
+              type: string
+            chat_type:
+              description: Type of chat (group or P2P)
+              type: string
+            content:
+              description: Message content
+              type: string
+            create_time:
+              description: Message creation timestamp
+              type: string
+            mentions:
+              description: List of mentioned users or bots
+              items:
+                properties:
+                  id:
+                    properties:
+                      open_id:
+                        type: string
+                      union_id:
+                        type: string
+                      user_id:
+                        type: string
+                    type: object
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  tenant_key:
+                    type: string
+                type: object
+              type: array
+            message_id:
+              description: Unique message identifier
+              type: string
+            message_type:
+              description: Type of message content
+              type: string
+            parent_id:
+              description: Parent message ID for threaded replies
+              type: string
+            root_id:
+              description: Root message ID if this is a reply
+              type: string
+            sender_id:
+              description: ID of the message sender
+              properties:
+                open_id:
+                  type: string
+                union_id:
+                  type: string
+                user_id:
+                  type: string
+              type: object
+            sender_type:
+              description: Type of sender (user or bot)
+              type: string
+            tenant_key:
+              description: Tenant key of the sender
+              type: string
+            update_time:
+              description: Message update timestamp
+              type: string
+          type: object
+        parameters_schema: []
+        plugin_id: langgenius/lark_trigger
+        plugin_unique_identifier: langgenius/lark_trigger:0.1.0@a375c05bcb3e055529ebd604033246c928bad27e46b7817af4db881d49dfbd76
+        provider_id: langgenius/lark_trigger/lark_trigger
+        provider_name: langgenius/lark_trigger/lark_trigger
+        provider_type: trigger
+        selected: true
+        subscription_id: ''
+        title: 收到消息
+        type: trigger-plugin
+      height: 152
+      id: '1783236464391'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - role: system
+          text: ''
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783236526143'
+      position:
+        x: 411
+        y: 303
+      positionAbsolute:
+        x: 411
+        y: 303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Feishu Group bot webhook key
+            ja_JP: Feishu Group bot webhook key
+            pt_BR: Feishu Group bot webhook key
+            zh_Hans: 群机器人webhook的key
+          label:
+            en_US: Feishu Group bot webhook key
+            ja_JP: Feishu Group bot webhook key
+            pt_BR: Feishu Group bot webhook key
+            zh_Hans: 群机器人webhook的key
+          llm_description: ''
+          max: null
+          min: null
+          name: hook_key
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: secret-input
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Content to sent to the group.
+            ja_JP: Content to sent to the group.
+            pt_BR: Content to sent to the group.
+            zh_Hans: 群消息文本
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: Content of the message
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          hook_key: ''
+        plugin_id: langgenius/feishu
+        plugin_unique_identifier: langgenius/feishu:0.0.7@2f65c6f5a970be7c171f3f4e97401f9eab7f93c7c5e320042cf35eca03f6ae9b
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=9aebd67dfcbc3c56f83d8b697538738964705ed2c796e0cb9dc10e0dd2891a43.svg
+        provider_id: langgenius/feishu/feishu
+        provider_name: langgenius/feishu/feishu
+        provider_show_name: 飞书
+        provider_type: builtin
+        selected: false
+        title: 发送群消息
+        tool_configurations:
+          hook_key:
+            type: mixed
+            value: null
+        tool_description: 通过飞书的群机器人webhook发送群消息
+        tool_label: 发送群消息
+        tool_name: feishu_group_bot
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: null
+        type: tool
+      height: 87
+      id: '1783236489526'
+      position:
+        x: 759
+        y: 303
+      positionAbsolute:
+        x: 759
+        y: 303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: 0
+      y: -50
+      zoom: 1
+  rag_pipeline_variables: []

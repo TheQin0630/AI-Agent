@@ -1,0 +1,4824 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 采购经理数字员工
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.18@ef52c8128cefe169e4ea882a8c7d92e6cf0bd4f7da75be644ab6b09a3dcfa4f4
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: 缓存区是否存在文件？
+    id: e5f32513-fb0d-4a63-b081-16f1d8a72aea
+    name: has_file
+    selector:
+    - env
+    - has_file
+    value: 0
+    value_type: integer
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1783084759950-source-17830847387080-target
+      selected: false
+      source: '1783084759950'
+      sourceHandle: source
+      target: '17830847387080'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1782978673802-false-1783084759950-target
+      selected: false
+      source: '1782978673802'
+      sourceHandle: 'false'
+      target: '1783084759950'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1783271056365-source-17832710829940-target
+      selected: false
+      source: '1783271056365'
+      sourceHandle: source
+      target: '17832710829940'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1783271056365-source-17832710883880-target
+      selected: false
+      source: '1783271056365'
+      sourceHandle: source
+      target: '17832710883880'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 17832710829940-source-1783271107820-target
+      selected: false
+      source: '17832710829940'
+      sourceHandle: source
+      target: '1783271107820'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 17832710883880-source-1783271107820-target
+      selected: false
+      source: '17832710883880'
+      sourceHandle: source
+      target: '1783271107820'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1783271107820-source-1783271216215-target
+      selected: false
+      source: '1783271107820'
+      sourceHandle: source
+      target: '1783271216215'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1783271216215-false-17832718360020-target
+      selected: false
+      source: '1783271216215'
+      sourceHandle: 'false'
+      target: '17832718360020'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: parameter-extractor
+      id: 1783179197657-false-1783009648716-target
+      selected: false
+      source: '1783179197657'
+      sourceHandle: 'false'
+      target: '1783009648716'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: if-else
+      id: 1783009648716-source-1782978673802-target
+      selected: false
+      source: '1783009648716'
+      sourceHandle: source
+      target: '1782978673802'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: trigger-plugin
+        targetType: if-else
+      id: 1782981177946-source-1783179197657-target
+      selected: false
+      source: '1782981177946'
+      sourceHandle: source
+      target: '1783179197657'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 17832735645330-source-17832735458590-target
+      selected: false
+      source: '17832735645330'
+      sourceHandle: source
+      target: '17832735458590'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: if-else
+      id: 17832736179680-source-17832730191830-target
+      selected: false
+      source: '17832736179680'
+      sourceHandle: source
+      target: '17832730191830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 17832736865830-source-1783273769902-target
+      selected: false
+      source: '17832736865830'
+      sourceHandle: source
+      target: '1783273769902'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1783179197657-true-1783263183431-target
+      selected: false
+      source: '1783179197657'
+      sourceHandle: 'true'
+      target: '1783263183431'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17832730191830-false-1783179242214-target
+      selected: false
+      source: '17832730191830'
+      sourceHandle: 'false'
+      target: '1783179242214'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1783273769902-false-1783273973272-target
+      selected: false
+      source: '1783273769902'
+      sourceHandle: 'false'
+      target: '1783273973272'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 17832730191830-true-17832736865830-target
+      selected: false
+      source: '17832730191830'
+      sourceHandle: 'true'
+      target: '17832736865830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1782978673802-true-1783271056365-target
+      selected: false
+      source: '1782978673802'
+      sourceHandle: 'true'
+      target: '1783271056365'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: trigger-plugin
+        targetType: code
+      id: 1782981177946-source-17832735645330-target
+      selected: false
+      source: '1782981177946'
+      sourceHandle: source
+      target: '17832735645330'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 17832735458590-source-1783334960607-target
+      selected: false
+      source: '17832735458590'
+      sourceHandle: source
+      target: '1783334960607'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1783334960607-source-1783179197657-target
+      selected: false
+      source: '1783334960607'
+      sourceHandle: source
+      target: '1783179197657'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: parameter-extractor
+      id: 1783179197657-true-17832736179680-target
+      selected: false
+      source: '1783179197657'
+      sourceHandle: 'true'
+      target: '17832736179680'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1783273769902-true-1783271056365-target
+      selected: false
+      source: '1783273769902'
+      sourceHandle: 'true'
+      target: '1783271056365'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: parameter-extractor
+      id: 1783271216215-true-1783337962103-target
+      selected: false
+      source: '1783271216215'
+      sourceHandle: 'true'
+      target: '1783337962103'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: parameter-extractor
+      id: 1783271216215-true-17833385592280-target
+      source: '1783271216215'
+      sourceHandle: 'true'
+      target: '17833385592280'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 17833385592280-source-1783339166621-target
+      source: '17833385592280'
+      sourceHandle: source
+      target: '1783339166621'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 1783337962103-source-1783339166621-target
+      source: '1783337962103'
+      sourceHandle: source
+      target: '1783339166621'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1783339166621-source-1783339738594-target
+      source: '1783339166621'
+      sourceHandle: source
+      target: '1783339738594'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1783339738594-source-1783339889948-target
+      source: '1783339738594'
+      sourceHandle: source
+      target: '1783339889948'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1783339889948-true-1783339981914-target
+      source: '1783339889948'
+      sourceHandle: 'true'
+      target: '1783339981914'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1783339981914-source-1783340100112-target
+      source: '1783339981914'
+      sourceHandle: source
+      target: '1783340100112'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1783340100112-source-1783340183522-target
+      source: '1783340100112'
+      sourceHandle: source
+      target: '1783340183522'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1783340183522-true-1783340661478-target
+      source: '1783340183522'
+      sourceHandle: 'true'
+      target: '1783340661478'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1783340661478-source-1783340801210-target
+      source: '1783340661478'
+      sourceHandle: source
+      target: '1783340801210'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1783340801210-source-17833408553560-target
+      source: '1783340801210'
+      sourceHandle: source
+      target: '17833408553560'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1783339738594-source-1783341501180-target
+      source: '1783339738594'
+      sourceHandle: source
+      target: '1783341501180'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1783341501180-source-1783182481979-target
+      source: '1783341501180'
+      sourceHandle: source
+      target: '1783182481979'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 176
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"初始输入。","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"是否需要前置消息格式化？","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"否","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"还是在输入后再对消息做处理？","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"后处理：用户意图识别","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"LLM
+          处理还是关键词提取整合？","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"LLM
+          处理","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 301
+      height: 176
+      id: '1782838668922'
+      position:
+        x: -1388.9169075966408
+        y: 1147.5876894919156
+      positionAbsolute:
+        x: -1388.9169075966408
+        y: 1147.5876894919156
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 301
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 116
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"我看见插件市场有很多模型提供商：","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"有必要用更好的吗？","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"暂无。目前使用ds","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"如果用我们自己购买的更好的模型，api怎么接入？","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"marketplace可以提供相关模块。暂不考虑。","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 116
+      id: '1782838754024'
+      position:
+        x: -1085.1532534400515
+        y: 1204.9189379194381
+      positionAbsolute:
+        x: -1085.1532534400515
+        y: 1204.9189379194381
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 166
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"开始节点输入内容应至少包含用户说的话和销售合同文件（我们第一周可否先不做采购合同检索暂时一并上传采销合同，因为第一周也未给到接口）
+          以及接入飞书的话是否需要额外传别的用户信息？","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 250
+      height: 166
+      id: '1782877106396'
+      position:
+        x: -835.7616645998609
+        y: 1147.5876894919156
+      positionAbsolute:
+        x: -835.7616645998609
+        y: 1147.5876894919156
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 250
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 127
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"情况1：","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"未上传合同文件且有合同编号——提取用户输入的合同编号——","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"在数据库中查找对应合同","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 257
+      height: 127
+      id: '1782905162628'
+      position:
+        x: -573.8845946706291
+        y: -830.9629422739613
+      positionAbsolute:
+        x: -573.8845946706291
+        y: -830.9629422739613
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 257
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"提取合同文本中的待比对条目，准备用于比对","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1782918106254'
+      position:
+        x: 799.1729812730903
+        y: 1249.1663422998035
+      positionAbsolute:
+        x: 799.1729812730903
+        y: 1249.1663422998035
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: 蔡源博
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"我测试了下接入飞书bot，好像无法直接发布，要用中转服务","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1782967962218'
+      position:
+        x: -572.5321558971859
+        y: 1147.5876894919156
+      positionAbsolute:
+        x: -572.5321558971859
+        y: 1147.5876894919156
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"看到了。不用那个消息发送节点。","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"应该使用lark。","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1782973178758'
+      position:
+        x: -572.5321558971859
+        y: 1243.100727156519
+      positionAbsolute:
+        x: -572.5321558971859
+        y: 1243.100727156519
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"通知用户已收到文件，等待下一步请求","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1782974371580'
+      position:
+        x: -625.4163674810413
+        y: -596.3741336050805
+      positionAbsolute:
+        x: -625.4163674810413
+        y: -596.3741336050805
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 097a4f69-a34c-40fa-81a4-ea42ee76c3f5
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1783009648716'
+            - has_intent
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 是否有业务需求
+        type: if-else
+      height: 123
+      id: '1782978673802'
+      position:
+        x: -2139.4182777052197
+        y: 471.70813539879975
+      positionAbsolute:
+        x: -2139.4182777052197
+        y: 471.70813539879975
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        config: {}
+        event_description: 当机器人所在的群聊收到消息时激活，提供消息内容和发送者信息。
+        event_label: 收到消息
+        event_name: message_receive_v1
+        event_parameters: {}
+        is_team_authorization: false
+        meta:
+          version: '1.0'
+        output_schema:
+          properties:
+            chat_id:
+              description: Chat where message was sent
+              type: string
+            chat_type:
+              description: Type of chat (group or P2P)
+              type: string
+            content:
+              description: Message content
+              type: string
+            create_time:
+              description: Message creation timestamp
+              type: string
+            mentions:
+              description: List of mentioned users or bots
+              items:
+                properties:
+                  id:
+                    properties:
+                      open_id:
+                        type: string
+                      union_id:
+                        type: string
+                      user_id:
+                        type: string
+                    type: object
+                  key:
+                    type: string
+                  name:
+                    type: string
+                  tenant_key:
+                    type: string
+                type: object
+              type: array
+            message_id:
+              description: Unique message identifier
+              type: string
+            message_type:
+              description: Type of message content
+              type: string
+            parent_id:
+              description: Parent message ID for threaded replies
+              type: string
+            root_id:
+              description: Root message ID if this is a reply
+              type: string
+            sender_id:
+              description: ID of the message sender
+              properties:
+                open_id:
+                  type: string
+                union_id:
+                  type: string
+                user_id:
+                  type: string
+              type: object
+            sender_type:
+              description: Type of sender (user or bot)
+              type: string
+            tenant_key:
+              description: Tenant key of the sender
+              type: string
+            update_time:
+              description: Message update timestamp
+              type: string
+          type: object
+        paramSchemas: []
+        params: {}
+        plugin_id: langgenius/lark_trigger
+        plugin_unique_identifier: langgenius/lark_trigger:0.1.0@a375c05bcb3e055529ebd604033246c928bad27e46b7817af4db881d49dfbd76
+        provider_id: langgenius/lark_trigger/lark_trigger
+        provider_name: langgenius/lark_trigger/lark_trigger
+        provider_type: trigger
+        selected: false
+        subscription_id: ''
+        title: 收到消息
+        type: trigger-plugin
+      height: 84
+      id: '1782981177946'
+      position:
+        x: -3657.0927264052093
+        y: -27.352896098481594
+      positionAbsolute:
+        x: -3657.0927264052093
+        y: -27.352896098481594
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 102
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"采销合同比对的逻辑应该是","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"提取销售合同关键字段->查找关键字段匹配的采购合同->比对采销合同是否一致进行异常处理/创建采购申请单","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 377
+      height: 102
+      id: '1782990858697'
+      position:
+        x: 799.1729812730903
+        y: 1350.7685201064676
+      positionAbsolute:
+        x: 799.1729812730903
+        y: 1350.7685201064676
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 377
+    - data:
+        instruction: '{{#1782981177946.content#}}是一段针对某销售合同的用户输入。里面必定包含用户意图，还可能包含一段销售合同编号。你需要：
+
+          1、（必填）判断用户是否有针对合同的业务需求：若有，令has_intent为1，否则为0，bool类型
+
+          2、（不一定填）提取用户意图，作为user_intent变量的值，字符串类型'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        parameters:
+        - description: 用户意图
+          name: user_intent
+          required: false
+          type: string
+        - description: 用户是否有业务需求
+          name: has_intent
+          required: true
+          type: boolean
+        query:
+        - '1782981177946'
+        - content
+        reasoning_mode: prompt
+        selected: false
+        title: 提取器
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 87
+      id: '1783009648716'
+      position:
+        x: -2490.9744533580715
+        y: 134.0131092669541
+      positionAbsolute:
+        x: -2490.9744533580715
+        y: 134.0131092669541
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 116
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"采购合同是否需要额外提取一些信息用于采购申请单的创建？
+          开启上下文信息好像后面节点能提取前面的内容","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 116
+      id: '1783082230003'
+      position:
+        x: -23.36871748385113
+        y: 1147.5876894919156
+      positionAbsolute:
+        x: -23.36871748385113
+        y: 1147.5876894919156
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        default_value:
+        - key: text
+          type: string
+          value: 消息发送 LLM 出现故障，请联系开发人员。
+        - key: json
+          type: array[object]
+          value: '[]'
+        desc: ''
+        error_strategy: default-value
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/lark_message_and_group
+        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
+        provider_id: langgenius/lark_message_and_group/lark_message_and_group
+        provider_name: langgenius/lark_message_and_group/lark_message_and_group
+        provider_show_name: Lark 消息和群组
+        provider_type: builtin
+        selected: false
+        title: 用户无业务需求 - 输出
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: text
+          receive_id_type:
+            type: constant
+            value: chat_id
+        tool_description: 发送 Lark 应用消息
+        tool_label: 发送 Lark 应用消息
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1783084759950.text#}}'
+          receive_id:
+            type: mixed
+            value: '{{#1782981177946.chat_id#}}'
+        type: tool
+      height: 149
+      id: '17830847387080'
+      position:
+        x: -2133.6484650787484
+        y: 724.9355977026307
+      positionAbsolute:
+        x: -2133.6484650787484
+        y: 724.9355977026307
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1782981177946'
+          - content
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: ad398cce-75f6-426c-8432-5b2c3d2a10d5
+          role: system
+          text: 你是一位采购经理，业务对接人员的输入为{{#1782981177946.content#}}。但你注意到其中并没有明确的业务需求。回复时不必复述自身身份，简洁明了。
+        reasoning_format: separated
+        selected: false
+        structured_output:
+          schema:
+            properties:
+              final_output:
+                type: string
+            required:
+            - final_output
+            type: object
+        structured_output_enabled: false
+        title: 无业务需求时 LLM 的处理
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783084759950'
+      position:
+        x: -2139.4182777052197
+        y: 619.3019610327325
+      positionAbsolute:
+        x: -2139.4182777052197
+        y: 619.3019610327325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"完全无业务需求","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783091176506'
+      position:
+        x: -1388.9169075966408
+        y: 986.8757410146115
+      positionAbsolute:
+        x: -1388.9169075966408
+        y: 986.8757410146115
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: 蔡源博
+        desc: ''
+        height: 113
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"
+          可以尝试直接用llm输出吗，llm结构化输出可以完成json格式输出，之后进行对比，我在文件读取中进行了测试","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 270
+      height: 113
+      id: '1783151298145'
+      position:
+        x: -308.51773965502093
+        y: 1147.5876894919156
+      positionAbsolute:
+        x: -308.51773965502093
+        y: 1147.5876894919156
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 270
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 114
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"可以，参数提取器和llm用json格式输出一个东西（可能token使用量会有点差别，实现阶段用哪个都可以）","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 268
+      height: 114
+      id: '1783176345698'
+      position:
+        x: -308.51773965502093
+        y: 1270.1196081152434
+      positionAbsolute:
+        x: -308.51773965502093
+        y: 1270.1196081152434
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 268
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: fb59719d-13e1-48f5-9bd6-2223a3df9a3d
+            value: file
+            varType: string
+            variable_selector:
+            - '1782981177946'
+            - message_type
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 147
+      id: '1783179197657'
+      position:
+        x: -2838.005033891343
+        y: -6.352896098481594
+      positionAbsolute:
+        x: -2838.005033891343
+        y: -6.352896098481594
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/lark_message_and_group
+        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
+        provider_id: langgenius/lark_message_and_group/lark_message_and_group
+        provider_name: langgenius/lark_message_and_group/lark_message_and_group
+        provider_show_name: Lark 消息和群组
+        provider_type: builtin
+        selected: false
+        title: 有文件但无意图
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: text
+          receive_id_type:
+            type: constant
+            value: chat_id
+        tool_description: 发送 Lark 应用消息
+        tool_label: 发送 Lark 应用消息
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '已收到文件！
+
+              上传时间：{{#17832735645330.current_time#}}
+
+              请继续上传文件或键入您的下一步需求。'
+          receive_id:
+            type: mixed
+            value: '{{#1782981177946.chat_id#}}'
+        type: tool
+      height: 113
+      id: '1783179242214'
+      position:
+        x: -1771.0602857604438
+        y: -189.41657834427295
+      positionAbsolute:
+        x: -1771.0602857604438
+        y: -189.41657834427295
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/lark_message_and_group
+        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
+        provider_id: langgenius/lark_message_and_group/lark_message_and_group
+        provider_name: langgenius/lark_message_and_group/lark_message_and_group
+        provider_show_name: Lark 消息和群组
+        provider_type: builtin
+        selected: false
+        title: 发送 Lark 应用消息
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: text
+          receive_id_type:
+            type: constant
+            value: chat_id
+        tool_description: 发送 Lark 应用消息
+        tool_label: 发送 Lark 应用消息
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1783341501180.text#}}'
+          receive_id:
+            type: mixed
+            value: '{{#1782981177946.chat_id#}}'
+        type: tool
+      height: 113
+      id: '1783182481979'
+      position:
+        x: 606.7020284994065
+        y: 609.7650370228583
+      positionAbsolute:
+        x: 606.7020284994065
+        y: 609.7650370228583
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/lark_message_and_group
+        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
+        provider_id: langgenius/lark_message_and_group/lark_message_and_group
+        provider_name: langgenius/lark_message_and_group/lark_message_and_group
+        provider_show_name: Lark 消息和群组
+        provider_type: builtin
+        selected: false
+        title: 收到文件后显式通知
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: text
+          receive_id_type:
+            type: constant
+            value: chat_id
+        tool_description: 发送 Lark 应用消息
+        tool_label: 发送 Lark 应用消息
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: 已收到文件，正在处理……
+          receive_id:
+            type: mixed
+            value: '{{#1782981177946.chat_id#}}'
+        type: tool
+      height: 113
+      id: '1783263183431'
+      position:
+        x: -2433.711859810222
+        y: -52.185846888820116
+      positionAbsolute:
+        x: -2433.711859810222
+        y: -52.185846888820116
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_array_file: true
+        selected: false
+        title: 提取采销合同字段
+        type: document-extractor
+        variable_selector:
+        - '17832735458590'
+        - files
+      height: 103
+      id: '1783271056365'
+      position:
+        x: -1290.8018448575071
+        y: 351.2694781493195
+      positionAbsolute:
+        x: -1290.8018448575071
+        y: 351.2694781493195
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1783271056365'
+          - text
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0.7
+            thinking: true
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 08abad1a-1fb3-4a4b-9f45-7f654d346758
+          role: system
+          text: '{{#1783271056365.text#}}或/是从两个文档中提取出的具体内容。请将其中【销售合同】部分提取出来，严格保证原文内容原封不动。'
+        reasoning_format: separated
+        selected: false
+        structured_output:
+          schema:
+            properties:
+              text_1:
+                description: 销售合同字段
+                items:
+                  type: string
+                type: array
+              text_2:
+                description: 采购合同字段
+                items:
+                  type: string
+                type: array
+            required:
+            - text_1
+            - text_2
+            type: object
+        structured_output_enabled: false
+        title: 销售合同内容分离 (1)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '17832710829940'
+      position:
+        x: -985.1040586576667
+        y: 295.5754676512616
+      positionAbsolute:
+        x: -985.1040586576667
+        y: 295.5754676512616
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1783271056365'
+          - text
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: dfbe88d7-a0ef-433b-ac6d-ed7c2dc7c2c1
+          role: system
+          text: '{{#1783271056365.text#}}是从两个文档中提取出的具体内容。请将其中【采购合同】部分提取出来，严格保证原文内容原封不动。'
+        selected: false
+        title: 采购合同内容分离 (1)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '17832710883880'
+      position:
+        x: -985.1040586576667
+        y: 421.56237284202274
+      positionAbsolute:
+        x: -985.1040586576667
+        y: 421.56237284202274
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            response_format: json_object
+            temperature: 0.7
+            thinking: true
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: af3b0faf-2dfc-4373-a661-1b4caec42e47
+          role: system
+          text: '{{#17832710883880.text#}}和{{#17832710883880.text#}}是两份合同内容，{{#1783009648716.user_intent#}}是用户的意图。作为一名采购经理，请你判断这些文件内容能否满足工作需要，如果能，令able_to_work这个bool型变量为1，否则为0'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              able_to_work:
+                description: ''
+                type: boolean
+            required:
+            - able_to_work
+            type: object
+        structured_output_enabled: true
+        title: 现有文件能否满足工作需要
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783271107820'
+      position:
+        x: -715.2164601548088
+        y: 356.4534781493195
+      positionAbsolute:
+        x: -715.2164601548088
+        y: 356.4534781493195
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 13425892-fbc8-407f-88b1-a6b9d525697b
+            value: 'True'
+            varType: object
+            variable_selector:
+            - '1783271107820'
+            - structured_output
+            - able_to_work
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支 4
+        type: if-else
+      height: 147
+      id: '1783271216215'
+      position:
+        x: -440.8688244599187
+        y: 356.4534781493195
+      positionAbsolute:
+        x: -440.8688244599187
+        y: 356.4534781493195
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/lark_message_and_group
+        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
+        provider_id: langgenius/lark_message_and_group/lark_message_and_group
+        provider_name: langgenius/lark_message_and_group/lark_message_and_group
+        provider_show_name: Lark 消息和群组
+        provider_type: builtin
+        selected: false
+        title: 发送 Lark 应用消息 (1)
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: text
+          receive_id_type:
+            type: constant
+            value: chat_id
+        tool_description: 发送 Lark 应用消息
+        tool_label: 发送 Lark 应用消息
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: 请继续上传相关文件！
+          receive_id:
+            type: mixed
+            value: '{{#1782981177946.chat_id#}}'
+        type: tool
+      height: 113
+      id: '17832718360020'
+      position:
+        x: -91.05328227596206
+        y: 587.9644797077408
+      positionAbsolute:
+        x: -91.05328227596206
+        y: 587.9644797077408
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 097a4f69-a34c-40fa-81a4-ea42ee76c3f5
+            value: true
+            varType: boolean
+            variable_selector:
+            - '17832736179680'
+            - has_intent
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        selected: false
+        title: 是否有业务需求 (1)
+        type: if-else
+      height: 147
+      id: '17832730191830'
+      position:
+        x: -1771.0602857604438
+        y: -358.45749599938233
+      positionAbsolute:
+        x: -1771.0602857604438
+        y: -358.45749599938233
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        default_value:
+        - key: text
+          type: string
+          value: 历史消息读取失败！请重试。
+        - key: json
+          type: array[object]
+          value: '[]'
+        desc: ''
+        error_strategy: default-value
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the group chat or single chat. Refer to the group ID
+              description for how to obtain it. https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+            ja_JP: The ID of the group chat or single chat. Refer to the group ID
+              description for how to obtain it. https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+            pt_BR: The ID of the group chat or single chat. Refer to the group ID
+              description for how to obtain it. https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+            zh_Hans: 群聊或单聊的 ID，获取方式参见群 ID 说明。https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+          label:
+            en_US: Container Id
+            ja_JP: Container Id
+            pt_BR: Container Id
+            zh_Hans: 群聊或单聊的 ID
+          llm_description: 群聊或单聊的 ID，获取方式参见群 ID 说明。https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+          max: null
+          min: null
+          name: container_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The start time for querying historical messages, formatted as "2006-01-02
+              15:04:05".
+            ja_JP: The start time for querying historical messages, formatted as "2006-01-02
+              15:04:05".
+            pt_BR: The start time for querying historical messages, formatted as "2006-01-02
+              15:04:05".
+            zh_Hans: 待查询历史信息的起始时间，格式为 "2006-01-02 15:04:05"。
+          label:
+            en_US: Start Time
+            ja_JP: Start Time
+            pt_BR: Start Time
+            zh_Hans: 起始时间
+          llm_description: 待查询历史信息的起始时间，格式为 "2006-01-02 15:04:05"。
+          max: null
+          min: null
+          name: start_time
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The end time for querying historical messages, formatted as "2006-01-02
+              15:04:05".
+            ja_JP: The end time for querying historical messages, formatted as "2006-01-02
+              15:04:05".
+            pt_BR: The end time for querying historical messages, formatted as "2006-01-02
+              15:04:05".
+            zh_Hans: 待查询历史信息的结束时间，格式为 "2006-01-02 15:04:05"。
+          label:
+            en_US: End Time
+            ja_JP: End Time
+            pt_BR: End Time
+            zh_Hans: 结束时间
+          llm_description: 待查询历史信息的结束时间，格式为 "2006-01-02 15:04:05"。
+          max: null
+          min: null
+          name: end_time
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: ByCreateTimeAsc
+          form: form
+          human_description:
+            en_US: 'The message sorting method. Optional values are ByCreateTimeAsc:
+              sorted in ascending order by message creation time; ByCreateTimeDesc:
+              sorted in descending order by message creation time. The default value
+              is ByCreateTimeAsc. Note: When using page_token for pagination requests,
+              the sorting method (sort_type) is consistent with the first request
+              and cannot be changed midway.
+
+              '
+            ja_JP: 'The message sorting method. Optional values are ByCreateTimeAsc:
+              sorted in ascending order by message creation time; ByCreateTimeDesc:
+              sorted in descending order by message creation time. The default value
+              is ByCreateTimeAsc. Note: When using page_token for pagination requests,
+              the sorting method (sort_type) is consistent with the first request
+              and cannot be changed midway.
+
+              '
+            pt_BR: 'The message sorting method. Optional values are ByCreateTimeAsc:
+              sorted in ascending order by message creation time; ByCreateTimeDesc:
+              sorted in descending order by message creation time. The default value
+              is ByCreateTimeAsc. Note: When using page_token for pagination requests,
+              the sorting method (sort_type) is consistent with the first request
+              and cannot be changed midway.
+
+              '
+            zh_Hans: '消息排序方式，可选值有 ByCreateTimeAsc：按消息创建时间升序排列；ByCreateTimeDesc：按消息创建时间降序排列。默认值为：ByCreateTimeAsc。注意：使用
+              page_token 分页请求时，排序方式（sort_type）均与第一次请求一致，不支持中途改换排序方式。
+
+              '
+          label:
+            en_US: Sort Type
+            ja_JP: Sort Type
+            pt_BR: Sort Type
+            zh_Hans: 排序方式
+          llm_description: 消息排序方式，可选值有 ByCreateTimeAsc：按消息创建时间升序排列；ByCreateTimeDesc：按消息创建时间降序排列。默认值为：ByCreateTimeAsc。注意：使用
+            page_token 分页请求时，排序方式（sort_type）均与第一次请求一致，不支持中途改换排序方式。
+          max: null
+          min: null
+          name: sort_type
+          options:
+          - icon: ''
+            label:
+              en_US: ByCreateTimeAsc
+              ja_JP: ByCreateTimeAsc
+              pt_BR: ByCreateTimeAsc
+              zh_Hans: ByCreateTimeAsc
+            value: ByCreateTimeAsc
+          - icon: ''
+            label:
+              en_US: ByCreateTimeDesc
+              ja_JP: ByCreateTimeDesc
+              pt_BR: ByCreateTimeDesc
+              zh_Hans: ByCreateTimeDesc
+            value: ByCreateTimeDesc
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 20
+          form: form
+          human_description:
+            en_US: The page size, i.e., the number of data entries returned in a single
+              request. The default value is 20, and the value range is [1,50].
+            ja_JP: The page size, i.e., the number of data entries returned in a single
+              request. The default value is 20, and the value range is [1,50].
+            pt_BR: The page size, i.e., the number of data entries returned in a single
+              request. The default value is 20, and the value range is [1,50].
+            zh_Hans: 分页大小，即单次请求所返回的数据条目数。默认值为 20，取值范围为 [1,50]。
+          label:
+            en_US: Page Size
+            ja_JP: Page Size
+            pt_BR: Page Size
+            zh_Hans: 分页大小
+          llm_description: 分页大小，即单次请求所返回的数据条目数。默认值为 20，取值范围为 [1,50]。
+          max: null
+          min: null
+          name: page_size
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The pagination token. Leave it blank for the first request, indicating
+              to start traversing from the beginning; when the pagination query result
+              has more items, a new page_token will be returned simultaneously, which
+              can be used to obtain the query result in the next traversal.
+            ja_JP: The pagination token. Leave it blank for the first request, indicating
+              to start traversing from the beginning; when the pagination query result
+              has more items, a new page_token will be returned simultaneously, which
+              can be used to obtain the query result in the next traversal.
+            pt_BR: The pagination token. Leave it blank for the first request, indicating
+              to start traversing from the beginning; when the pagination query result
+              has more items, a new page_token will be returned simultaneously, which
+              can be used to obtain the query result in the next traversal.
+            zh_Hans: 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该
+              page_token 获取查询结果。
+          label:
+            en_US: Page Token
+            ja_JP: Page Token
+            pt_BR: Page Token
+            zh_Hans: 分页标记
+          llm_description: 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该
+            page_token 获取查询结果。
+          max: null
+          min: null
+          name: page_token
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          container_id: ''
+          end_time: ''
+          page_size: ''
+          page_token: ''
+          sort_type: ''
+          start_time: ''
+        plugin_id: langgenius/lark_message_and_group
+        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
+        provider_id: langgenius/lark_message_and_group/lark_message_and_group
+        provider_name: langgenius/lark_message_and_group/lark_message_and_group
+        provider_show_name: Lark 消息和群组
+        provider_type: builtin
+        selected: false
+        title: 获取前五分钟的聊天记录 (2)
+        tool_configurations:
+          page_size:
+            type: constant
+            value: 20
+          sort_type:
+            type: constant
+            value: ByCreateTimeAsc
+        tool_description: 获取指定单聊、群聊的消息历史
+        tool_label: 获取指定单聊、群聊的消息历史
+        tool_name: get_chat_messages
+        tool_node_version: '2'
+        tool_parameters:
+          container_id:
+            type: mixed
+            value: '{{#1782981177946.chat_id#}}'
+          end_time:
+            type: mixed
+            value: '{{#17832735645330.current_time#}}'
+          page_token:
+            type: mixed
+            value: null
+          start_time:
+            type: mixed
+            value: '{{#17832735645330.before_time#}}'
+        type: tool
+      height: 149
+      id: '17832735458590'
+      position:
+        x: -3380.89445335807
+        y: 145.11613539880028
+      positionAbsolute:
+        x: -3380.89445335807
+        y: 145.11613539880028
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "from datetime import datetime, timedelta, timezone\n\ndef main(timestamp:\
+          \ int) -> dict:\n    # 定义 UTC+8 时区（东八区）\n    tz_utc8 = timezone(timedelta(hours=8))\n\
+          \n    # 将输入转换为整数（若传入字符串）\n    timestamp = int(timestamp)\n\n    # 1. 时间戳对应的格式化字符串\n\
+          \    dt = datetime.fromtimestamp(timestamp , tz=tz_utc8)\n    current_str\
+          \ = dt.strftime('%Y-%m-%d %H:%M:%S')\n\n    # 2. 前300秒的格式化字符串\n    dt_before\
+          \ = datetime.fromtimestamp(timestamp - 300, tz=tz_utc8)\n    before_str\
+          \ = dt_before.strftime('%Y-%m-%d %H:%M:%S')\n\n    # 输出两个变量\n    return\
+          \ {\n        \"current_time\": current_str,\n        \"before_time\": before_str\n\
+          \    }"
+        code_language: python3
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        outputs:
+          before_time:
+            children: null
+            type: string
+          current_time:
+            children: null
+            type: string
+        selected: false
+        title: 时间戳转换为标准时间字符串 (4)
+        type: code
+        variables:
+        - value_selector:
+          - sys
+          - timestamp
+          value_type: number
+          variable: timestamp
+      height: 51
+      id: '17832735645330'
+      position:
+        x: -3391.2624533580706
+        y: 72.54013539880039
+      positionAbsolute:
+        x: -3391.2624533580706
+        y: 72.54013539880039
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        desc: ''
+        instruction: '{{#1783334960607.user_texts#}}是一段针对某销售合同的用户输入。你需要：
+
+          1、（必填）判断用户是否有针对合同的业务需求：若有，令has_intent为1，否则为0，bool类型
+
+          2、（不一定填）如果有业务需求，提取距离当前时间节点最近的用户业务需求，作为user_intent变量的值，字符串类型'
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        parameters:
+        - description: 用户意图
+          name: user_intent
+          required: false
+          type: string
+        - description: 用户是否有业务需求
+          name: has_intent
+          required: true
+          type: boolean
+        query:
+        - '1783334960607'
+        - user_texts
+        reasoning_mode: prompt
+        selected: false
+        title: 提取器 (1)
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 87
+      id: '17832736179680'
+      position:
+        x: -2424.9549786658417
+        y: -204.685200934369
+      positionAbsolute:
+        x: -2424.9549786658417
+        y: -204.685200934369
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1783334960607'
+          - user_texts
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            response_format: json_object
+            temperature: 0.7
+            thinking: true
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: af3b0faf-2dfc-4373-a661-1b4caec42e47
+          role: system
+          text: '{{#1783334960607.user_files#}}是两份合同内容，{{#1783334960607.user_texts#}}是你和用户的对话。{{#17832736179680.user_intent#}}是用户的业务需求。作为一名采购经理，请你判断这些文件内容能否满足工作需要，如果能，令able_to_work这个bool型变量为1，否则为0'
+        reasoning_format: separated
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              able_to_work:
+                description: ''
+                type: boolean
+            required:
+            - able_to_work
+            type: object
+        structured_output_enabled: true
+        title: 现有文件能否满足工作需要 (1)
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '17832736865830'
+      position:
+        x: -1471.6882806311457
+        y: -37.6731686053904
+      positionAbsolute:
+        x: -1471.6882806311457
+        y: -37.6731686053904
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: a5455e8e-6cac-4649-bcea-23faa40ff465
+            value: 'True'
+            varType: object
+            variable_selector:
+            - '17832736865830'
+            - structured_output
+            - able_to_work
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支 6
+        type: if-else
+      height: 147
+      id: '1783273769902'
+      position:
+        x: -1183.8792654665071
+        y: -37.6731686053904
+      positionAbsolute:
+        x: -1183.8792654665071
+        y: -37.6731686053904
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/lark_message_and_group
+        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
+        provider_id: langgenius/lark_message_and_group/lark_message_and_group
+        provider_name: langgenius/lark_message_and_group/lark_message_and_group
+        provider_show_name: Lark 消息和群组
+        provider_type: builtin
+        selected: false
+        title: 发送 Lark 应用消息
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: text
+          receive_id_type:
+            type: constant
+            value: chat_id
+        tool_description: 发送 Lark 应用消息
+        tool_label: 发送 Lark 应用消息
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '已收到文件！
+
+              上传时间：{{#17832735645330.current_time#}}
+
+              请进一步上传文件。'
+          receive_id:
+            type: mixed
+            value: '{{#1782981177946.chat_id#}}'
+        type: tool
+      height: 113
+      id: '1783273973272'
+      position:
+        x: -860.5998273271487
+        y: -29.756121140753066
+      positionAbsolute:
+        x: -860.5998273271487
+        y: -29.756121140753066
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"整体工作路径","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783330070297'
+      position:
+        x: -1290.8018448575071
+        y: 207.28302140093524
+      positionAbsolute:
+        x: -1290.8018448575071
+        y: 207.28302140093524
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        code: "import json\n\ndef main(chat_data) -> dict:\n    # 1. 若传入的是字符串，先解析成\
+          \ Python 对象\n    if isinstance(chat_data, str):\n        chat_data = json.loads(chat_data)\n\
+          \n    # 2. 若是列表，取第一个元素（Dify 可能把单对象包装成列表）\n    if isinstance(chat_data, list):\n\
+          \        if len(chat_data) == 0:\n            return {\"user_texts\": [],\
+          \ \"user_files\": []}\n        chat_data = chat_data[0]\n\n    # 3. 兼容多种数据结构提取\
+          \ items 列表\n    items = None\n    if isinstance(chat_data, dict):\n    \
+          \    # 路径 1：完整结构 chat_data[\"json\"][0][\"items\"]\n        if \"json\"\
+          \ in chat_data and isinstance(chat_data[\"json\"], list) and len(chat_data[\"\
+          json\"]) > 0:\n            if \"items\" in chat_data[\"json\"][0]:\n   \
+          \             items = chat_data[\"json\"][0][\"items\"]\n        # 路径 2：直接包含\
+          \ items 键\n        elif \"items\" in chat_data:\n            items = chat_data[\"\
+          items\"]\n        # 路径 3：其他可能情况（可扩展）\n    \n    # 4. 如果还是找不到 items，直接返回空\n\
+          \    if items is None:\n        return {\"user_texts\": [], \"user_files\"\
+          : []}\n\n    # 5. 提取用户文本和文件\n    user_texts = []\n    user_files = []\n\n\
+          \    for item in items:\n        if item.get(\"sender\", {}).get(\"sender_type\"\
+          ) != \"user\":\n            continue\n\n        msg_type = item.get(\"msg_type\"\
+          )\n        content_str = item.get(\"body\", {}).get(\"content\", \"{}\"\
+          )\n        try:\n            content = json.loads(content_str)\n       \
+          \ except Exception:\n            continue\n\n        if msg_type == \"text\"\
+          :\n            text = content.get(\"text\", \"\")\n            user_texts.append(text)\n\
+          \        elif msg_type == \"file\":\n            file_info = {\n       \
+          \         \"file_key\": content.get(\"file_key\"),\n                \"file_name\"\
+          : content.get(\"file_name\")\n            }\n            user_files.append(file_info)\n\
+          \n    return {\n        \"user_texts\": user_texts,\n        \"user_files\"\
+          : user_files\n    }"
+        code_language: python3
+        outputs:
+          user_files:
+            children: null
+            type: array[object]
+          user_texts:
+            children: null
+            type: array[string]
+        selected: false
+        title: 将json拆解
+        type: code
+        variables:
+        - value_selector:
+          - '17832735458590'
+          - json
+          value_type: array[object]
+          variable: chat_data
+      height: 51
+      id: '1783334960607'
+      position:
+        x: -3372.761439818518
+        y: 314.0699177346297
+      positionAbsolute:
+        x: -3372.761439818518
+        y: 314.0699177346297
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        parameters:
+        - description: 采购合同甲方名称
+          name: applicant_name
+          required: false
+          type: string
+        - description: 采购合同乙方名称
+          name: supplier_name
+          required: true
+          type: string
+        - description: 商品名称
+          name: item_name
+          required: true
+          type: string
+        - description: 单位，如套、台、件等
+          name: unit
+          required: true
+          type: string
+        - description: 商品的规格/型号
+          name: item_model
+          required: true
+          type: string
+        - description: 采购单价
+          name: purchase_unit_price
+          required: true
+          type: string
+        - description: 采购数量
+          name: quantity
+          required: true
+          type: string
+        - description: 预计交付日期
+          name: expected_delivery_date
+          required: true
+          type: string
+        - description: 交付地点
+          name: delivery_location
+          required: true
+          type: string
+        - description: 交付条款
+          name: payment_terms
+          required: false
+          type: string
+        - description: 采购合同总金额
+          name: purchase_total_amount
+          required: false
+          type: string
+        query:
+        - '17832710883880'
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: 采购合同字段提取器
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 87
+      id: '1783337962103'
+      position:
+        x: -81.62892024093351
+        y: 444.85577160637604
+      positionAbsolute:
+        x: -81.62892024093351
+        y: 444.85577160637604
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        parameters:
+        - description: 销售合同甲方名称
+          name: customer_name
+          required: true
+          type: string
+        - description: 销售合同乙方名称
+          name: seller_name
+          required: true
+          type: string
+        - description: 商品名称
+          name: item_name
+          required: true
+          type: string
+        - description: 单位，如套、台、件等
+          name: unit
+          required: true
+          type: string
+        - description: 商品的规格/型号
+          name: item_model
+          required: true
+          type: string
+        - description: 销售单价
+          name: sell_unit_price
+          required: true
+          type: string
+        - description: 销售数量
+          name: sell_quantity
+          required: true
+          type: string
+        - description: 销售合同预计交付日期
+          name: sell_delivery_date
+          required: true
+          type: string
+        - description: 交付条款
+          name: payment_terms
+          required: false
+          type: string
+        - description: 销售合同总金额
+          name: sell_total_amount
+          required: false
+          type: string
+        query:
+        - '17832710829940'
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: 销售合同字段提取器
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 87
+      id: '17833385592280'
+      position:
+        x: -86.364853347618
+        y: 304.76441328177367
+      positionAbsolute:
+        x: -86.364853347618
+        y: 304.76441328177367
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 7abf626e-6636-4d0b-bddb-52355043163c
+          role: system
+          text: "你是企业采购经理 AI Agent 中的采销合同比对模块，你的任务是根据已经提取出的字段，对销售合同和采购合同进行业务一致性比对，判断销售合同和采购合同是否可以继续进入采购申请单创建流程。除了输出结构化比对结果外，你还需要生成user_compare_text\
+            \ 字段，用于直接回复用户。\n\nuser_compare_text 要求：\n1.格式为：\n比对中：字段名称，销售合同为 xxx，采购合同为\
+            \ xxx，结果：一致/不一致/通过/异常。\n2. 如果存在异常，需要在该行后补充简短原因。\n3. 不要编造输入中不存在的信息。\n4.\
+            \ 如果字段缺失，写成“未提取到”。\n5. user_compare_text 不要使用 markdown 表格，使用普通换行文本。\n\n\
+            请严格按照以下规则判断：\n1. 商品名称比对\n- 销售合同商品名称和采购合同商品名称应一致或语义高度相似。\n- 如果明显不是同一商品，则作为阻断异常。\n\
+            \n2. 规格型号比对\n- 销售合同规格型号和采购合同规格型号应一致。\n- 如果型号不一致，则作为阻断异常。\n- 如果一方缺失规格型号，也作为阻断异常。\n\
+            \n3. 数量比对\n- 采购数量应大于等于销售数量。\n- 如果采购数量小于销售数量，则作为阻断异常。\n- 如果任一方数量缺失或不是有效数字，则作为阻断异常。\n\
+            \n4. 单位比对\n- 销售单位和采购单位应一致，例如都是“台”“套”“件”等。\n- 如果单位不一致，则作为阻断异常。\n\n5. 单价与利润空间比对\n\
+            - 采购单价应低于销售单价。\n- 如果采购单价大于或等于销售单价，则作为阻断异常。\n- 利润空间计算公式为：\n  利润空间 = (销售单价\
+            \ - 采购单价) / 销售单价\n- 如果利润空间低于 5%，则作为阻断异常。\n- 如果销售单价或采购单价缺失，则作为阻断异常。\n\n\
+            6. 总金额比对\n- 采购总金额应小于销售总金额。\n- 如果采购总金额大于或等于销售总金额，则作为风险提示。\n- 如果金额缺失，不作为阻断异常，但应作为风险提示。\n\
+            \n7. 交付日期比对\n- 采购合同交付日期应早于或等于销售合同交付日期。\n- 如果采购交付日期晚于销售交付日期，则作为阻断异常。\n\
+            - 如果采购合同缺少交付日期，则作为阻断异常。\n- 如果销售合同缺少交付日期，则作为阻断异常。\n\n8. 付款条款检查\n- 如果付款条款缺失，作为风险提示。\n\
+            - 如果采购合同要求提前付款比例较高，而销售合同回款较晚，可以作为风险提示。\n- 付款条款问题当前只作为 warning，不直接阻断。\n\
+            \n输出要求：\n1. 只输出合法 JSON。\n2. 不要输出 markdown。\n3. 不要输出解释性文字。\n4. 不要编造输入中不存在的信息。\n\
+            5. 如果字段缺失，请明确写入 blocking_issues 或 warning_issues。\n6. 只要 blocking_issues\
+            \ 非空，is_passed 必须为 false。\n7. 如果 blocking_issues 为空，即使 warning_issues\
+            \ 非空，is_passed 也可以为 true。\n\n销售合同字段：\n{\n  \"customer_name\": \"{{#17833385592280.customer_name#}}\"\
+            ,\n  \"seller_name\": \"{{#17833385592280.seller_name#}}\",\n  \"item_name\"\
+            : \"{{#17833385592280.item_name#}}\",\n  \"item_model\": \"{{#17833385592280.item_model#}}\"\
+            ,\n  \"quantity\": \"{{#17833385592280.sell_quantity#}}\",\n  \"unit\"\
+            : \"{{#17833385592280.unit#}}\",\n  \"sales_unit_price\": \"{{#17833385592280.sell_unit_price#}}\"\
+            ,\n  \"sales_total_amount\": \"{{#17833385592280.sell_total_amount#}}\"\
+            ,\n  \"delivery_date\": \"{{#17833385592280.sell_delivery_date#}}\",\n\
+            \  \"payment_terms\": \"{{#17833385592280.payment_terms#}}\"\n}\n\n采购合同字段：\n\
+            {\n  \"supplier_name\": \"{{#1783337962103.supplier_name#}}\",\n  \"buyer_name\"\
+            : \"{{#1783337962103.applicant_name#}}\",\n  \"item_name\": \"{{#1783337962103.item_name#}}\"\
+            ,\n  \"item_model\": \"{{#1783337962103.item_model#}}\",\n  \"quantity\"\
+            : \"{{#1783337962103.quantity#}}\",\n  \"unit\": \"{{#1783337962103.unit#}}\"\
+            ,\n  \"purchase_unit_price\": \"{{#1783337962103.purchase_unit_price#}}\"\
+            ,\n  \"purchase_total_amount\": \"{{#1783337962103.purchase_total_amount#}}\"\
+            ,\n  \"delivery_date\": \"{{#1783337962103.expected_delivery_date#}}\"\
+            ,\n  \"delivery_location\": \"{{#1783337962103.delivery_location#}}\"\
+            ,\n  \"payment_terms\": \"{{#1783337962103.payment_terms#}}\"\n}\n\n请按照以下\
+            \ JSON 格式输出：\n{\n  \"is_passed\": true,\n  \"compare_status\": \"PASS\"\
+            ,\n  \"risk_level\": \"low\",\n  \"summary\": \"\",\n  \"user_compare_text\"\
+            : \"\",\n  \"blocking_issues\": [],\n  \"warning_issues\": [],\n  \"comparison_items\"\
+            : [\n    {\n      \"field\": \"item_name\",\n      \"field_name\": \"\
+            商品名称\",\n      \"sales_value\": \"\",\n      \"purchase_value\": \"\"\
+            ,\n      \"result\": \"PASS\",\n      \"reason\": \"\"\n    }\n  ]\n}"
+        reasoning_format: separated
+        selected: false
+        title: 采销合同比对
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783339166621'
+      position:
+        x: 314.2482786201157
+        y: 370.67271358155
+      positionAbsolute:
+        x: 314.2482786201157
+        y: 370.67271358155
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\n\n\ndef main(text: str) -> dict:\n    if not\
+          \ text or not text.strip():\n        return {\n            \"is_passed\"\
+          : \"false\",\n            \"compare_status\": \"EMPTY_OUTPUT\",\n      \
+          \      \"risk_level\": \"high\",\n            \"summary\": \"采销合同比对节点输出为空。\"\
+          ,\n            \"user_compare_text\": \"采销合同比对节点输出为空，无法生成比对说明。\",\n    \
+          \        \"blocking_issues_json\": json.dumps([\n                {\n   \
+          \                 \"field\": \"llm_output\",\n                    \"field_name\"\
+          : \"LLM输出\",\n                    \"reason\": \"采销合同比对节点输出为空。\",\n     \
+          \               \"suggestion\": \"请检查 LLM 节点是否正常运行。\"\n                }\n\
+          \            ], ensure_ascii=False),\n            \"warning_issues_json\"\
+          : \"[]\",\n            \"comparison_json\": \"\"\n        }\n\n    raw =\
+          \ text.strip()\n    raw = raw.replace(\"```json\", \"\").replace(\"```\"\
+          , \"\").strip()\n\n    try:\n        outer = json.loads(raw)\n        if\
+          \ isinstance(outer, dict) and \"text\" in outer:\n            raw = outer[\"\
+          text\"]\n    except Exception:\n        pass\n\n    match = re.search(r\"\
+          \\{[\\s\\S]*\\}\", raw)\n    if match:\n        raw = match.group(0)\n\n\
+          \    try:\n        data = json.loads(raw)\n    except Exception as e:\n\
+          \        return {\n            \"is_passed\": \"false\",\n            \"\
+          compare_status\": \"JSON_PARSE_ERROR\",\n            \"risk_level\": \"\
+          high\",\n            \"summary\": f\"采销合同比对结果不是合法 JSON：{str(e)}\",\n   \
+          \         \"user_compare_text\": \"采销合同比对结果格式异常，无法生成逐项比对说明。\",\n       \
+          \     \"blocking_issues_json\": json.dumps([\n                {\n      \
+          \              \"field\": \"llm_output\",\n                    \"field_name\"\
+          : \"LLM输出\",\n                    \"reason\": \"采销合同比对结果不是合法 JSON。\",\n\
+          \                    \"suggestion\": \"请检查 LLM 提示词，确保只输出 JSON。\"\n     \
+          \           }\n            ], ensure_ascii=False),\n            \"warning_issues_json\"\
+          : \"[]\",\n            \"comparison_json\": \"\"\n        }\n\n    blocking_issues\
+          \ = data.get(\"blocking_issues\") or []\n    warning_issues = data.get(\"\
+          warning_issues\") or []\n\n    is_passed = data.get(\"is_passed\", False)\n\
+          \n    # 只要存在阻断异常，就强制不通过\n    if blocking_issues:\n        is_passed = False\n\
+          \n    compare_status = data.get(\"compare_status\")\n    if not compare_status:\n\
+          \        compare_status = \"PASS\" if is_passed else \"FAIL\"\n\n    risk_level\
+          \ = data.get(\"risk_level\")\n    if not risk_level:\n        risk_level\
+          \ = \"low\" if is_passed else \"high\"\n\n    summary = data.get(\"summary\"\
+          )\n    if not summary:\n        summary = \"采销合同比对通过。\" if is_passed else\
+          \ \"采销合同比对不通过。\"\n\n    user_compare_text = data.get(\"user_compare_text\"\
+          ) or \"未生成逐项比对说明。\"\n\n    data[\"is_passed\"] = is_passed\n    data[\"\
+          compare_status\"] = compare_status\n    data[\"risk_level\"] = risk_level\n\
+          \    data[\"summary\"] = summary\n    data[\"user_compare_text\"] = user_compare_text\n\
+          \    data[\"blocking_issues\"] = blocking_issues\n    data[\"warning_issues\"\
+          ] = warning_issues\n\n    return {\n        \"is_passed\": \"true\" if is_passed\
+          \ else \"false\",\n        \"compare_status\": compare_status,\n       \
+          \ \"risk_level\": risk_level,\n        \"summary\": summary,\n        \"\
+          user_compare_text\": user_compare_text,\n        \"blocking_issues_json\"\
+          : json.dumps(blocking_issues, ensure_ascii=False),\n        \"warning_issues_json\"\
+          : json.dumps(warning_issues, ensure_ascii=False),\n        \"comparison_json\"\
+          : json.dumps(data, ensure_ascii=False)\n    }"
+        code_language: python3
+        outputs:
+          blocking_issues_json:
+            children: null
+            type: string
+          compare_status:
+            children: null
+            type: string
+          comparison_json:
+            children: null
+            type: string
+          is_passed:
+            children: null
+            type: string
+          risk_level:
+            children: null
+            type: string
+          summary:
+            children: null
+            type: string
+          user_compare_text:
+            children: null
+            type: string
+          warning_issues_json:
+            children: null
+            type: string
+        selected: false
+        title: 处理LLM输出的json格式
+        type: code
+        variables:
+        - value_selector:
+          - '1783339166621'
+          - text
+          value_type: string
+          variable: text
+      height: 51
+      id: '1783339738594'
+      position:
+        x: 606.7020284994065
+        y: 370.67271358155
+      positionAbsolute:
+        x: 606.7020284994065
+        y: 370.67271358155
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 166b9d0e-ef7f-44d0-90b8-74dc0af71ef8
+            value: 'true'
+            varType: string
+            variable_selector:
+            - '1783339738594'
+            - is_passed
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 判断采销合同对比是否通过
+        type: if-else
+      height: 147
+      id: '1783339889948'
+      position:
+        x: 946.9737516251062
+        y: 287.4823427099385
+      positionAbsolute:
+        x: 946.9737516251062
+        y: 287.4823427099385
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 0d1a5b01-91c4-4e5f-be99-edf1d4419737
+          role: system
+          text: "你是企业采购经理 AI Agent 中的采购申请单生成模块，你的任务是根据采购合同结构化字段生成采购申请单草稿。\n要求：\n1.优先从采购合同中提取供应商、采购商品、采购数量、采购单价、采购总金额、交付日期、付款条款。\n\
+            2.字段为空、未知、未提及、无法判断时，视为缺失字段，请放入 missing_fields。\n3.输出合法 JSON，不要输出 markdown，不要输出解释性文字\n\
+            4.不要编造合同中不存在的供应商、金额、数量、日期。\n5.如果校验通过（abnormal_fields与missing_fields为空），将is_ready设为true\n\
+            必填字段：\n- supplier_name：供应商名称，见{{#1783337962103.supplier_name#}}\n- product_name：商品名称，见{{#1783337962103.item_name#}}\n\
+            - product_model：规格型号，见{{#1783337962103.item_model#}}\n- quantity：采购数量，见{{#1783337962103.quantity#}}\n\
+            - unit：单位，见{{#1783337962103.unit#}}\n- purchase_unit_price：采购单价，见{{#1783337962103.purchase_unit_price#}}\n\
+            - purchase_total_amount：采购总金额，见{{#1783337962103.purchase_total_amount#}}\n\
+            - expected_delivery_date：预计交付日期，见{{#1783337962103.expected_delivery_date#}}\n\
+            - delivery_location：交付地点，见{{#1783337962103.delivery_location#}}\n- payment_terms：付款条款，见{{#1783337962103.payment_terms#}}\n\
+            校验规则：\n1. quantity 必须为大于 0 的数字,\n2. purchase_unit_price 必须为大于 0 的数字。\n\
+            3. purchase_total_amount 必须为大于 0 的数字。\n4. expected_delivery_date 必须是明确日期。\n\
+            5. 字段为空、未知、未提及、无法判断时，视为缺失字段,放入missing_fields\n6. 如果 purchase_total_amount\
+            \ 与 quantity × purchase_unit_price 明显不一致,放入 abnormal_fields。\n输出格式：\n\
+            {\n  “is_ready”: true 或 false\n  \"missing_fields\": [],\n  \"abnormal_fields\"\
+            : [],\n  \"purchase_application\": {\n    \"application_title\": \"\"\
+            ,\n    \"apply_date\": \"\",\n    \"supplier_name\": \"\",\n    \"item_name\"\
+            : \"\",\n    \"item_model\": \"\",\n    \"unit\": \"\",\n    \"quantity\"\
+            : \"\",\n    \"purchase_unit_price\": \"\",\n    \"purchase_total_amount\"\
+            : \"\",\n    \"expected_delivery_date\": \"\",\n    \"payment_terms\"\
+            : \"\",\n    \"delivery_location\": \"\",\n  }\n}\n"
+        reasoning_format: separated
+        selected: false
+        title: 整理采购申请单所需字段内容
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783339981914'
+      position:
+        x: 1204.1466034937896
+        y: 145.11613539880028
+      positionAbsolute:
+        x: 1204.1466034937896
+        y: 145.11613539880028
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\nfrom datetime import datetime\n\n\ndef main(text:\
+          \ str) -> dict:\n    \"\"\"\n    商品采购申请单创建前校验节点\n\n    功能：\n    1. 解析 LLM\
+          \ 输出的 JSON 字符串\n    2. 自动补全 application_title 和 apply_date\n    3. 统一字段名\
+          \ item_name / product_name、item_model / product_model\n    4. 校验商品采购申请单必填字段\n\
+          \    5. 校验数量、单价、总金额是否合理\n    6. 输出可供 IF/ELSE 节点判断的 is_ready\n    \"\"\"\n\
+          \n    # ---------- 1. 处理空输出 ----------\n    if not text or not text.strip():\n\
+          \        return {\n            \"is_ready\": \"false\",\n            \"\
+          check_status\": \"EMPTY_OUTPUT\",\n            \"message\": \"LLM 输出为空，无法创建采购申请单。\"\
+          ,\n            \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
+          : json.dumps([\n                {\n                    \"field\": \"llm_output\"\
+          ,\n                    \"field_name\": \"LLM输出\",\n                    \"\
+          reason\": \"LLM 输出为空\"\n                }\n            ], ensure_ascii=False),\n\
+          \            \"purchase_application_json\": \"\"\n        }\n\n    raw =\
+          \ text.strip()\n\n    # ---------- 2. 清理 markdown 包裹 ----------\n    raw\
+          \ = raw.replace(\"```json\", \"\").replace(\"```\", \"\").strip()\n\n  \
+          \  # ---------- 3. 兼容外层 {\"text\": \"...\"} 的情况 ----------\n    try:\n \
+          \       outer = json.loads(raw)\n        if isinstance(outer, dict) and\
+          \ \"text\" in outer:\n            raw = outer[\"text\"]\n    except Exception:\n\
+          \        pass\n\n    # ---------- 4. 提取 JSON 主体，避免模型前后输出说明文字 ----------\n\
+          \    match = re.search(r\"\\{[\\s\\S]*\\}\", raw)\n    if match:\n     \
+          \   raw = match.group(0)\n\n    # ---------- 5. 解析 JSON ----------\n   \
+          \ try:\n        data = json.loads(raw)\n    except Exception as e:\n   \
+          \     return {\n            \"is_ready\": \"false\",\n            \"check_status\"\
+          : \"JSON_PARSE_ERROR\",\n            \"message\": f\"LLM 输出不是合法 JSON：{str(e)}\"\
+          ,\n            \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
+          : json.dumps([\n                {\n                    \"field\": \"llm_output\"\
+          ,\n                    \"field_name\": \"LLM输出\",\n                    \"\
+          reason\": \"LLM 输出不是合法 JSON\",\n                    \"raw_output\": text\n\
+          \                }\n            ], ensure_ascii=False),\n            \"\
+          purchase_application_json\": \"\"\n        }\n\n    # ---------- 6. 获取采购申请单主体\
+          \ ----------\n    app = data.get(\"purchase_application\") or {}\n\n   \
+          \ if not isinstance(app, dict):\n        return {\n            \"is_ready\"\
+          : \"false\",\n            \"check_status\": \"INVALID_APPLICATION\",\n \
+          \           \"message\": \"purchase_application 字段格式异常，无法创建采购申请单。\",\n \
+          \           \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
+          : json.dumps([\n                {\n                    \"field\": \"purchase_application\"\
+          ,\n                    \"field_name\": \"采购申请单\",\n                    \"\
+          reason\": \"purchase_application 不是对象格式\"\n                }\n         \
+          \   ], ensure_ascii=False),\n            \"purchase_application_json\":\
+          \ \"\"\n        }\n\n    # ---------- 7. 字段名兼容处理 ----------\n    # 兼容 product_name\
+          \ / item_name\n    if not app.get(\"item_name\") and app.get(\"product_name\"\
+          ):\n        app[\"item_name\"] = app.get(\"product_name\")\n\n    if not\
+          \ app.get(\"product_name\") and app.get(\"item_name\"):\n        app[\"\
+          product_name\"] = app.get(\"item_name\")\n\n    # 兼容 product_model / item_model\n\
+          \    if not app.get(\"item_model\") and app.get(\"product_model\"):\n  \
+          \      app[\"item_model\"] = app.get(\"product_model\")\n\n    if not app.get(\"\
+          product_model\") and app.get(\"item_model\"):\n        app[\"product_model\"\
+          ] = app.get(\"item_model\")\n\n    # ---------- 8. 自动补全系统生成字段 ----------\n\
+          \    # application_title 不需要 LLM 强制提取\n    if not app.get(\"application_title\"\
+          ):\n        item_name = app.get(\"item_name\") or app.get(\"product_name\"\
+          ) or \"商品\"\n        app[\"application_title\"] = f\"采购申请单-{item_name}\"\
+          \n\n    # apply_date 不需要 LLM 强制提取\n    if not app.get(\"apply_date\"):\n\
+          \        app[\"apply_date\"] = datetime.now().strftime(\"%Y-%m-%d\")\n\n\
+          \    # application_type 固定为商品采购\n    if not app.get(\"application_type\"\
+          ):\n        app[\"application_type\"] = \"商品采购\"\n\n    # currency 默认 CNY\n\
+          \    if not app.get(\"currency\"):\n        app[\"currency\"] = \"CNY\"\n\
+          \n    # application_status 默认待提交\n    if not app.get(\"application_status\"\
+          ):\n        app[\"application_status\"] = \"待提交\"\n\n    # ---------- 9.\
+          \ 工具函数 ----------\n    def is_empty(value):\n        \"\"\"\n        判断字段是否为空。\n\
+          \        \"\"\"\n        if value is None:\n            return True\n\n\
+          \        if isinstance(value, str):\n            value = value.strip()\n\
+          \            if value == \"\":\n                return True\n          \
+          \  if value in [\"无\", \"未知\", \"未提及\", \"无法判断\", \"N/A\", \"null\", \"\
+          None\"]:\n                return True\n\n        return False\n\n    def\
+          \ to_number(value):\n        \"\"\"\n        将金额、数量字段转为数字。\n        支持：\n\
+          \        760\n        760.00\n        \"760元\"\n        \"¥760.00\"\n  \
+          \      \"152,000.00\"\n        \"\"\"\n        if value is None:\n     \
+          \       return None\n\n        if isinstance(value, (int, float)):\n   \
+          \         return float(value)\n\n        if isinstance(value, str):\n  \
+          \          cleaned = value.strip()\n            cleaned = cleaned.replace(\"\
+          ,\", \"\")\n            cleaned = cleaned.replace(\"¥\", \"\")\n       \
+          \     cleaned = cleaned.replace(\"￥\", \"\")\n            cleaned = cleaned.replace(\"\
+          元\", \"\")\n            cleaned = cleaned.replace(\"人民币\", \"\")\n     \
+          \       cleaned = cleaned.strip()\n\n            match = re.search(r\"-?\\\
+          d+(\\.\\d+)?\", cleaned)\n            if match:\n                try:\n\
+          \                    return float(match.group(0))\n                except\
+          \ Exception:\n                    return None\n\n        return None\n\n\
+          \    def get_field_name(field):\n        \"\"\"\n        从 missing_fields\
+          \ 或 abnormal_fields 中取字段名。\n        兼容：\n        [\"apply_date\"]\n    \
+          \    [{\"field\": \"apply_date\", \"reason\": \"...\"}]\n        \"\"\"\n\
+          \        if isinstance(field, str):\n            return field\n\n      \
+          \  if isinstance(field, dict):\n            return field.get(\"field\")\
+          \ or field.get(\"name\") or \"\"\n\n        return \"\"\n\n    # ----------\
+          \ 10. 清理 LLM 原本给出的 missing_fields ----------\n    llm_missing_fields = data.get(\"\
+          missing_fields\") or []\n    llm_abnormal_fields = data.get(\"abnormal_fields\"\
+          ) or []\n\n    if not isinstance(llm_missing_fields, list):\n        llm_missing_fields\
+          \ = []\n\n    if not isinstance(llm_abnormal_fields, list):\n        llm_abnormal_fields\
+          \ = []\n\n    # 这些字段可以系统自动生成，不应该继续算作缺失\n    auto_fill_fields = {\n     \
+          \   \"apply_date\",\n        \"application_title\",\n        \"application_type\"\
+          ,\n        \"currency\",\n        \"application_status\"\n    }\n\n    cleaned_missing_fields\
+          \ = []\n\n    for field in llm_missing_fields:\n        field_name = get_field_name(field)\n\
+          \n        # 自动生成字段不算缺失\n        if field_name in auto_fill_fields:\n   \
+          \         continue\n\n        # 如果字段已经在 app 中存在，也不算缺失\n        if field_name\
+          \ and not is_empty(app.get(field_name)):\n            continue\n\n     \
+          \   cleaned_missing_fields.append(field)\n\n    # ---------- 11. 当前商品采购申请单必填字段\
+          \ ----------\n    required_fields = [\n        {\n            \"field\"\
+          : \"supplier_name\",\n            \"field_name\": \"供应商名称\"\n        },\n\
+          \        {\n            \"field\": \"item_name\",\n            \"field_name\"\
+          : \"商品名称\"\n        },\n        {\n            \"field\": \"item_model\"\
+          ,\n            \"field_name\": \"规格型号\"\n        },\n        {\n       \
+          \     \"field\": \"unit\",\n            \"field_name\": \"单位\"\n       \
+          \ },\n        {\n            \"field\": \"quantity\",\n            \"field_name\"\
+          : \"采购数量\"\n        },\n        {\n            \"field\": \"purchase_unit_price\"\
+          ,\n            \"field_name\": \"采购单价\"\n        },\n        {\n       \
+          \     \"field\": \"purchase_total_amount\",\n            \"field_name\"\
+          : \"采购总金额\"\n        },\n        {\n            \"field\": \"expected_delivery_date\"\
+          ,\n            \"field_name\": \"预计交付日期\"\n        },\n        {\n     \
+          \       \"field\": \"payment_terms\",\n            \"field_name\": \"付款条款\"\
+          \n        },\n        {\n            \"field\": \"delivery_location\",\n\
+          \            \"field_name\": \"交付地点\"\n        }\n    ]\n\n    # ----------\
+          \ 12. 根据 app 再做一次确定性缺失检查 ----------\n    existing_missing_field_names =\
+          \ set()\n\n    for field in cleaned_missing_fields:\n        field_name\
+          \ = get_field_name(field)\n        if field_name:\n            existing_missing_field_names.add(field_name)\n\
+          \n    for item in required_fields:\n        field = item[\"field\"]\n  \
+          \      field_name = item[\"field_name\"]\n\n        if is_empty(app.get(field))\
+          \ and field not in existing_missing_field_names:\n            cleaned_missing_fields.append({\n\
+          \                \"field\": field,\n                \"field_name\": field_name,\n\
+          \                \"reason\": f\"{field_name}缺失，无法创建采购申请单。\",\n         \
+          \       \"suggestion\": f\"请补充{field_name}。\"\n            })\n        \
+          \    existing_missing_field_names.add(field)\n\n    # ---------- 13. 数值与业务规则校验\
+          \ ----------\n    abnormal_fields = []\n\n    # 保留 LLM 原本发现的异常\n    for\
+          \ field in llm_abnormal_fields:\n        abnormal_fields.append(field)\n\
+          \n    quantity = to_number(app.get(\"quantity\"))\n    unit_price = to_number(app.get(\"\
+          purchase_unit_price\"))\n    total_amount = to_number(app.get(\"purchase_total_amount\"\
+          ))\n\n    # 数量必须大于 0\n    if not is_empty(app.get(\"quantity\")):\n    \
+          \    if quantity is None or quantity <= 0:\n            abnormal_fields.append({\n\
+          \                \"field\": \"quantity\",\n                \"field_name\"\
+          : \"采购数量\",\n                \"reason\": \"采购数量必须是大于 0 的数字。\",\n       \
+          \         \"current_value\": app.get(\"quantity\"),\n                \"\
+          suggestion\": \"请检查采购数量是否填写正确。\"\n            })\n\n    # 单价必须大于 0\n   \
+          \ if not is_empty(app.get(\"purchase_unit_price\")):\n        if unit_price\
+          \ is None or unit_price <= 0:\n            abnormal_fields.append({\n  \
+          \              \"field\": \"purchase_unit_price\",\n                \"field_name\"\
+          : \"采购单价\",\n                \"reason\": \"采购单价必须是大于 0 的数字。\",\n       \
+          \         \"current_value\": app.get(\"purchase_unit_price\"),\n       \
+          \         \"suggestion\": \"请检查采购单价是否填写正确。\"\n            })\n\n    # 总金额必须大于\
+          \ 0\n    if not is_empty(app.get(\"purchase_total_amount\")):\n        if\
+          \ total_amount is None or total_amount <= 0:\n            abnormal_fields.append({\n\
+          \                \"field\": \"purchase_total_amount\",\n               \
+          \ \"field_name\": \"采购总金额\",\n                \"reason\": \"采购总金额必须是大于 0\
+          \ 的数字。\",\n                \"current_value\": app.get(\"purchase_total_amount\"\
+          ),\n                \"suggestion\": \"请检查采购总金额是否填写正确。\"\n            })\n\
+          \n    # 校验 总金额 ≈ 数量 × 单价\n    if quantity is not None and unit_price is\
+          \ not None and total_amount is not None:\n        calculated_total = quantity\
+          \ * unit_price\n\n        # 允许 1 元以内误差，避免小数或四舍五入问题\n        if abs(calculated_total\
+          \ - total_amount) > 1:\n            abnormal_fields.append({\n         \
+          \       \"field\": \"purchase_total_amount\",\n                \"field_name\"\
+          : \"采购总金额\",\n                \"reason\": \"采购总金额与采购数量 × 采购单价不一致。\",\n \
+          \               \"current_value\": total_amount,\n                \"calculated_value\"\
+          : calculated_total,\n                \"suggestion\": \"请检查采购数量、采购单价或采购总金额是否填写正确。\"\
+          \n            })\n\n    # ---------- 14. 最终状态判断 ----------\n    if cleaned_missing_fields:\n\
+          \        is_ready = False\n        check_status = \"MISSING_FIELD\"\n  \
+          \      message = \"采购申请单字段缺失，暂不能创建采购申请单。\"\n    elif abnormal_fields:\n\
+          \        is_ready = False\n        check_status = \"ABNORMAL_FIELD\"\n \
+          \       message = \"采购申请单字段存在异常，暂不能创建采购申请单。\"\n    else:\n        is_ready\
+          \ = True\n        check_status = \"PASS\"\n        message = \"采购申请单字段完整，可以创建采购申请单。\"\
+          \n\n    # ---------- 15. 返回给 Dify ----------\n    return {\n        \"is_ready\"\
+          : \"true\" if is_ready else \"false\",\n        \"check_status\": check_status,\n\
+          \        \"message\": message,\n        \"missing_fields_json\": json.dumps(cleaned_missing_fields,\
+          \ ensure_ascii=False),\n        \"abnormal_fields_json\": json.dumps(abnormal_fields,\
+          \ ensure_ascii=False),\n        \"purchase_application_json\": json.dumps(app,\
+          \ ensure_ascii=False)\n    }"
+        code_language: python3
+        outputs:
+          abnormal_fields_json:
+            children: null
+            type: string
+          check_status:
+            children: null
+            type: string
+          is_ready:
+            children: null
+            type: string
+          message:
+            children: null
+            type: string
+          missing_fields_json:
+            children: null
+            type: string
+          purchase_application_json:
+            children: null
+            type: string
+        selected: false
+        title: 处理LLM输出json部分
+        type: code
+        variables:
+        - value_selector:
+          - '1783339981914'
+          - text
+          value_type: string
+          variable: text
+      height: 51
+      id: '1783340100112'
+      position:
+        x: 1506.9413153547848
+        y: 145.11613539880028
+      positionAbsolute:
+        x: 1506.9413153547848
+        y: 145.11613539880028
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 8c486f88-f338-4175-a81b-235f390e120a
+            value: 'true'
+            varType: string
+            variable_selector:
+            - '1783340100112'
+            - is_ready
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 判断是否能创建采购申请单
+        type: if-else
+      height: 123
+      id: '1783340183522'
+      position:
+        x: 1820.0114086563954
+        y: 145.11613539880028
+      positionAbsolute:
+        x: 1820.0114086563954
+        y: 145.11613539880028
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"这里由于确定只有销售类的合同，那可以将提取字段简化成下面这些","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783340281792'
+      position:
+        x: -86.364853347618
+        y: 174.74487548923204
+      positionAbsolute:
+        x: -86.364853347618
+        y: 174.74487548923204
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 114
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"用LLM进行提取字段的对比并设置状态变量is_passed判断采销合同对比是否通过","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":"font-size:
+          14px;"}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 249
+      height: 114
+      id: '1783340317693'
+      position:
+        x: 314.2482786201157
+        y: 207.28302140093524
+      positionAbsolute:
+        x: 314.2482786201157
+        y: 207.28302140093524
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 249
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"LLM生成json格式的时候会出现很多多余的''/''和引号等，用代码去除","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783340392631'
+      position:
+        x: 592.0167225097082
+        y: 240.07706061323225
+      positionAbsolute:
+        x: 592.0167225097082
+        y: 240.07706061323225
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"采销合同对比通过则进入生成采购申请单流程","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783340435597'
+      position:
+        x: 871.3851200073435
+        y: 108.72384344752993
+      positionAbsolute:
+        x: 871.3851200073435
+        y: 108.72384344752993
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"不通过时应补充人工介入部分内容，在else后","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783340455556'
+      position:
+        x: 968.8455388376091
+        y: 465.14812375268616
+      positionAbsolute:
+        x: 968.8455388376091
+        y: 465.14812375268616
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"判断通过后，则生成采购申请单编号等信息正式创建采购申请单","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783340578252'
+      position:
+        x: 2122.2026411215893
+        y: 17.21607958646827
+      positionAbsolute:
+        x: 2122.2026411215893
+        y: 17.21607958646827
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        code: "import json\nfrom datetime import datetime\n\n\ndef main(purchase_application_json:\
+          \ str) -> dict:\n    \"\"\"\n    模拟采购申请单创建节点\n\n    输入：\n    - purchase_application_json：上一步字段校验节点输出的采购申请单\
+          \ JSON\n\n    输出：\n    - create_success：是否创建成功\n    - application_no：采购申请单编号\n\
+          \    - application_status：申请单状态\n    - message：创建结果说明\n    - app_result_json：完整采购申请单创建结果\n\
+          \    \"\"\"\n\n    if not purchase_application_json or not purchase_application_json.strip():\n\
+          \        return {\n            \"create_success\": \"false\",\n        \
+          \    \"application_no\": \"\",\n            \"application_status\": \"创建失败\"\
+          ,\n            \"message\": \"采购申请单内容为空，无法创建采购申请单。\",\n            \"app_result_json\"\
+          : \"\"\n        }\n\n    try:\n        app = json.loads(purchase_application_json)\n\
+          \    except Exception as e:\n        return {\n            \"create_success\"\
+          : \"false\",\n            \"application_no\": \"\",\n            \"application_status\"\
+          : \"创建失败\",\n            \"message\": f\"采购申请单 JSON 解析失败：{str(e)}\",\n \
+          \           \"app_result_json\": \"\"\n        }\n\n    now = datetime.now()\n\
+          \n    # 生成模拟采购申请单编号\n    application_no = \"PA-\" + now.strftime(\"%Y%m%d%H%M%S\"\
+          )\n\n    # 设置申请单状态\n    application_status = \"已提交审批\"\n\n    # 组装完整采购申请单创建结果\n\
+          \    result = {\n        \"application_no\": application_no,\n        \"\
+          application_status\": application_status,\n        \"application_title\"\
+          : app.get(\"application_title\", \"\"),\n        \"application_type\": app.get(\"\
+          application_type\", \"商品采购\"),\n        \"apply_date\": app.get(\"apply_date\"\
+          , now.strftime(\"%Y-%m-%d\")),\n\n        \"supplier_name\": app.get(\"\
+          supplier_name\", \"\"),\n\n        \"item_name\": app.get(\"item_name\"\
+          , \"\"),\n        \"item_model\": app.get(\"item_model\", \"\"),\n     \
+          \   \"unit\": app.get(\"unit\", \"\"),\n        \"quantity\": app.get(\"\
+          quantity\", \"\"),\n\n        \"purchase_unit_price\": app.get(\"purchase_unit_price\"\
+          , \"\"),\n        \"purchase_total_amount\": app.get(\"purchase_total_amount\"\
+          , \"\"),\n        \"currency\": app.get(\"currency\", \"CNY\"),\n\n    \
+          \    \"expected_delivery_date\": app.get(\"expected_delivery_date\", \"\"\
+          ),\n        \"delivery_location\": app.get(\"delivery_location\", \"\"),\n\
+          \        \"payment_terms\": app.get(\"payment_terms\", \"\"),\n\n      \
+          \  \"create_time\": now.strftime(\"%Y-%m-%d %H:%M:%S\"),\n        \"message\"\
+          : \"采购申请单已自动创建并提交审批。\"\n    }\n\n    return {\n        \"create_success\"\
+          : \"true\",\n        \"application_no\": application_no,\n        \"application_status\"\
+          : application_status,\n        \"message\": \"采购申请单已自动创建并提交审批。\",\n    \
+          \    \"app_result_json\": json.dumps(result, ensure_ascii=False)\n    }"
+        code_language: python3
+        outputs:
+          app_result_json:
+            children: null
+            type: string
+          application_no:
+            children: null
+            type: string
+          application_status:
+            children: null
+            type: string
+          create_success:
+            children: null
+            type: string
+          message:
+            children: null
+            type: string
+        selected: false
+        title: 正式创建采购申请单
+        type: code
+        variables:
+        - value_selector:
+          - '1783340100112'
+          - purchase_application_json
+          value_type: string
+          variable: purchase_application_json
+      height: 51
+      id: '1783340661478'
+      position:
+        x: 2130.490524058288
+        y: 174.74487548923204
+      positionAbsolute:
+        x: 2130.490524058288
+        y: 174.74487548923204
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 33d86ee1-fadf-489d-851b-3c44fbdd0601
+          role: system
+          text: '你是企业采购经理 AI Agent 的结果回复模块。
+
+            当前采购申请单已经创建完成。请根据传入的{{#1783340661478.app_result_json#}}，生成一段简洁、清晰的用户通知。
+
+            要求：
+
+            1. 明确说明采购申请单已创建并提交审批。
+
+            2. 展示申请编号、申请状态、供应商、采购内容、数量、单价、总金额、预计交付日期、交付地点。
+
+            3. 如果有付款条款，请简要展示。
+
+            4. 不要编造 JSON 中不存在的信息。
+
+            5. 使用中文回复，适合飞书消息通知。'
+        reasoning_format: separated
+        selected: false
+        title: 申请单创建完成回复
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783340801210'
+      position:
+        x: 2427.394829588679
+        y: 174.74487548923204
+      positionAbsolute:
+        x: 2427.394829588679
+        y: 174.74487548923204
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: false
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/lark_message_and_group
+        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
+        provider_id: langgenius/lark_message_and_group/lark_message_and_group
+        provider_name: langgenius/lark_message_and_group/lark_message_and_group
+        provider_show_name: Lark 消息和群组
+        provider_type: builtin
+        selected: false
+        title: 申请单创建完成回复
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: text
+          receive_id_type:
+            type: constant
+            value: chat_id
+        tool_description: 发送 Lark 应用消息
+        tool_label: 发送 Lark 应用消息
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1783340801210.text#}}'
+          receive_id:
+            type: mixed
+            value: '{{#1782981177946.chat_id#}}'
+        type: tool
+      height: 113
+      id: '17833408553560'
+      position:
+        x: 2719.85646017741
+        y: 174.74487548923204
+      positionAbsolute:
+        x: 2719.85646017741
+        y: 174.74487548923204
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"同理，不通过时应补充人工介入部分内容，在else后","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783340921389'
+      position:
+        x: 2079.1137665534397
+        y: 341.13261171718955
+      positionAbsolute:
+        x: 2079.1137665534397
+        y: 341.13261171718955
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 2296161a-deed-4641-8fbc-86d942f3f64a
+          role: system
+          text: '你是企业采购经理 AI Agent 的采销合同比对结果通知模块。当前采销合同比对已经完成，请根据输入内容生成一条适合飞书发送给用户的中文消息。
+
+
+            要求：
+
+            1. 明确说明“采销合同比对已完成”。
+
+            2. 展示整体结论{{#1783339738594.summary#}}。
+
+            3. 展示{{#1783339738594.user_compare_text#}}中的逐项比对结果。
+
+            4. 如果{{#1783339738594.is_passed#}}为 true，说明将继续创建采购申请单。
+
+            5. 如果{{#1783339738594.is_passed#}}为 false，说明采购申请单暂未创建，并展示{{#1783339738594.blocking_issues_json#}}中的异常原因。
+
+            6. 如果存在{{#1783339738594.warning_issues_json#}}，请作为风险提示展示。
+
+            7. 不要输出 JSON。
+
+            8. 不要编造输入中不存在的信息。'
+        reasoning_format: separated
+        selected: false
+        title: 对比过程回复输出
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783341501180'
+      position:
+        x: 631.7056147789735
+        y: 481.33078023861617
+      positionAbsolute:
+        x: 631.7056147789735
+        y: 481.33078023861617
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: 132.40558830191037
+      y: 364.60278200912813
+      zoom: 0.25
+  rag_pipeline_variables: []
