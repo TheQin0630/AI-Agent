@@ -4,7 +4,7 @@ app:
   icon_background: '#FFEAD5'
   icon_type: emoji
   mode: workflow
-  name: 采购经理数字员工
+  name: 申请书后续
   use_icon_as_answer_icon: false
 dependencies:
 - current_identifier: null
@@ -148,6 +148,30 @@ workflow:
       source: '17832735458590'
       sourceHandle: source
       target: '1783334960607'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 17833385592280-source-1783339166621-target
+      selected: false
+      source: '17833385592280'
+      sourceHandle: source
+      target: '1783339166621'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 1783337962103-source-1783339166621-target
+      selected: false
+      source: '1783337962103'
+      sourceHandle: source
+      target: '1783339166621'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -502,78 +526,6 @@ workflow:
     - data:
         isInLoop: false
         sourceType: code
-        targetType: if-else
-      id: 1783608238591-source-1783861929882-target
-      selected: false
-      source: '1783608238591'
-      sourceHandle: source
-      target: '1783861929882'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: if-else
-        targetType: parameter-extractor
-      id: 1783861929882-true-17833385592280-target
-      selected: false
-      source: '1783861929882'
-      sourceHandle: 'true'
-      target: '17833385592280'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: if-else
-        targetType: parameter-extractor
-      id: 1783861929882-2dd25ebf-a060-4d6d-8bf1-292b017f6fc7-1783337962103-target
-      selected: false
-      source: '1783861929882'
-      sourceHandle: 2dd25ebf-a060-4d6d-8bf1-292b017f6fc7
-      target: '1783337962103'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: code
-        targetType: if-else
-      id: 17836083620110-source-17838620085180-target
-      selected: false
-      source: '17836083620110'
-      sourceHandle: source
-      target: '17838620085180'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: if-else
-        targetType: tool
-      id: 17838620085180-false-1783862091321-target
-      selected: false
-      source: '17838620085180'
-      sourceHandle: 'false'
-      target: '1783862091321'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: if-else
-        targetType: tool
-      id: 1783861929882-false-1783862091321-target
-      selected: false
-      source: '1783861929882'
-      sourceHandle: 'false'
-      target: '1783862091321'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: code
         targetType: tool
       id: 1783334960607-fail-branch-1783863170967-target
       selected: false
@@ -597,22 +549,9 @@ workflow:
       zIndex: 0
     - data:
         isInLoop: false
-        sourceType: if-else
-        targetType: parameter-extractor
-      id: 17838620085180-true-17838646041250-target
-      selected: false
-      source: '17838620085180'
-      sourceHandle: 'true'
-      target: '17838646041250'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
         sourceType: http-request
         targetType: tool
       id: 1783615119603-fail-branch-1783865183452-target
-      selected: false
       source: '1783615119603'
       sourceHandle: fail-branch
       target: '1783865183452'
@@ -622,21 +561,8 @@ workflow:
     - data:
         isInLoop: false
         sourceType: if-else
-        targetType: parameter-extractor
-      id: 17838620085180-2dd25ebf-a060-4d6d-8bf1-292b017f6fc7-17838653196780-target
-      selected: false
-      source: '17838620085180'
-      sourceHandle: 2dd25ebf-a060-4d6d-8bf1-292b017f6fc7
-      target: '17838653196780'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: if-else
         targetType: tool
       id: 1782978673802-73a9e263-0231-47d4-8996-73ea66badcf9-1783869472306-target
-      selected: false
       source: '1782978673802'
       sourceHandle: 73a9e263-0231-47d4-8996-73ea66badcf9
       target: '1783869472306'
@@ -648,7 +574,6 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 17836040030440-d1244a62-0297-4d06-87c2-5bb3cdc3c05e-1783869608721-target
-      selected: false
       source: '17836040030440'
       sourceHandle: d1244a62-0297-4d06-87c2-5bb3cdc3c05e
       target: '1783869608721'
@@ -660,7 +585,6 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 17836040030440-da2b52e8-b5b4-4040-92e3-90ce083ab365-1783869693979-target
-      selected: false
       source: '17836040030440'
       sourceHandle: da2b52e8-b5b4-4040-92e3-90ce083ab365
       target: '1783869693979'
@@ -669,124 +593,23 @@ workflow:
       zIndex: 0
     - data:
         isInLoop: false
-        sourceType: parameter-extractor
-        targetType: template-transform
-      id: 17833385592280-source-1783998818190-target
-      selected: false
-      source: '17833385592280'
+        sourceType: code
+        targetType: parameter-extractor
+      id: 1783608238591-source-17833385592280-target
+      source: '1783608238591'
       sourceHandle: source
-      target: '1783998818190'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: parameter-extractor
-        targetType: template-transform
-      id: 17838646041250-source-17839992294090-target
-      selected: false
-      source: '17838646041250'
-      sourceHandle: source
-      target: '17839992294090'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: parameter-extractor
-        targetType: template-transform
-      id: 1783337962103-source-1783999635093-target
-      source: '1783337962103'
-      sourceHandle: source
-      target: '1783999635093'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: parameter-extractor
-        targetType: template-transform
-      id: 17838653196780-source-17839998037740-target
-      source: '17838653196780'
-      sourceHandle: source
-      target: '17839998037740'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: template-transform
-        targetType: variable-aggregator
-      id: 1783998818190-source-1784000101343-target
-      source: '1783998818190'
-      sourceHandle: source
-      target: '1784000101343'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: template-transform
-        targetType: variable-aggregator
-      id: 1783999635093-source-1784000101343-target
-      source: '1783999635093'
-      sourceHandle: source
-      target: '1784000101343'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: template-transform
-        targetType: variable-aggregator
-      id: 17839992294090-source-1784000129262-target
-      source: '17839992294090'
-      sourceHandle: source
-      target: '1784000129262'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: template-transform
-        targetType: variable-aggregator
-      id: 17839998037740-source-1784000129262-target
-      source: '17839998037740'
-      sourceHandle: source
-      target: '1784000129262'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: variable-aggregator
-        targetType: code
-      id: 1784000101343-source-1784000208731-target
-      source: '1784000101343'
-      sourceHandle: source
-      target: '1784000208731'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: variable-aggregator
-        targetType: code
-      id: 1784000129262-source-1784000208731-target
-      source: '1784000129262'
-      sourceHandle: source
-      target: '1784000208731'
+      target: '17833385592280'
       targetHandle: target
       type: custom
       zIndex: 0
     - data:
         isInLoop: false
         sourceType: code
-        targetType: llm
-      id: 1784000208731-source-1783339166621-target
-      source: '1784000208731'
+        targetType: parameter-extractor
+      id: 17836083620110-source-1783337962103-target
+      source: '17836083620110'
       sourceHandle: source
-      target: '1783339166621'
+      target: '1783337962103'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1123,11 +946,11 @@ workflow:
       height: 84
       id: '1782981177946'
       position:
-        x: -3380.89445335807
-        y: -51.41270822622266
+        x: -3754.7323394402056
+        y: 43.622517114912455
       positionAbsolute:
-        x: -3380.89445335807
-        y: -51.41270822622266
+        x: -3754.7323394402056
+        y: 43.622517114912455
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1897,11 +1720,11 @@ workflow:
       height: 113
       id: '1783182481979'
       position:
-        x: 1107.1665301440923
-        y: -167.2443936186737
+        x: 535.3891269249368
+        y: -188.40725829875709
       positionAbsolute:
-        x: 1107.1665301440923
-        y: -167.2443936186737
+        x: 535.3891269249368
+        y: -188.40725829875709
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2997,7 +2820,7 @@ workflow:
           required: false
           type: string
         query:
-        - '1783608238591'
+        - '17836083620110'
         - combined_text
         reasoning_mode: prompt
         selected: false
@@ -3008,11 +2831,11 @@ workflow:
       height: 87
       id: '1783337962103'
       position:
-        x: -585.2497546369955
-        y: -38.35289609848161
+        x: -648.909850430432
+        y: 190.55003976010198
       positionAbsolute:
-        x: -585.2497546369955
-        y: -38.35289609848161
+        x: -648.909850430432
+        y: 190.55003976010198
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3081,11 +2904,11 @@ workflow:
       height: 87
       id: '17833385592280'
       position:
-        x: -585.2497546369955
-        y: -156.42391637453153
+        x: -688.3184811597023
+        y: -92.76382058109499
       positionAbsolute:
-        x: -585.2497546369955
-        y: -156.42391637453153
+        x: -688.3184811597023
+        y: -92.76382058109499
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3106,34 +2929,48 @@ workflow:
         prompt_template:
         - id: 7abf626e-6636-4d0b-bddb-52355043163c
           role: system
-          text: "你是企业采购经理 AI Agent 中的采销合同比对模块，你的任务是：根据已经归类完成的销售合同字段和采购合同字段，执行采销合同业务一致性比对，判断是否可以继续进入采购申请单创建流程。\n\
-            除了输出结构化比对结果外，你还需要生成user_compare_text 字段，用于直接回复用户。\n\n销售合同字段：{{#1784000208731.sales_contract_json#}}\n\
-            采购合同字段：{{#1784000208731.purchase_contract_json#}}\n以上输入为 JSON 格式的合同字段数据，请先读取并理解\
-            \ JSON 中的字段，再进行业务比对，不得将整个 JSON 字符串直接作为字段值。\n\nuser_compare_text 要求：\n\
-            1.格式为：\n比对中：字段名称，销售合同为 xxx，采购合同为 xxx，结果：通过/风险提示/阻断异常。\n2. 如果存在异常，需要在该行后补充简短原因。\n\
-            3. 不要编造输入中不存在的信息。\n4. 如果字段缺失，写成“未提取到”。\n5. user_compare_text 不要使用 markdown\
-            \ 表格，使用普通换行文本。\n\n请严格按照以下规则判断：\n1. 商品名称比对\n- 销售合同商品名称和采购合同商品名称应一致或语义高度相似。\n\
-            - 如果明显不是同一商品，则作为阻断异常。\n\n2. 规格型号比对\n- 销售合同规格型号和采购合同规格型号应一致。\n- 如果型号不一致，则作为阻断异常。\n\
-            - 如果一方缺失规格型号，也作为阻断异常。\n\n3. 数量比对\n- 采购数量应大于等于销售数量。\n- 如果采购数量小于销售数量，则作为阻断异常。\n\
-            - 如果任一方数量缺失或不是有效数字，则作为阻断异常。\n\n4. 单位比对\n- 销售单位和采购单位应一致，例如都是“台”“套”“件”等。\n\
-            - 如果单位不一致，则作为阻断异常。\n\n5. 单价与利润空间比对\n- 采购单价应低于销售单价。\n- 如果采购单价大于或等于销售单价，则作为阻断异常。\n\
-            - 利润空间计算公式为：\n  利润空间 = (销售单价 - 采购单价) / 销售单价\n- 如果利润空间低于 5%，则作为阻断异常。\n\
-            - 如果销售单价或采购单价缺失，则作为阻断异常。\n\n6. 总金额比对\n- 采购总金额应小于销售总金额。\n- 如果采购总金额大于或等于销售总金额，则作为风险提示。\n\
-            - 如果金额缺失，不作为阻断异常，但应作为风险提示。\n\n7. 交付日期比对\n- 采购合同交付日期应早于或等于销售合同交付日期。\n-\
-            \ 如果采购交付日期晚于销售交付日期，则作为阻断异常。\n- 如果采购合同缺少交付日期，则作为阻断异常。\n- 如果销售合同缺少交付日期，则作为阻断异常。\n\
-            - 如果交付日期为相对时间而非准确日期，作为风险提示\n\n8. 付款条款检查\n- 分析销售回款时间和采购付款时间之间是否可能形成资金垫付，如果采购合同要求预付款，或者采购付款预计早于销售回款，导致企业需要先向供应商付款、后收到客户回款，则作为风险提示。\n\
+          text: "你是企业采购经理 AI Agent 中的采销合同比对模块，你的任务是根据已经提取出的字段，对销售合同和采购合同进行业务一致性比对，判断销售合同和采购合同是否可以继续进入采购申请单创建流程。除了输出结构化比对结果外，你还需要生成user_compare_text\
+            \ 字段，用于直接回复用户。\n\nuser_compare_text 要求：\n1.格式为：\n比对中：字段名称，销售合同为 xxx，采购合同为\
+            \ xxx，结果：通过/风险提示/阻断异常。\n2. 如果存在异常，需要在该行后补充简短原因。\n3. 不要编造输入中不存在的信息。\n4.\
+            \ 如果字段缺失，写成“未提取到”。\n5. user_compare_text 不要使用 markdown 表格，使用普通换行文本。\n\n\
+            请严格按照以下规则判断：\n1. 商品名称比对\n- 销售合同商品名称和采购合同商品名称应一致或语义高度相似。\n- 如果明显不是同一商品，则作为阻断异常。\n\
+            \n2. 规格型号比对\n- 销售合同规格型号和采购合同规格型号应一致。\n- 如果型号不一致，则作为阻断异常。\n- 如果一方缺失规格型号，也作为阻断异常。\n\
+            \n3. 数量比对\n- 采购数量应大于等于销售数量。\n- 如果采购数量小于销售数量，则作为阻断异常。\n- 如果任一方数量缺失或不是有效数字，则作为阻断异常。\n\
+            \n4. 单位比对\n- 销售单位和采购单位应一致，例如都是“台”“套”“件”等。\n- 如果单位不一致，则作为阻断异常。\n\n5. 单价与利润空间比对\n\
+            - 采购单价应低于销售单价。\n- 如果采购单价大于或等于销售单价，则作为阻断异常。\n- 利润空间计算公式为：\n  利润空间 = (销售单价\
+            \ - 采购单价) / 销售单价\n- 如果利润空间低于 5%，则作为阻断异常。\n- 如果销售单价或采购单价缺失，则作为阻断异常。\n\n\
+            6. 总金额比对\n- 采购总金额应小于销售总金额。\n- 如果采购总金额大于或等于销售总金额，则作为风险提示。\n- 如果金额缺失，不作为阻断异常，但应作为风险提示。\n\
+            \n7. 交付日期比对\n- 采购合同交付日期应早于或等于销售合同交付日期。\n- 如果采购交付日期晚于销售交付日期，则作为阻断异常。\n\
+            - 如果采购合同缺少交付日期，则作为阻断异常。\n- 如果销售合同缺少交付日期，则作为阻断异常。\n- 如果交付日期为相对时间而非准确日期，作为风险提示\n\
+            \n8. 付款条款检查\n- 分析销售回款时间和采购付款时间之间是否可能形成资金垫付，如果采购合同要求预付款，或者采购付款预计早于销售回款，导致企业需要先向供应商付款、后收到客户回款，则作为风险提示。\n\
             - 如果采购合同明确约定收到最终客户回款后， 才向供应商付款，则通常不构成资金垫付风险， 不得仅因为两份合同付款条款不同而判定为风险。\n\
             - 如果无法根据已提取信息判断付款先后顺序， 则作为风险提示，并说明“付款时间关系暂无法确认”。\n- 付款条款问题当前只作为 warning，不为阻断异常。\n\
             \n输出要求：\n1. 只输出合法 JSON。\n2. 不要输出 markdown。\n3. 不要输出解释性文字。\n4. 不要编造输入中不存在的信息。\n\
             5. 如果字段缺失，请明确写入 blocking_issues 或 warning_issues。\n6. 只要 blocking_issues\
             \ 非空，is_passed 必须为 false。\n7. 如果 blocking_issues 为空，即使 warning_issues\
-            \ 非空，is_passed 也可以为 true。\n\n请按照以下 JSON 格式输出：\n{\n  \"is_passed\": true,\n\
-            \  \"compare_status\": \"PASS\",\n  \"risk_level\": \"low\",\n  \"summary\"\
-            : \"\",\n  \"user_compare_text\": \"\",\n  \"blocking_issues\": [],\n\
-            \  \"warning_issues\": [],\n  \"comparison_items\": [\n    {\n      \"\
-            field\": \"item_name\",\n      \"field_name\": \"商品名称\",\n      \"sales_value\"\
-            : \"\",\n      \"purchase_value\": \"\",\n      \"result\": \"PASS\",\n\
-            \      \"reason\": \"\"\n    }\n  ]\n}"
+            \ 非空，is_passed 也可以为 true。\n\n销售合同字段：\n{\n  \"customer_name\": \"{{#17833385592280.customer_name#}}\"\
+            ,\n  \"seller_name\": \"{{#17833385592280.seller_name#}}\",\n  \"item_name\"\
+            : \"{{#17833385592280.item_name#}}\",\n  \"item_model\": \"{{#17833385592280.item_model#}}\"\
+            ,\n  \"quantity\": \"{{#17833385592280.sell_quantity#}}\",\n  \"unit\"\
+            : \"{{#17833385592280.unit#}}\",\n  \"sales_unit_price\": \"{{#17833385592280.sell_unit_price#}}\"\
+            ,\n  \"sales_total_amount\": \"{{#17833385592280.sell_total_amount#}}\"\
+            ,\n  \"delivery_date\": \"{{#17833385592280.sell_delivery_date#}}\",\n\
+            \  \"payment_terms\": \"{{#17833385592280.payment_terms#}}\"\n}\n\n采购合同字段：\n\
+            {\n  \"supplier_name\": \"{{#1783337962103.supplier_name#}}\",\n  \"buyer_name\"\
+            : \"{{#1783337962103.applicant_name#}}\",\n  \"item_name\": \"{{#1783337962103.item_name#}}\"\
+            ,\n  \"item_model\": \"{{#1783337962103.item_model#}}\",\n  \"quantity\"\
+            : \"{{#1783337962103.quantity#}}\",\n  \"unit\": \"{{#1783337962103.unit#}}\"\
+            ,\n  \"purchase_unit_price\": \"{{#1783337962103.purchase_unit_price#}}\"\
+            ,\n  \"purchase_total_amount\": \"{{#1783337962103.purchase_total_amount#}}\"\
+            ,\n  \"delivery_date\": \"{{#1783337962103.expected_delivery_date#}}\"\
+            ,\n  \"delivery_location\": \"{{#1783337962103.delivery_location#}}\"\
+            ,\n  \"payment_terms\": \"{{#1783337962103.payment_terms#}}\"\n}\n\n请按照以下\
+            \ JSON 格式输出：\n{\n  \"is_passed\": true,\n  \"compare_status\": \"PASS\"\
+            ,\n  \"risk_level\": \"low\",\n  \"summary\": \"\",\n  \"user_compare_text\"\
+            : \"\",\n  \"blocking_issues\": [],\n  \"warning_issues\": [],\n  \"comparison_items\"\
+            : [\n    {\n      \"field\": \"item_name\",\n      \"field_name\": \"\
+            商品名称\",\n      \"sales_value\": \"\",\n      \"purchase_value\": \"\"\
+            ,\n      \"result\": \"PASS\",\n      \"reason\": \"\"\n    }\n  ]\n}"
         reasoning_format: separated
         retry_config:
           max_retries: 3
@@ -3147,11 +2984,11 @@ workflow:
       height: 152
       id: '1783339166621'
       position:
-        x: 302.25315864770835
-        y: 31.548215638287736
+        x: -286.76154989365443
+        y: 50.9810680163189
       positionAbsolute:
-        x: 302.25315864770835
-        y: 31.548215638287736
+        x: -286.76154989365443
+        y: 50.9810680163189
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3243,11 +3080,11 @@ workflow:
       height: 51
       id: '1783339738594'
       position:
-        x: 556.6145898670704
-        y: 31.548215638287736
+        x: -23.36871748385113
+        y: 50.9810680163189
       positionAbsolute:
-        x: 556.6145898670704
-        y: 31.548215638287736
+        x: -23.36871748385113
+        y: 50.9810680163189
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3272,11 +3109,11 @@ workflow:
       height: 147
       id: '1783339889948'
       position:
-        x: 816.7020609750764
-        y: 31.548215638287736
+        x: 244.38936882986707
+        y: 50.9810680163189
       positionAbsolute:
-        x: 816.7020609750764
-        y: 31.548215638287736
+        x: 244.38936882986707
+        y: 50.9810680163189
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3295,14 +3132,16 @@ workflow:
         prompt_template:
         - id: 0d1a5b01-91c4-4e5f-be99-edf1d4419737
           role: system
-          text: "你是企业采购经理 AI Agent 中的采购申请单生成模块，你的任务是根据采购合同结构化字段生成采购申请单草稿。\n采购合同字段为：{{#1784000208731.purchase_contract_json#}}\n\
-            \n要求：\n1.请先读取并理解 JSON 格式的采购合同字段数据，再进行字段提取\n2.优先从采购合同中提取供应商、采购商品、采购数量、采购单价、采购总金额、交付日期、付款条款。\n\
-            3.字段为空、未知、未提及、无法判断时，视为缺失字段，请放入 missing_fields。\n4.输出合法 JSON，不要输出 markdown，不要输出解释性文字\n\
-            5.不要编造合同中不存在的供应商、金额、数量、日期。\n6.如果校验通过（abnormal_fields与missing_fields为空），将is_ready设为true\n\
-            \n必填字段：\n- supplier_name：供应商名称\n- item_name：采购商品名称\n- item_model：采购商品规格型号\n\
-            - quantity：采购数量\n- unit：采购单位\n- purchase_unit_price：采购单价\n- purchase_total_amount：采购总金额\n\
-            - delivery_date：预计交付日期\n- delivery_location：交付地点\n- payment_terms：付款条款\n\
-            \n校验规则：\n1. quantity 必须为大于 0 的数字,\n2. purchase_unit_price 必须为大于 0 的数字。\n\
+          text: "你是企业采购经理 AI Agent 中的采购申请单生成模块，你的任务是根据采购合同结构化字段生成采购申请单草稿。\n要求：\n1.优先从采购合同中提取供应商、采购商品、采购数量、采购单价、采购总金额、交付日期、付款条款。\n\
+            2.字段为空、未知、未提及、无法判断时，视为缺失字段，请放入 missing_fields。\n3.输出合法 JSON，不要输出 markdown，不要输出解释性文字\n\
+            4.不要编造合同中不存在的供应商、金额、数量、日期。\n5.如果校验通过（abnormal_fields与missing_fields为空），将is_ready设为true\n\
+            必填字段：\n- supplier_name：供应商名称，见{{#1783337962103.supplier_name#}}\n- product_name：商品名称，见{{#1783337962103.item_name#}}\n\
+            - product_model：规格型号，见{{#1783337962103.item_model#}}\n- quantity：采购数量，见{{#1783337962103.quantity#}}\n\
+            - unit：单位，见{{#1783337962103.unit#}}\n- purchase_unit_price：采购单价，见{{#1783337962103.purchase_unit_price#}}\n\
+            - purchase_total_amount：采购总金额，见{{#1783337962103.purchase_total_amount#}}\n\
+            - expected_delivery_date：预计交付日期，见{{#1783337962103.expected_delivery_date#}}\n\
+            - delivery_location：交付地点，见{{#1783337962103.delivery_location#}}\n- payment_terms：付款条款，见{{#1783337962103.payment_terms#}}\n\
+            校验规则：\n1. quantity 必须为大于 0 的数字,\n2. purchase_unit_price 必须为大于 0 的数字。\n\
             3. purchase_total_amount 必须为大于 0 的数字。\n4. expected_delivery_date 必须是明确日期。\n\
             5. 字段为空、未知、未提及、无法判断时，视为缺失字段,放入missing_fields\n6. 如果 purchase_total_amount\
             \ 与 quantity × purchase_unit_price 明显不一致,放入 abnormal_fields。\n输出格式：\n\
@@ -3311,10 +3150,10 @@ workflow:
             ,\n    \"apply_date\": \"\",\n    \"supplier_name\": \"\",\n    \"item_name\"\
             : \"\",\n    \"item_model\": \"\",\n    \"unit\": \"\",\n    \"quantity\"\
             : \"\",\n    \"purchase_unit_price\": \"\",\n    \"purchase_total_amount\"\
-            : \"\",\n    \"delivery_date\": \"\",\n    \"payment_terms\": \"\",\n\
-            \    \"delivery_location\": \"\",\n  }\n}\n"
+            : \"\",\n    \"expected_delivery_date\": \"\",\n    \"payment_terms\"\
+            : \"\",\n    \"delivery_location\": \"\",\n  }\n}\n"
         reasoning_format: separated
-        selected: true
+        selected: false
         title: 整理采购申请单所需字段内容
         type: llm
         vision:
@@ -3322,12 +3161,12 @@ workflow:
       height: 87
       id: '1783339981914'
       position:
-        x: 1093.623941037789
-        y: 89.11267687444071
+        x: 541.4260382650455
+        y: 64.62251711491245
       positionAbsolute:
-        x: 1093.623941037789
-        y: 89.11267687444071
-      selected: true
+        x: 541.4260382650455
+        y: 64.62251711491245
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -3527,11 +3366,11 @@ workflow:
       height: 51
       id: '1783340100112'
       position:
-        x: 1355.1704976343276
-        y: 130.54767647398305
+        x: 818.7440641077824
+        y: 69.62205062601593
       positionAbsolute:
-        x: 1355.1704976343276
-        y: 130.54767647398305
+        x: 818.7440641077824
+        y: 69.62205062601593
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3556,11 +3395,11 @@ workflow:
       height: 123
       id: '1783340183522'
       position:
-        x: 1685.7137637871533
-        y: 123.02808016406718
+        x: 1116.4629076720698
+        y: 69.62205062601593
       positionAbsolute:
-        x: 1685.7137637871533
-        y: 123.02808016406718
+        x: 1116.4629076720698
+        y: 69.62205062601593
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3606,11 +3445,11 @@ workflow:
       height: 114
       id: '1783340317693'
       position:
-        x: 566.6569558542647
-        y: -254.6261481838134
+        x: -293.20809433582536
+        y: -62.24275612294094
       positionAbsolute:
-        x: 566.6569558542647
-        y: -254.6261481838134
+        x: -293.20809433582536
+        y: -62.24275612294094
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3630,11 +3469,11 @@ workflow:
       height: 88
       id: '1783340392631'
       position:
-        x: 542.3263291685392
-        y: -128.55129762997475
+        x: -4.6960741187141934
+        y: -38.35289609848161
       positionAbsolute:
-        x: 542.3263291685392
-        y: -128.55129762997475
+        x: -4.6960741187141934
+        y: -38.35289609848161
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3654,11 +3493,11 @@ workflow:
       height: 88
       id: '1783340435597'
       position:
-        x: 771.1334874014751
-        y: -81.46526082546305
+        x: 256.51510136195026
+        y: -38.35289609848161
       positionAbsolute:
-        x: 771.1334874014751
-        y: -81.46526082546305
+        x: 256.51510136195026
+        y: -38.35289609848161
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3704,11 +3543,11 @@ workflow:
       height: 88
       id: '1783340578252'
       position:
-        x: 1405.8284077045632
-        y: -18.65458467113138
+        x: 1090.6554248669595
+        y: -38.35289609848161
       positionAbsolute:
-        x: 1405.8284077045632
-        y: -18.65458467113138
+        x: 1090.6554248669595
+        y: -38.35289609848161
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3778,10 +3617,10 @@ workflow:
       height: 51
       id: '1783340661478'
       position:
-        x: 1973.132507630498
+        x: 1406.028141762582
         y: 104.07243932699832
       positionAbsolute:
-        x: 1973.132507630498
+        x: 1406.028141762582
         y: 104.07243932699832
       selected: false
       sourcePosition: right
@@ -3825,11 +3664,11 @@ workflow:
       height: 87
       id: '1783340801210'
       position:
-        x: 2268.744841451238
-        y: 97.91671700595138
+        x: 1676.779930111557
+        y: 97.04947373831007
       positionAbsolute:
-        x: 2268.744841451238
-        y: 97.91671700595138
+        x: 1676.779930111557
+        y: 97.04947373831007
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4112,11 +3951,11 @@ workflow:
       height: 113
       id: '17833408553560'
       position:
-        x: 2274.1865765170555
-        y: -114.81102528869172
+        x: 1694.9846847559465
+        y: -68.7206758685951
       positionAbsolute:
-        x: 2274.1865765170555
-        y: -114.81102528869172
+        x: 1694.9846847559465
+        y: -68.7206758685951
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4307,11 +4146,11 @@ workflow:
       height: 87
       id: '1783580340279'
       position:
-        x: 1087.600948241402
-        y: -25.2965346213
+        x: 541.4260382650455
+        y: -30.412708226222662
       positionAbsolute:
-        x: 1087.600948241402
-        y: -25.2965346213
+        x: 541.4260382650455
+        y: -30.412708226222662
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4361,11 +4200,11 @@ workflow:
       height: 87
       id: '1783580493966'
       position:
-        x: 1087.600948241402
-        y: 207.90844323800562
+        x: 525.1727659619141
+        y: 173.01992029502733
       positionAbsolute:
-        x: 1087.600948241402
-        y: 207.90844323800562
+        x: 525.1727659619141
+        y: 173.01992029502733
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4645,11 +4484,11 @@ workflow:
       height: 113
       id: '1783580718006'
       position:
-        x: 1115.5040968643534
-        y: 324.79986639480205
+        x: 525.1727659619141
+        y: 283.7009647612334
       positionAbsolute:
-        x: 1115.5040968643534
-        y: 324.79986639480205
+        x: 525.1727659619141
+        y: 283.7009647612334
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5286,11 +5125,11 @@ workflow:
       height: 51
       id: '1783608238591'
       position:
-        x: -1144.9286487352192
-        y: -81.46526082546305
+        x: -1064.5956707101682
+        y: -73.88667799291107
       positionAbsolute:
-        x: -1144.9286487352192
-        y: -81.46526082546305
+        x: -1064.5956707101682
+        y: -73.88667799291107
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5321,11 +5160,11 @@ workflow:
       height: 51
       id: '17836083620110'
       position:
-        x: -1144.9286487352192
-        y: 190.55003976010198
+        x: -1026.7027565474086
+        y: 202.9178493799517
       positionAbsolute:
-        x: -1144.9286487352192
-        y: 190.55003976010198
+        x: -1026.7027565474086
+        y: 202.9178493799517
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5491,11 +5330,11 @@ workflow:
       height: 87
       id: '1783776448569'
       position:
-        x: 2011.0828666036018
-        y: 261.8800541373429
+        x: 1406.028141762582
+        y: 202.9178493799517
       positionAbsolute:
-        x: 2011.0828666036018
-        y: 261.8800541373429
+        x: 1406.028141762582
+        y: 202.9178493799517
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5778,11 +5617,11 @@ workflow:
       height: 113
       id: '17837765675610'
       position:
-        x: 2375.0076930575656
-        y: 252.03468815977794
+        x: 1388.6298132089896
+        y: 336.3009072328664
       positionAbsolute:
-        x: 2375.0076930575656
-        y: 252.03468815977794
+        x: 1388.6298132089896
+        y: 336.3009072328664
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5812,373 +5651,6 @@ workflow:
       targetPosition: left
       type: custom-note
       width: 242
-    - data:
-        cases:
-        - case_id: 'true'
-          conditions:
-          - comparison_operator: contains
-            id: 8b46dc59-bfd7-4de1-9af8-10bf8a06c9db
-            value: 销售
-            varType: string
-            variable_selector:
-            - '1783334960607'
-            - file1_file_name
-          id: 'true'
-          logical_operator: and
-        - case_id: 2dd25ebf-a060-4d6d-8bf1-292b017f6fc7
-          conditions:
-          - comparison_operator: contains
-            id: bb2ee01d-f0a3-4ab7-969e-f795b884f110
-            value: 采购
-            varType: string
-            variable_selector:
-            - '1783334960607'
-            - file1_file_name
-          id: 2dd25ebf-a060-4d6d-8bf1-292b017f6fc7
-          logical_operator: and
-        selected: false
-        title: file1 判断销售 or 采购
-        type: if-else
-      height: 219
-      id: '1783861929882'
-      position:
-        x: -869.6009830645925
-        y: -188.40725829875709
-      positionAbsolute:
-        x: -869.6009830645925
-        y: -188.40725829875709
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        cases:
-        - case_id: 'true'
-          conditions:
-          - comparison_operator: contains
-            id: 8b46dc59-bfd7-4de1-9af8-10bf8a06c9db
-            value: 销售
-            varType: string
-            variable_selector:
-            - '1783334960607'
-            - file2_file_name
-          id: 'true'
-          logical_operator: and
-        - case_id: 2dd25ebf-a060-4d6d-8bf1-292b017f6fc7
-          conditions:
-          - comparison_operator: contains
-            id: bb2ee01d-f0a3-4ab7-969e-f795b884f110
-            value: 采购
-            varType: string
-            variable_selector:
-            - '1783334960607'
-            - file2_file_name
-          id: 2dd25ebf-a060-4d6d-8bf1-292b017f6fc7
-          logical_operator: and
-        desc: ''
-        isInIteration: false
-        isInLoop: false
-        selected: false
-        title: file2 判断销售 or 采购
-        type: if-else
-      height: 219
-      id: '17838620085180'
-      position:
-        x: -869.6009830645925
-        y: 202.9178493799517
-      positionAbsolute:
-        x: -869.6009830645925
-        y: 202.9178493799517
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        is_team_authorization: true
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: The ID of the message receiver, the ID type is consistent with
-              the value of the query parameter receive_id_type.
-            ja_JP: The ID of the message receiver, the ID type is consistent with
-              the value of the query parameter receive_id_type.
-            pt_BR: The ID of the message receiver, the ID type is consistent with
-              the value of the query parameter receive_id_type.
-            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
-          label:
-            en_US: receive_id
-            ja_JP: receive_id
-            pt_BR: receive_id
-            zh_Hans: 消息接收者的 ID
-          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
-          max: null
-          min: null
-          name: receive_id
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: form
-          human_description:
-            en_US: The ID type of the message receiver, optional values are open_id,
-              union_id, user_id, email, chat_id, with a default value of open_id.
-            ja_JP: The ID type of the message receiver, optional values are open_id,
-              union_id, user_id, email, chat_id, with a default value of open_id.
-            pt_BR: The ID type of the message receiver, optional values are open_id,
-              union_id, user_id, email, chat_id, with a default value of open_id.
-            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
-              open_id。
-          label:
-            en_US: receive_id_type
-            ja_JP: receive_id_type
-            pt_BR: receive_id_type
-            zh_Hans: 消息接收者的 ID 类型
-          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
-            open_id。
-          max: null
-          min: null
-          name: receive_id_type
-          options:
-          - icon: ''
-            label:
-              en_US: open_id
-              ja_JP: open_id
-              pt_BR: open_id
-              zh_Hans: open_id
-            value: open_id
-          - icon: ''
-            label:
-              en_US: union_id
-              ja_JP: union_id
-              pt_BR: union_id
-              zh_Hans: union_id
-            value: union_id
-          - icon: ''
-            label:
-              en_US: user_id
-              ja_JP: user_id
-              pt_BR: user_id
-              zh_Hans: user_id
-            value: user_id
-          - icon: ''
-            label:
-              en_US: email
-              ja_JP: email
-              pt_BR: email
-              zh_Hans: email
-            value: email
-          - icon: ''
-            label:
-              en_US: chat_id
-              ja_JP: chat_id
-              pt_BR: chat_id
-              zh_Hans: chat_id
-            value: chat_id
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: select
-        - auto_generate: null
-          default: null
-          form: form
-          human_description:
-            en_US: Message type. Optional values are text, post, image, file, audio,
-              media, sticker, interactive, share_chat, share_user, system. For detailed
-              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
-            ja_JP: Message type. Optional values are text, post, image, file, audio,
-              media, sticker, interactive, share_chat, share_user, system. For detailed
-              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
-            pt_BR: Message type. Optional values are text, post, image, file, audio,
-              media, sticker, interactive, share_chat, share_user, system. For detailed
-              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
-            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
-          label:
-            en_US: msg_type
-            ja_JP: msg_type
-            pt_BR: msg_type
-            zh_Hans: 消息类型
-          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
-          max: null
-          min: null
-          name: msg_type
-          options:
-          - icon: ''
-            label:
-              en_US: text
-              ja_JP: text
-              pt_BR: text
-              zh_Hans: 文本
-            value: text
-          - icon: ''
-            label:
-              en_US: interactive
-              ja_JP: interactive
-              pt_BR: interactive
-              zh_Hans: 卡片
-            value: interactive
-          - icon: ''
-            label:
-              en_US: post
-              ja_JP: post
-              pt_BR: post
-              zh_Hans: 富文本
-            value: post
-          - icon: ''
-            label:
-              en_US: image
-              ja_JP: image
-              pt_BR: image
-              zh_Hans: 图片
-            value: image
-          - icon: ''
-            label:
-              en_US: file
-              ja_JP: file
-              pt_BR: file
-              zh_Hans: 文件
-            value: file
-          - icon: ''
-            label:
-              en_US: audio
-              ja_JP: audio
-              pt_BR: audio
-              zh_Hans: 语音
-            value: audio
-          - icon: ''
-            label:
-              en_US: media
-              ja_JP: media
-              pt_BR: media
-              zh_Hans: 视频
-            value: media
-          - icon: ''
-            label:
-              en_US: sticker
-              ja_JP: sticker
-              pt_BR: sticker
-              zh_Hans: 表情包
-            value: sticker
-          - icon: ''
-            label:
-              en_US: share_chat
-              ja_JP: share_chat
-              pt_BR: share_chat
-              zh_Hans: 分享群名片
-            value: share_chat
-          - icon: ''
-            label:
-              en_US: share_user
-              ja_JP: share_user
-              pt_BR: share_user
-              zh_Hans: 分享个人名片
-            value: share_user
-          - icon: ''
-            label:
-              en_US: system
-              ja_JP: system
-              pt_BR: system
-              zh_Hans: 系统消息
-            value: system
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: select
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Message content, a JSON structure serialized string. The value
-              of this parameter corresponds to msg_type. For example, if msg_type
-              is text, this parameter needs to pass in text type content. To understand
-              the format and usage limitations of different message types, refer to
-              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
-            ja_JP: Message content, a JSON structure serialized string. The value
-              of this parameter corresponds to msg_type. For example, if msg_type
-              is text, this parameter needs to pass in text type content. To understand
-              the format and usage limitations of different message types, refer to
-              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
-            pt_BR: Message content, a JSON structure serialized string. The value
-              of this parameter corresponds to msg_type. For example, if msg_type
-              is text, this parameter needs to pass in text type content. To understand
-              the format and usage limitations of different message types, refer to
-              the message content(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json).
-            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
-          label:
-            en_US: content
-            ja_JP: content
-            pt_BR: content
-            zh_Hans: 消息内容
-          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
-            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larksuite.com/document/server-docs/im-v1/message-content-description/create_json)。
-          max: null
-          min: null
-          name: content
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: string
-        params:
-          content: ''
-          msg_type: ''
-          receive_id: ''
-          receive_id_type: ''
-        plugin_id: langgenius/lark_message_and_group
-        plugin_unique_identifier: langgenius/lark_message_and_group:0.0.7@0b74066996ceffe3f53eb2401c70090de2c153e589d0e199527db51419622625
-        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=6661ab8d-f3e0-4308-b481-f8712751fcd3&filename=814c8896aad063dcb9ef96fdff0438a14987f040b1990a3f0fcb36f863a58e85.png
-        provider_id: langgenius/lark_message_and_group/lark_message_and_group
-        provider_name: langgenius/lark_message_and_group/lark_message_and_group
-        provider_show_name: Lark 消息和群组
-        provider_type: builtin
-        selected: false
-        title: 文件名称非法报错
-        tool_configurations:
-          msg_type:
-            type: constant
-            value: text
-          receive_id_type:
-            type: constant
-            value: chat_id
-        tool_description: 发送 Lark 应用消息
-        tool_label: 发送 Lark 应用消息
-        tool_name: send_bot_message
-        tool_node_version: '2'
-        tool_parameters:
-          content:
-            type: mixed
-            value: 文件名称不合法！请重新上传
-          receive_id:
-            type: mixed
-            value: '{{#1782981177946.chat_id#}}'
-        type: tool
-      height: 113
-      id: '1783862091321'
-      position:
-        x: -869.6009830645925
-        y: 64.62251711491245
-      positionAbsolute:
-        x: -869.6009830645925
-        y: 64.62251711491245
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
     - data:
         is_team_authorization: true
         paramSchemas:
@@ -6737,84 +6209,11 @@ workflow:
       height: 113
       id: '1783863672410'
       position:
-        x: 302.25315864770835
-        y: 202.9178493799517
+        x: -281.94577274244887
+        y: 238.64795480503685
       positionAbsolute:
-        x: 302.25315864770835
-        y: 202.9178493799517
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        desc: ''
-        isInIteration: false
-        isInLoop: false
-        model:
-          completion_params:
-            temperature: 0.7
-          mode: chat
-          name: deepseek-v4-flash
-          provider: langgenius/deepseek/deepseek
-        parameters:
-        - description: 销售合同甲方名称
-          name: customer_name
-          required: true
-          type: string
-        - description: 销售合同乙方名称
-          name: seller_name
-          required: true
-          type: string
-        - description: 商品名称
-          name: item_name
-          required: true
-          type: string
-        - description: 单位，如套、台、件等
-          name: unit
-          required: true
-          type: string
-        - description: 商品的规格/型号
-          name: item_model
-          required: true
-          type: string
-        - description: 销售单价
-          name: sell_unit_price
-          required: true
-          type: string
-        - description: 销售数量
-          name: sell_quantity
-          required: true
-          type: string
-        - description: 销售合同预计交付日期
-          name: sell_delivery_date
-          required: true
-          type: string
-        - description: 交付条款
-          name: payment_terms
-          required: false
-          type: string
-        - description: 销售合同总金额
-          name: sell_total_amount
-          required: false
-          type: string
-        query:
-        - '17836083620110'
-        - combined_text
-        reasoning_mode: prompt
-        selected: false
-        title: file2 销售合同字段提取器
-        type: parameter-extractor
-        vision:
-          enabled: false
-      height: 87
-      id: '17838646041250'
-      position:
-        x: -585.2497546369955
-        y: 190.55003976010198
-      positionAbsolute:
-        x: -585.2497546369955
-        y: 190.55003976010198
+        x: -281.94577274244887
+        y: 238.64795480503685
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7099,83 +6498,6 @@ workflow:
       positionAbsolute:
         x: -1677.1743036185396
         y: -217.89852737947155
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        desc: ''
-        isInIteration: false
-        isInLoop: false
-        model:
-          completion_params:
-            temperature: 0.7
-          mode: chat
-          name: deepseek-v4-flash
-          provider: langgenius/deepseek/deepseek
-        parameters:
-        - description: 采购合同甲方名称
-          name: applicant_name
-          required: false
-          type: string
-        - description: 采购合同乙方名称
-          name: supplier_name
-          required: true
-          type: string
-        - description: 商品名称
-          name: item_name
-          required: true
-          type: string
-        - description: 单位，如套、台、件等
-          name: unit
-          required: true
-          type: string
-        - description: 商品的规格/型号
-          name: item_model
-          required: true
-          type: string
-        - description: 采购单价
-          name: purchase_unit_price
-          required: true
-          type: string
-        - description: 采购数量
-          name: quantity
-          required: true
-          type: string
-        - description: 预计交付日期
-          name: expected_delivery_date
-          required: true
-          type: string
-        - description: 交付地点
-          name: delivery_location
-          required: true
-          type: string
-        - description: 交付条款
-          name: payment_terms
-          required: false
-          type: string
-        - description: 采购合同总金额
-          name: purchase_total_amount
-          required: false
-          type: string
-        query:
-        - '17836083620110'
-        - combined_text
-        reasoning_mode: prompt
-        selected: false
-        title: file2 采购合同字段提取器
-        type: parameter-extractor
-        vision:
-          enabled: false
-      height: 87
-      id: '17838653196780'
-      position:
-        x: -585.2497546369955
-        y: 294.0212547895673
-      positionAbsolute:
-        x: -585.2497546369955
-        y: 294.0212547895673
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8151,543 +7473,18 @@ workflow:
       height: 88
       id: '1783870259248'
       position:
-        x: 536.3258247138409
-        y: 399.95637318575774
+        x: -281.94577274244887
+        y: 374.887614923982
       positionAbsolute:
-        x: 536.3258247138409
-        y: 399.95637318575774
+        x: -281.94577274244887
+        y: 374.887614923982
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom-note
       width: 240
-    - data:
-        selected: false
-        template: "{\r\n  \"contract_type\": \"sales\",\r\n  \"data\": {\r\n    \"\
-          customer_name\": {{ customer_name | default('') | tojson }},\r\n    \"seller_name\"\
-          : {{ seller_name | default('') | tojson }},\r\n    \"item_name\": {{ item_name\
-          \ | default('') | tojson }},\r\n    \"item_model\": {{ item_model | default('')\
-          \ | tojson }},\r\n    \"quantity\": {{ quantity | default('') | tojson }},\r\
-          \n    \"unit\": {{ unit | default('') | tojson }},\r\n    \"sales_unit_price\"\
-          : {{ unit_price | default('') | tojson }},\r\n    \"sales_total_amount\"\
-          : {{ total_amount | default('') | tojson }},\r\n    \"delivery_date\": {{\
-          \ delivery_date | default('') | tojson }},\r\n    \"payment_terms\": {{\
-          \ payment_terms | default('') | tojson }}\r\n  }\r\n}"
-        title: 销售合同封装-file1
-        type: template-transform
-        variables:
-        - value_selector:
-          - '17833385592280'
-          - customer_name
-          value_type: string
-          variable: customer_name
-        - value_selector:
-          - '17833385592280'
-          - seller_name
-          value_type: string
-          variable: seller_name
-        - value_selector:
-          - '17833385592280'
-          - item_name
-          value_type: string
-          variable: item_name
-        - value_selector:
-          - '17833385592280'
-          - item_model
-          value_type: string
-          variable: item_model
-        - value_selector:
-          - '17833385592280'
-          - sell_quantity
-          value_type: string
-          variable: quantity
-        - value_selector:
-          - '17833385592280'
-          - unit
-          value_type: string
-          variable: unit
-        - value_selector:
-          - '17833385592280'
-          - sell_unit_price
-          value_type: string
-          variable: sales_unit_price
-        - value_selector:
-          - '17833385592280'
-          - sell_total_amount
-          value_type: string
-          variable: sales_total_amount
-        - value_selector:
-          - '17833385592280'
-          - sell_delivery_date
-          value_type: string
-          variable: delivery_date
-        - value_selector:
-          - '17833385592280'
-          - payment_terms
-          value_type: string
-          variable: payment_terms
-      height: 51
-      id: '1783998818190'
-      position:
-        x: -327.7171832445283
-        y: -156.42391637453153
-      positionAbsolute:
-        x: -327.7171832445283
-        y: -156.42391637453153
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        desc: ''
-        isInIteration: false
-        isInLoop: false
-        selected: false
-        template: "{\r\n  \"contract_type\": \"sales\",\r\n  \"data\": {\r\n    \"\
-          customer_name\": {{ customer_name | default('') | tojson }},\r\n    \"seller_name\"\
-          : {{ seller_name | default('') | tojson }},\r\n    \"item_name\": {{ item_name\
-          \ | default('') | tojson }},\r\n    \"item_model\": {{ item_model | default('')\
-          \ | tojson }},\r\n    \"quantity\": {{ quantity | default('') | tojson }},\r\
-          \n    \"unit\": {{ unit | default('') | tojson }},\r\n    \"sales_unit_price\"\
-          : {{ unit_price | default('') | tojson }},\r\n    \"sales_total_amount\"\
-          : {{ total_amount | default('') | tojson }},\r\n    \"delivery_date\": {{\
-          \ delivery_date | default('') | tojson }},\r\n    \"payment_terms\": {{\
-          \ payment_terms | default('') | tojson }}\r\n  }\r\n}"
-        title: 销售合同封装-file2
-        type: template-transform
-        variables:
-        - value_selector:
-          - '17838646041250'
-          - customer_name
-          value_type: string
-          variable: customer_name
-        - value_selector:
-          - '17838646041250'
-          - seller_name
-          value_type: string
-          variable: seller_name
-        - value_selector:
-          - '17838646041250'
-          - item_name
-          value_type: string
-          variable: item_name
-        - value_selector:
-          - '17838646041250'
-          - item_model
-          value_type: string
-          variable: item_model
-        - value_selector:
-          - '17838646041250'
-          - sell_quantity
-          value_type: string
-          variable: quantity
-        - value_selector:
-          - '17838646041250'
-          - unit
-          value_type: string
-          variable: unit
-        - value_selector:
-          - '17838646041250'
-          - sell_unit_price
-          value_type: string
-          variable: sales_unit_price
-        - value_selector:
-          - '17838646041250'
-          - sell_total_amount
-          value_type: string
-          variable: sales_total_amount
-        - value_selector:
-          - '17838646041250'
-          - sell_delivery_date
-          value_type: string
-          variable: delivery_date
-        - value_selector:
-          - '17838646041250'
-          - payment_terms
-          value_type: string
-          variable: payment_terms
-      height: 51
-      id: '17839992294090'
-      position:
-        x: -327.7171832445283
-        y: 190.55003976010198
-      positionAbsolute:
-        x: -327.7171832445283
-        y: 190.55003976010198
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        selected: false
-        template: "{\r\n  \"contract_type\": \"purchase\",\r\n  \"data\": {\r\n  \
-          \  \"supplier_name\": {{ supplier_name | default('') | tojson }},\r\n  \
-          \  \"buyer_name\": {{ buyer_name | default('') | tojson }},\r\n    \"item_name\"\
-          : {{ item_name | default('') | tojson }},\r\n    \"item_model\": {{ item_model\
-          \ | default('') | tojson }},\r\n    \"quantity\": {{ quantity | default('')\
-          \ | tojson }},\r\n    \"unit\": {{ unit | default('') | tojson }},\r\n \
-          \   \"purchase_unit_price\": {{ unit_price | default('') | tojson }},\r\n\
-          \    \"purchase_total_amount\": {{ total_amount | default('') | tojson }},\r\
-          \n    \"delivery_date\": {{ delivery_date | default('') | tojson }},\r\n\
-          \    \"delivery_location\": {{ delivery_location | default('') | tojson\
-          \ }},\r\n    \"payment_terms\": {{ payment_terms | default('') | tojson\
-          \ }}\r\n  }\r\n}"
-        title: 采购合同封装-file1
-        type: template-transform
-        variables:
-        - value_selector:
-          - '1783337962103'
-          - supplier_name
-          value_type: string
-          variable: supplier_name
-        - value_selector:
-          - '1783337962103'
-          - applicant_name
-          value_type: string
-          variable: buyer_name
-        - value_selector:
-          - '1783337962103'
-          - item_name
-          value_type: string
-          variable: item_name
-        - value_selector:
-          - '1783337962103'
-          - item_model
-          value_type: string
-          variable: item_model
-        - value_selector:
-          - '1783337962103'
-          - quantity
-          value_type: string
-          variable: quantity
-        - value_selector:
-          - '1783337962103'
-          - unit
-          value_type: string
-          variable: unit
-        - value_selector:
-          - '1783337962103'
-          - purchase_unit_price
-          value_type: string
-          variable: unit_price
-        - value_selector:
-          - '1783337962103'
-          - purchase_total_amount
-          value_type: string
-          variable: total_amount
-        - value_selector:
-          - '1783337962103'
-          - expected_delivery_date
-          value_type: string
-          variable: delivery_date
-        - value_selector:
-          - '1783337962103'
-          - delivery_location
-          value_type: string
-          variable: delivery_location
-        - value_selector:
-          - '1783337962103'
-          - payment_terms
-          value_type: string
-          variable: payment_terms
-      height: 51
-      id: '1783999635093'
-      position:
-        x: -327.7171832445283
-        y: -38.35289609848161
-      positionAbsolute:
-        x: -327.7171832445283
-        y: -38.35289609848161
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        desc: ''
-        isInIteration: false
-        isInLoop: false
-        selected: false
-        template: "{\r\n  \"contract_type\": \"purchase\",\r\n  \"data\": {\r\n  \
-          \  \"supplier_name\": {{ supplier_name | default('') | tojson }},\r\n  \
-          \  \"buyer_name\": {{ buyer_name | default('') | tojson }},\r\n    \"item_name\"\
-          : {{ item_name | default('') | tojson }},\r\n    \"item_model\": {{ item_model\
-          \ | default('') | tojson }},\r\n    \"quantity\": {{ quantity | default('')\
-          \ | tojson }},\r\n    \"unit\": {{ unit | default('') | tojson }},\r\n \
-          \   \"purchase_unit_price\": {{ unit_price | default('') | tojson }},\r\n\
-          \    \"purchase_total_amount\": {{ total_amount | default('') | tojson }},\r\
-          \n    \"delivery_date\": {{ delivery_date | default('') | tojson }},\r\n\
-          \    \"delivery_location\": {{ delivery_location | default('') | tojson\
-          \ }},\r\n    \"payment_terms\": {{ payment_terms | default('') | tojson\
-          \ }}\r\n  }\r\n}"
-        title: 采购合同封装-file2
-        type: template-transform
-        variables:
-        - value_selector:
-          - '17838653196780'
-          - supplier_name
-          value_type: string
-          variable: supplier_name
-        - value_selector:
-          - '17838653196780'
-          - applicant_name
-          value_type: string
-          variable: buyer_name
-        - value_selector:
-          - '17838653196780'
-          - item_name
-          value_type: string
-          variable: item_name
-        - value_selector:
-          - '17838653196780'
-          - item_model
-          value_type: string
-          variable: item_model
-        - value_selector:
-          - '17838653196780'
-          - quantity
-          value_type: string
-          variable: quantity
-        - value_selector:
-          - '17838653196780'
-          - unit
-          value_type: string
-          variable: unit
-        - value_selector:
-          - '17838653196780'
-          - purchase_unit_price
-          value_type: string
-          variable: unit_price
-        - value_selector:
-          - '17838653196780'
-          - purchase_total_amount
-          value_type: string
-          variable: total_amount
-        - value_selector:
-          - '17838653196780'
-          - expected_delivery_date
-          value_type: string
-          variable: delivery_date
-        - value_selector:
-          - '17838653196780'
-          - delivery_location
-          value_type: string
-          variable: delivery_location
-        - value_selector:
-          - '17838653196780'
-          - payment_terms
-          value_type: string
-          variable: payment_terms
-      height: 51
-      id: '17839998037740'
-      position:
-        x: -321.16598842182077
-        y: 294.0212547895673
-      positionAbsolute:
-        x: -321.16598842182077
-        y: 294.0212547895673
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        advanced_settings:
-          group_enabled: true
-          groups:
-          - groupId: c533bdc2-e5dd-4076-a931-f4f8df60b494
-            group_name: Group1
-            output_type: string
-            variables:
-            - - '1783999635093'
-              - output
-            - - '1783998818190'
-              - output
-        output_type: string
-        selected: false
-        title: file1结果聚合
-        type: variable-aggregator
-        variables:
-        - - '1783999635093'
-          - output
-        - - '1783998818190'
-          - output
-      height: 133
-      id: '1784000101343'
-      position:
-        x: -60.1633620094302
-        y: -134.7070199510217
-      positionAbsolute:
-        x: -60.1633620094302
-        y: -134.7070199510217
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        advanced_settings:
-          group_enabled: true
-          groups:
-          - groupId: 5992ba43-7830-4f8d-80db-1982dfcaa5ae
-            group_name: Group1
-            output_type: string
-            variables:
-            - - '17839998037740'
-              - output
-            - - '17839992294090'
-              - output
-        output_type: string
-        selected: false
-        title: file2结果聚合
-        type: variable-aggregator
-        variables:
-        - - '17839998037740'
-          - output
-        - - '17839992294090'
-          - output
-      height: 133
-      id: '1784000129262'
-      position:
-        x: -60.1633620094302
-        y: 213.85267038525748
-      positionAbsolute:
-        x: -60.1633620094302
-        y: 213.85267038525748
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        code: "import json\n\n\ndef parse_contract_json(value):\n    \"\"\"\n    将变量聚合器输出的\
-          \ JSON 字符串转换为 Python 字典。\n    同时兼容部分情况下输入已经是字典的情况。\n    \"\"\"\n\n    #\
-          \ 已经是字典，直接返回\n    if isinstance(value, dict):\n        return value\n\n\
-          \    # 输入为空\n    if value is None:\n        raise ValueError(\"合同聚合结果为空\"\
-          )\n\n    # 必须是字符串或字典\n    if not isinstance(value, str):\n        raise\
-          \ ValueError(\n            f\"合同聚合结果类型错误，当前类型为：{type(value).__name__}\"\n\
-          \        )\n\n    value = value.strip()\n\n    if not value:\n        raise\
-          \ ValueError(\"合同聚合结果为空字符串\")\n\n    # 兼容模板输出带有 Markdown JSON 代码块的情况\n \
-          \   if value.startswith(\"```json\"):\n        value = value[7:]\n\n   \
-          \ elif value.startswith(\"```\"):\n        value = value[3:]\n\n    if value.endswith(\"\
-          ```\"):\n        value = value[:-3]\n\n    value = value.strip()\n\n   \
-          \ # 第一次解析\n    result = json.loads(value)\n\n    # 某些情况下 JSON 字符串可能被再次包装成字符串\n\
-          \    # 例如：\"{\\\"contract_type\\\":\\\"sales\\\"}\"\n    if isinstance(result,\
-          \ str):\n        result = json.loads(result)\n\n    if not isinstance(result,\
-          \ dict):\n        raise ValueError(\"合同模板输出不是有效的 JSON 对象\")\n\n    return\
-          \ result\n\n\ndef main(\n    file1_contract_json: str,\n    file2_contract_json:\
-          \ str\n) -> dict:\n\n    try:\n        # 解析 file1 和 file2 的合同数据\n      \
-          \  file1_contract = parse_contract_json(\n            file1_contract_json\n\
-          \        )\n\n        file2_contract = parse_contract_json(\n          \
-          \  file2_contract_json\n        )\n\n        # 获取合同类型\n        file1_type\
-          \ = str(\n            file1_contract.get(\"contract_type\", \"\")\n    \
-          \    ).strip().lower()\n\n        file2_type = str(\n            file2_contract.get(\"\
-          contract_type\", \"\")\n        ).strip().lower()\n\n        # 获取合同字段内容\n\
-          \        file1_data = file1_contract.get(\"data\", {})\n        file2_data\
-          \ = file2_contract.get(\"data\", {})\n\n        # 检查 data 是否为对象\n      \
-          \  if not isinstance(file1_data, dict):\n            raise ValueError(\n\
-          \                \"file1 合同中的 data 不是有效对象\"\n            )\n\n        if\
-          \ not isinstance(file2_data, dict):\n            raise ValueError(\n   \
-          \             \"file2 合同中的 data 不是有效对象\"\n            )\n\n        # 情况一：\n\
-          \        # file1 是销售合同，file2 是采购合同\n        if (\n            file1_type\
-          \ == \"sales\"\n            and file2_type == \"purchase\"\n        ):\n\
-          \            sales_contract = file1_data\n            purchase_contract\
-          \ = file2_data\n\n        # 情况二：\n        # file1 是采购合同，file2 是销售合同\n  \
-          \      elif (\n            file1_type == \"purchase\"\n            and file2_type\
-          \ == \"sales\"\n        ):\n            sales_contract = file2_data\n  \
-          \          purchase_contract = file1_data\n\n        # 两份都是销售合同\n      \
-          \  elif (\n            file1_type == \"sales\"\n            and file2_type\
-          \ == \"sales\"\n        ):\n            return {\n                \"is_ready\"\
-          : False,\n                \"check_status\": \"DUPLICATE_SALES\",\n     \
-          \           \"message\": (\n                    \"检测到两份文件均为销售合同，\"\n   \
-          \                 \"请上传一份销售合同和一份采购合同。\"\n                ),\n          \
-          \      \"file1_type\": file1_type,\n                \"file2_type\": file2_type,\n\
-          \                \"sales_contract_json\": \"{}\",\n                \"purchase_contract_json\"\
-          : \"{}\"\n            }\n\n        # 两份都是采购合同\n        elif (\n        \
-          \    file1_type == \"purchase\"\n            and file2_type == \"purchase\"\
-          \n        ):\n            return {\n                \"is_ready\": False,\n\
-          \                \"check_status\": \"DUPLICATE_PURCHASE\",\n           \
-          \     \"message\": (\n                    \"检测到两份文件均为采购合同，\"\n         \
-          \           \"请上传一份销售合同和一份采购合同。\"\n                ),\n                \"\
-          file1_type\": file1_type,\n                \"file2_type\": file2_type,\n\
-          \                \"sales_contract_json\": \"{}\",\n                \"purchase_contract_json\"\
-          : \"{}\"\n            }\n\n        # 合同类型缺失或异常\n        else:\n        \
-          \    return {\n                \"is_ready\": False,\n                \"\
-          check_status\": \"INVALID_CONTRACT_TYPE\",\n                \"message\"\
-          : (\n                    \"未能识别出一份销售合同和\"\n                    \"一份采购合同，请检查合同类型判断结果。\"\
-          \n                ),\n                \"file1_type\": file1_type,\n    \
-          \            \"file2_type\": file2_type,\n                \"sales_contract_json\"\
-          : \"{}\",\n                \"purchase_contract_json\": \"{}\"\n        \
-          \    }\n\n        # 成功输出归类后的销售合同和采购合同\n        return {\n            \"\
-          is_ready\": True,\n            \"check_status\": \"READY\",\n          \
-          \  \"message\": (\n                \"销售合同和采购合同字段已完成归类，\"\n             \
-          \   \"可以进入采销合同比对。\"\n            ),\n            \"file1_type\": file1_type,\n\
-          \            \"file2_type\": file2_type,\n            \"sales_contract_json\"\
-          : json.dumps(\n                sales_contract,\n                ensure_ascii=False\n\
-          \            ),\n            \"purchase_contract_json\": json.dumps(\n \
-          \               purchase_contract,\n                ensure_ascii=False\n\
-          \            )\n        }\n\n    except Exception as error:\n\n        return\
-          \ {\n            \"is_ready\": False,\n            \"check_status\": \"\
-          PARSE_ERROR\",\n            \"message\": (\n                f\"合同字段归类失败：{str(error)}\"\
-          \n            ),\n            \"file1_type\": \"\",\n            \"file2_type\"\
-          : \"\",\n            \"sales_contract_json\": \"{}\",\n            \"purchase_contract_json\"\
-          : \"{}\"\n        }"
-        code_language: python3
-        outputs:
-          check_status:
-            children: null
-            type: string
-          file1_type:
-            children: null
-            type: string
-          file2_type:
-            children: null
-            type: string
-          is_ready:
-            children: null
-            type: boolean
-          message:
-            children: null
-            type: string
-          purchase_contract_json:
-            children: null
-            type: string
-          sales_contract_json:
-            children: null
-            type: string
-        selected: false
-        title: 合同角色归一化节点
-        type: code
-        variables:
-        - value_selector:
-          - '1784000101343'
-          - Group1
-          - output
-          value_type: object
-          variable: file1_contract_json
-        - value_selector:
-          - '1784000129262'
-          - Group1
-          - output
-          value_type: object
-          variable: file2_contract_json
-      height: 51
-      id: '1784000208731'
-      position:
-        x: -47.85191736733631
-        y: 89.11267687444071
-      positionAbsolute:
-        x: -47.85191736733631
-        y: 89.11267687444071
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
     viewport:
-      x: -831.1321670539569
-      y: 279.2976631888701
-      zoom: 0.8122523627981996
+      x: -437.8600244108684
+      y: 395.77829576494025
+      zoom: 0.7578582832551995
   rag_pipeline_variables: []

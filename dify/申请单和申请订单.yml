@@ -1,0 +1,1360 @@
+app:
+  description: 先使用直接输入，方便调试
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 申请单和申请订单
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.19@5b68617c637b62d31e7f33a9f5677b76e88f81868fb04a728e208588564b72ea
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: parameter-extractor
+      id: 1782978805233-source-1782978787539-target
+      selected: false
+      source: '1782978805233'
+      sourceHandle: source
+      target: '1782978787539'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: document-extractor
+      id: 1782979191274-source-1782978805233-target
+      selected: false
+      source: '1782979191274'
+      sourceHandle: source
+      target: '1782978805233'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 1782978787539-source-1783322550178-target
+      selected: false
+      source: '1782978787539'
+      sourceHandle: source
+      target: '1783322550178'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1783322550178-source-1783326932286-target
+      source: '1783322550178'
+      sourceHandle: source
+      target: '1783326932286'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1783326932286-source-1783327163935-target
+      source: '1783326932286'
+      sourceHandle: source
+      target: '1783327163935'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1783327163935-true-1783328656186-target
+      source: '1783327163935'
+      sourceHandle: 'true'
+      target: '1783328656186'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1783328656186-source-1783328951828-target
+      source: '1783328656186'
+      sourceHandle: source
+      target: '1783328951828'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1783328951828-source-1783329088829-target
+      source: '1783328951828'
+      sourceHandle: source
+      target: '1783329088829'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1783327163935-false-1783329235272-target
+      source: '1783327163935'
+      sourceHandle: 'false'
+      target: '1783329235272'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1783329235272-source-1783602981921-target
+      source: '1783329235272'
+      sourceHandle: source
+      target: '1783602981921'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1783328951828-source-1783928901127-target
+      source: '1783328951828'
+      sourceHandle: source
+      target: '1783928901127'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1783928901127-source-1783929122117-target
+      source: '1783928901127'
+      sourceHandle: source
+      target: '1783929122117'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1783929122117-true-1783929139090-target
+      source: '1783929122117'
+      sourceHandle: 'true'
+      target: '1783929139090'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1783929139090-source-1783951207795-target
+      source: '1783929139090'
+      sourceHandle: source
+      target: '1783951207795'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1783929122117-false-1783951280599-target
+      source: '1783929122117'
+      sourceHandle: 'false'
+      target: '1783951280599'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1783951280599-source-1783929161557-target
+      source: '1783951280599'
+      sourceHandle: source
+      target: '1783929161557'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hide: false
+          hint: ''
+          label: 销售合同
+          options: []
+          placeholder: ''
+          required: true
+          type: file
+          variable: sales_file
+      height: 108
+      id: '1782979191274'
+      position:
+        x: 0
+        y: 34.39999999999999
+      positionAbsolute:
+        x: 0
+        y: 34.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        instruction: 你是企业采购流程中的合同字段提取助手，负责从{{#1782978805233.text#}}中输出的销售合同文件中提取关键字段。要求：1.所有信息只从原文中提取，严禁编造；2.如果字段不存在，返回空字符串
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        parameters:
+        - description: 采购合同甲方名称
+          name: applicant_name
+          required: true
+          type: string
+        - description: 采购合同乙方名称
+          name: supplier_name
+          required: true
+          type: string
+        - description: 商品/服务名称
+          name: item_name
+          required: true
+          type: string
+        - description: 商品的规格/型号
+          name: item_model
+          required: true
+          type: string
+        - description: 单位，如套、台、件等
+          name: unit
+          required: true
+          type: string
+        - description: 采购单价
+          name: purchase_unit_price
+          required: true
+          type: string
+        - description: 采购数量
+          name: quantity
+          required: true
+          type: string
+        - description: 预计交付日期
+          name: expected_delivery_date
+          required: true
+          type: string
+        - description: 交付地点
+          name: delivery_location
+          required: false
+          type: string
+        - description: 交付条款
+          name: payment_terms
+          required: false
+          type: string
+        - description: 采购合同总金额
+          name: purchase_total_amount
+          required: false
+          type: string
+        query:
+        - '1782978805233'
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: 字段1
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 87
+      id: '1782978787539'
+      position:
+        x: 566.2097894038
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 566.2097894038
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_array_file: false
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1782979191274'
+        - sales_file
+      height: 103
+      id: '1782978805233'
+      position:
+        x: 284.543662822456
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 284.543662822456
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 197
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"假设对比通过，从里面提取字段用于创建采购申请单（暂时假定全都是商品销售类的）我感觉如果要把合同分类看的话会同时设计两条线的内容，反而复杂化，优先以实现为主","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":"font-size:
+          14px;"}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 250
+      height: 197
+      id: '1783320912539'
+      position:
+        x: 948.6609020474332
+        y: -404.08878012950896
+      positionAbsolute:
+        x: 948.6609020474332
+        y: -404.08878012950896
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 250
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 108
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"整理出采购申请单主体内容并判断关键字段是否有异常或缺失","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 276
+      height: 108
+      id: '1783321096500'
+      position:
+        x: 1427.4637118603007
+        y: -373.2214437753251
+      positionAbsolute:
+        x: 1427.4637118603007
+        y: -373.2214437753251
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 276
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        default_value:
+        - key: text
+          type: string
+          value: LLM 处理异常
+        error_strategy: default-value
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 322210fc-c5f8-45a8-b3f5-4c2711b9684e
+          role: system
+          text: "你是企业采购经理 AI Agent 中的采购申请单生成模块，你的任务是根据采购合同结构化字段生成采购申请单草稿。\n要求：\n1.优先从采购合同中提取供应商、采购商品、采购数量、采购单价、采购总金额、交付日期、付款条款。\n\
+            2.字段为空、未知、未提及、无法判断时，视为缺失字段，请放入 missing_fields。\n3.输出合法 JSON，不要输出 markdown，不要输出解释性文字\n\
+            4.不要编造合同中不存在的供应商、金额、数量、日期。\n5.如果校验通过（abnormal_fields与missing_fields为空），将is_ready设为true\n\
+            必填字段：\n- supplier_name：供应商名称，见{{#1782978787539.supplier_name#}}\n- product_name：商品名称，见{{#1782978787539.item_name#}}\n\
+            - product_model：规格型号，见{{#1782978787539.item_model#}}\n- quantity：采购数量，见{{#1782978787539.quantity#}}\n\
+            - unit：单位，见{{#1782978787539.unit#}}\n- purchase_unit_price：采购单价，见{{#1782978787539.purchase_unit_price#}}\n\
+            - purchase_total_amount：采购总金额，见{{#1782978787539.purchase_total_amount#}}\n\
+            - expected_delivery_date：预计交付日期，见{{#1782978787539.expected_delivery_date#}}\n\
+            - delivery_location：交付地点，见{{#1782978787539.delivery_location#}}\n- payment_terms：付款条款，见{{#1782978787539.payment_terms#}}\n\
+            校验规则：\n1. quantity 必须为大于 0 的数字,\n2. purchase_unit_price 必须为大于 0 的数字。\n\
+            3. purchase_total_amount 必须为大于 0 的数字。\n4. expected_delivery_date 必须是明确日期。\n\
+            5. 字段为空、未知、未提及、无法判断时，视为缺失字段,放入missing_fields\n6. 如果 purchase_total_amount\
+            \ 与 quantity × purchase_unit_price 明显不一致,放入 abnormal_fields。\n输出格式：\n\
+            {\n  “is_ready”: true 或 false\n  \"missing_fields\": [],\n  \"abnormal_fields\"\
+            : [],\n  \"purchase_application\": {\n    \"application_title\": \"\"\
+            ,\n    \"apply_date\": \"\",\n    \"supplier_name\": \"\",\n    \"item_name\"\
+            : \"\",\n    \"item_model\": \"\",\n    \"unit\": \"\",\n    \"quantity\"\
+            : \"\",\n    \"purchase_unit_price\": \"\",\n    \"purchase_total_amount\"\
+            : \"\",\n    \"expected_delivery_date\": \"\",\n    \"payment_terms\"\
+            : \"\",\n    \"delivery_location\": \"\",\n  }\n}\n"
+        reasoning_format: separated
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 123
+      id: '1783322550178'
+      position:
+        x: 858.5244946800399
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 858.5244946800399
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\nfrom datetime import datetime\n\n\ndef main(text:\
+          \ str) -> dict:\n    \"\"\"\n    商品采购申请单创建前校验节点\n\n    功能：\n    1. 解析 LLM\
+          \ 输出的 JSON 字符串\n    2. 自动补全 application_title 和 apply_date\n    3. 统一字段名\
+          \ item_name / product_name、item_model / product_model\n    4. 校验商品采购申请单必填字段\n\
+          \    5. 校验数量、单价、总金额是否合理\n    6. 输出可供 IF/ELSE 节点判断的 is_ready\n    \"\"\"\n\
+          \n    # ---------- 1. 处理空输出 ----------\n    if not text or not text.strip():\n\
+          \        return {\n            \"is_ready\": \"false\",\n            \"\
+          check_status\": \"EMPTY_OUTPUT\",\n            \"message\": \"LLM 输出为空，无法创建采购申请单。\"\
+          ,\n            \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
+          : json.dumps([\n                {\n                    \"field\": \"llm_output\"\
+          ,\n                    \"field_name\": \"LLM输出\",\n                    \"\
+          reason\": \"LLM 输出为空\"\n                }\n            ], ensure_ascii=False),\n\
+          \            \"purchase_application_json\": \"\"\n        }\n\n    raw =\
+          \ text.strip()\n\n    # ---------- 2. 清理 markdown 包裹 ----------\n    raw\
+          \ = raw.replace(\"```json\", \"\").replace(\"```\", \"\").strip()\n\n  \
+          \  # ---------- 3. 兼容外层 {\"text\": \"...\"} 的情况 ----------\n    try:\n \
+          \       outer = json.loads(raw)\n        if isinstance(outer, dict) and\
+          \ \"text\" in outer:\n            raw = outer[\"text\"]\n    except Exception:\n\
+          \        pass\n\n    # ---------- 4. 提取 JSON 主体，避免模型前后输出说明文字 ----------\n\
+          \    match = re.search(r\"\\{[\\s\\S]*\\}\", raw)\n    if match:\n     \
+          \   raw = match.group(0)\n\n    # ---------- 5. 解析 JSON ----------\n   \
+          \ try:\n        data = json.loads(raw)\n    except Exception as e:\n   \
+          \     return {\n            \"is_ready\": \"false\",\n            \"check_status\"\
+          : \"JSON_PARSE_ERROR\",\n            \"message\": f\"LLM 输出不是合法 JSON：{str(e)}\"\
+          ,\n            \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
+          : json.dumps([\n                {\n                    \"field\": \"llm_output\"\
+          ,\n                    \"field_name\": \"LLM输出\",\n                    \"\
+          reason\": \"LLM 输出不是合法 JSON\",\n                    \"raw_output\": text\n\
+          \                }\n            ], ensure_ascii=False),\n            \"\
+          purchase_application_json\": \"\"\n        }\n\n    # ---------- 6. 获取采购申请单主体\
+          \ ----------\n    app = data.get(\"purchase_application\") or {}\n\n   \
+          \ if not isinstance(app, dict):\n        return {\n            \"is_ready\"\
+          : \"false\",\n            \"check_status\": \"INVALID_APPLICATION\",\n \
+          \           \"message\": \"purchase_application 字段格式异常，无法创建采购申请单。\",\n \
+          \           \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
+          : json.dumps([\n                {\n                    \"field\": \"purchase_application\"\
+          ,\n                    \"field_name\": \"采购申请单\",\n                    \"\
+          reason\": \"purchase_application 不是对象格式\"\n                }\n         \
+          \   ], ensure_ascii=False),\n            \"purchase_application_json\":\
+          \ \"\"\n        }\n\n    # ---------- 7. 字段名兼容处理 ----------\n    # 兼容 product_name\
+          \ / item_name\n    if not app.get(\"item_name\") and app.get(\"product_name\"\
+          ):\n        app[\"item_name\"] = app.get(\"product_name\")\n\n    if not\
+          \ app.get(\"product_name\") and app.get(\"item_name\"):\n        app[\"\
+          product_name\"] = app.get(\"item_name\")\n\n    # 兼容 product_model / item_model\n\
+          \    if not app.get(\"item_model\") and app.get(\"product_model\"):\n  \
+          \      app[\"item_model\"] = app.get(\"product_model\")\n\n    if not app.get(\"\
+          product_model\") and app.get(\"item_model\"):\n        app[\"product_model\"\
+          ] = app.get(\"item_model\")\n\n    # ---------- 8. 自动补全系统生成字段 ----------\n\
+          \    # application_title 不需要 LLM 强制提取\n    if not app.get(\"application_title\"\
+          ):\n        item_name = app.get(\"item_name\") or app.get(\"product_name\"\
+          ) or \"商品\"\n        app[\"application_title\"] = f\"采购申请单-{item_name}\"\
+          \n\n    # apply_date 不需要 LLM 强制提取\n    if not app.get(\"apply_date\"):\n\
+          \        app[\"apply_date\"] = datetime.now().strftime(\"%Y-%m-%d\")\n\n\
+          \    # application_type 固定为商品采购\n    if not app.get(\"application_type\"\
+          ):\n        app[\"application_type\"] = \"商品采购\"\n\n    # currency 默认 CNY\n\
+          \    if not app.get(\"currency\"):\n        app[\"currency\"] = \"CNY\"\n\
+          \n    # application_status 默认待提交\n    if not app.get(\"application_status\"\
+          ):\n        app[\"application_status\"] = \"待提交\"\n\n    # ---------- 9.\
+          \ 工具函数 ----------\n    def is_empty(value):\n        \"\"\"\n        判断字段是否为空。\n\
+          \        \"\"\"\n        if value is None:\n            return True\n\n\
+          \        if isinstance(value, str):\n            value = value.strip()\n\
+          \            if value == \"\":\n                return True\n          \
+          \  if value in [\"无\", \"未知\", \"未提及\", \"无法判断\", \"N/A\", \"null\", \"\
+          None\"]:\n                return True\n\n        return False\n\n    def\
+          \ to_number(value):\n        \"\"\"\n        将金额、数量字段转为数字。\n        支持：\n\
+          \        760\n        760.00\n        \"760元\"\n        \"¥760.00\"\n  \
+          \      \"152,000.00\"\n        \"\"\"\n        if value is None:\n     \
+          \       return None\n\n        if isinstance(value, (int, float)):\n   \
+          \         return float(value)\n\n        if isinstance(value, str):\n  \
+          \          cleaned = value.strip()\n            cleaned = cleaned.replace(\"\
+          ,\", \"\")\n            cleaned = cleaned.replace(\"¥\", \"\")\n       \
+          \     cleaned = cleaned.replace(\"￥\", \"\")\n            cleaned = cleaned.replace(\"\
+          元\", \"\")\n            cleaned = cleaned.replace(\"人民币\", \"\")\n     \
+          \       cleaned = cleaned.strip()\n\n            match = re.search(r\"-?\\\
+          d+(\\.\\d+)?\", cleaned)\n            if match:\n                try:\n\
+          \                    return float(match.group(0))\n                except\
+          \ Exception:\n                    return None\n\n        return None\n\n\
+          \    def get_field_name(field):\n        \"\"\"\n        从 missing_fields\
+          \ 或 abnormal_fields 中取字段名。\n        兼容：\n        [\"apply_date\"]\n    \
+          \    [{\"field\": \"apply_date\", \"reason\": \"...\"}]\n        \"\"\"\n\
+          \        if isinstance(field, str):\n            return field\n\n      \
+          \  if isinstance(field, dict):\n            return field.get(\"field\")\
+          \ or field.get(\"name\") or \"\"\n\n        return \"\"\n\n    # ----------\
+          \ 10. 清理 LLM 原本给出的 missing_fields ----------\n    llm_missing_fields = data.get(\"\
+          missing_fields\") or []\n    llm_abnormal_fields = data.get(\"abnormal_fields\"\
+          ) or []\n\n    if not isinstance(llm_missing_fields, list):\n        llm_missing_fields\
+          \ = []\n\n    if not isinstance(llm_abnormal_fields, list):\n        llm_abnormal_fields\
+          \ = []\n\n    # 这些字段可以系统自动生成，不应该继续算作缺失\n    auto_fill_fields = {\n     \
+          \   \"apply_date\",\n        \"application_title\",\n        \"application_type\"\
+          ,\n        \"currency\",\n        \"application_status\"\n    }\n\n    cleaned_missing_fields\
+          \ = []\n\n    for field in llm_missing_fields:\n        field_name = get_field_name(field)\n\
+          \n        # 自动生成字段不算缺失\n        if field_name in auto_fill_fields:\n   \
+          \         continue\n\n        # 如果字段已经在 app 中存在，也不算缺失\n        if field_name\
+          \ and not is_empty(app.get(field_name)):\n            continue\n\n     \
+          \   cleaned_missing_fields.append(field)\n\n    # ---------- 11. 当前商品采购申请单必填字段\
+          \ ----------\n    required_fields = [\n        {\n            \"field\"\
+          : \"supplier_name\",\n            \"field_name\": \"供应商名称\"\n        },\n\
+          \        {\n            \"field\": \"item_name\",\n            \"field_name\"\
+          : \"商品名称\"\n        },\n        {\n            \"field\": \"item_model\"\
+          ,\n            \"field_name\": \"规格型号\"\n        },\n        {\n       \
+          \     \"field\": \"unit\",\n            \"field_name\": \"单位\"\n       \
+          \ },\n        {\n            \"field\": \"quantity\",\n            \"field_name\"\
+          : \"采购数量\"\n        },\n        {\n            \"field\": \"purchase_unit_price\"\
+          ,\n            \"field_name\": \"采购单价\"\n        },\n        {\n       \
+          \     \"field\": \"purchase_total_amount\",\n            \"field_name\"\
+          : \"采购总金额\"\n        },\n        {\n            \"field\": \"expected_delivery_date\"\
+          ,\n            \"field_name\": \"预计交付日期\"\n        },\n        {\n     \
+          \       \"field\": \"payment_terms\",\n            \"field_name\": \"付款条款\"\
+          \n        },\n        {\n            \"field\": \"delivery_location\",\n\
+          \            \"field_name\": \"交付地点\"\n        }\n    ]\n\n    # ----------\
+          \ 12. 根据 app 再做一次确定性缺失检查 ----------\n    existing_missing_field_names =\
+          \ set()\n\n    for field in cleaned_missing_fields:\n        field_name\
+          \ = get_field_name(field)\n        if field_name:\n            existing_missing_field_names.add(field_name)\n\
+          \n    for item in required_fields:\n        field = item[\"field\"]\n  \
+          \      field_name = item[\"field_name\"]\n\n        if is_empty(app.get(field))\
+          \ and field not in existing_missing_field_names:\n            cleaned_missing_fields.append({\n\
+          \                \"field\": field,\n                \"field_name\": field_name,\n\
+          \                \"reason\": f\"{field_name}缺失，无法创建采购申请单。\",\n         \
+          \       \"suggestion\": f\"请补充{field_name}。\"\n            })\n        \
+          \    existing_missing_field_names.add(field)\n\n    # ---------- 13. 数值与业务规则校验\
+          \ ----------\n    abnormal_fields = []\n\n    # 保留 LLM 原本发现的异常\n    for\
+          \ field in llm_abnormal_fields:\n        abnormal_fields.append(field)\n\
+          \n    quantity = to_number(app.get(\"quantity\"))\n    unit_price = to_number(app.get(\"\
+          purchase_unit_price\"))\n    total_amount = to_number(app.get(\"purchase_total_amount\"\
+          ))\n\n    # 数量必须大于 0\n    if not is_empty(app.get(\"quantity\")):\n    \
+          \    if quantity is None or quantity <= 0:\n            abnormal_fields.append({\n\
+          \                \"field\": \"quantity\",\n                \"field_name\"\
+          : \"采购数量\",\n                \"reason\": \"采购数量必须是大于 0 的数字。\",\n       \
+          \         \"current_value\": app.get(\"quantity\"),\n                \"\
+          suggestion\": \"请检查采购数量是否填写正确。\"\n            })\n\n    # 单价必须大于 0\n   \
+          \ if not is_empty(app.get(\"purchase_unit_price\")):\n        if unit_price\
+          \ is None or unit_price <= 0:\n            abnormal_fields.append({\n  \
+          \              \"field\": \"purchase_unit_price\",\n                \"field_name\"\
+          : \"采购单价\",\n                \"reason\": \"采购单价必须是大于 0 的数字。\",\n       \
+          \         \"current_value\": app.get(\"purchase_unit_price\"),\n       \
+          \         \"suggestion\": \"请检查采购单价是否填写正确。\"\n            })\n\n    # 总金额必须大于\
+          \ 0\n    if not is_empty(app.get(\"purchase_total_amount\")):\n        if\
+          \ total_amount is None or total_amount <= 0:\n            abnormal_fields.append({\n\
+          \                \"field\": \"purchase_total_amount\",\n               \
+          \ \"field_name\": \"采购总金额\",\n                \"reason\": \"采购总金额必须是大于 0\
+          \ 的数字。\",\n                \"current_value\": app.get(\"purchase_total_amount\"\
+          ),\n                \"suggestion\": \"请检查采购总金额是否填写正确。\"\n            })\n\
+          \n    # 校验 总金额 ≈ 数量 × 单价\n    if quantity is not None and unit_price is\
+          \ not None and total_amount is not None:\n        calculated_total = quantity\
+          \ * unit_price\n\n        # 允许 1 元以内误差，避免小数或四舍五入问题\n        if abs(calculated_total\
+          \ - total_amount) > 1:\n            abnormal_fields.append({\n         \
+          \       \"field\": \"purchase_total_amount\",\n                \"field_name\"\
+          : \"采购总金额\",\n                \"reason\": \"采购总金额与采购数量 × 采购单价不一致。\",\n \
+          \               \"current_value\": total_amount,\n                \"calculated_value\"\
+          : calculated_total,\n                \"suggestion\": \"请检查采购数量、采购单价或采购总金额是否填写正确。\"\
+          \n            })\n\n    # ---------- 14. 最终状态判断 ----------\n    if cleaned_missing_fields:\n\
+          \        is_ready = False\n        check_status = \"MISSING_FIELD\"\n  \
+          \      message = \"采购申请单字段缺失，暂不能创建采购申请单。\"\n    elif abnormal_fields:\n\
+          \        is_ready = False\n        check_status = \"ABNORMAL_FIELD\"\n \
+          \       message = \"采购申请单字段存在异常，暂不能创建采购申请单。\"\n    else:\n        is_ready\
+          \ = True\n        check_status = \"PASS\"\n        message = \"采购申请单字段完整，可以创建采购申请单。\"\
+          \n\n    # ---------- 15. 返回给 Dify ----------\n    return {\n        \"is_ready\"\
+          : \"true\" if is_ready else \"false\",\n        \"check_status\": check_status,\n\
+          \        \"message\": message,\n        \"missing_fields_json\": json.dumps(cleaned_missing_fields,\
+          \ ensure_ascii=False),\n        \"abnormal_fields_json\": json.dumps(abnormal_fields,\
+          \ ensure_ascii=False),\n        \"purchase_application_json\": json.dumps(app,\
+          \ ensure_ascii=False)\n    }"
+        code_language: python3
+        outputs:
+          abnormal_fields_json:
+            children: null
+            type: string
+          check_status:
+            children: null
+            type: string
+          is_ready:
+            children: null
+            type: string
+          message:
+            children: null
+            type: string
+          missing_fields_json:
+            children: null
+            type: string
+          purchase_application_json:
+            children: null
+            type: string
+        selected: false
+        title: 采购申请单创建前校验
+        type: code
+        variables:
+        - value_selector:
+          - '1783322550178'
+          - text
+          value_type: string
+          variable: text
+      height: 51
+      id: '1783326932286'
+      position:
+        x: 1150.9691456568623
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 1150.9691456568623
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 9d079989-0de6-4b8c-b2fc-5da2b3bb555b
+            value: 'true'
+            varType: string
+            variable_selector:
+            - '1783326932286'
+            - is_ready
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 123
+      id: '1783327163935'
+      position:
+        x: 1438.5320788886938
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 1438.5320788886938
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"去除json输出的多余的
+          \\ 等部分","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"补全采购字段日期与标题","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783327254349'
+      position:
+        x: 1204.9432805812219
+        y: -399.168462668126
+      positionAbsolute:
+        x: 1204.9432805812219
+        y: -399.168462668126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"判断通过后，则生成采购申请单编号等信息正式创建采购申请单","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783328547053'
+      position:
+        x: 1438.5320788886938
+        y: -480.5629783678237
+      positionAbsolute:
+        x: 1438.5320788886938
+        y: -480.5629783678237
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        code: "import json\nfrom datetime import datetime\n\n\ndef main(purchase_application_json:\
+          \ str) -> dict:\n    \"\"\"\n    模拟采购申请单创建节点\n\n    输入：\n    - purchase_application_json：上一步字段校验节点输出的采购申请单\
+          \ JSON\n\n    输出：\n    - create_success：是否创建成功\n    - application_no：采购申请单编号\n\
+          \    - application_status：申请单状态\n    - message：创建结果说明\n    - app_result_json：完整采购申请单创建结果\n\
+          \    \"\"\"\n\n    if not purchase_application_json or not purchase_application_json.strip():\n\
+          \        return {\n            \"create_success\": \"false\",\n        \
+          \    \"application_no\": \"\",\n            \"application_status\": \"创建失败\"\
+          ,\n            \"message\": \"采购申请单内容为空，无法创建采购申请单。\",\n            \"app_result_json\"\
+          : \"\"\n        }\n\n    try:\n        app = json.loads(purchase_application_json)\n\
+          \    except Exception as e:\n        return {\n            \"create_success\"\
+          : \"false\",\n            \"application_no\": \"\",\n            \"application_status\"\
+          : \"创建失败\",\n            \"message\": f\"采购申请单 JSON 解析失败：{str(e)}\",\n \
+          \           \"app_result_json\": \"\"\n        }\n\n    now = datetime.now()\n\
+          \n    # 生成模拟采购申请单编号\n    application_no = \"PA-\" + now.strftime(\"%Y%m%d%H%M%S\"\
+          )\n\n    # 设置申请单状态\n    application_status = \"已提交审批\"\n\n    # 组装完整采购申请单创建结果\n\
+          \    result = {\n        \"application_no\": application_no,\n        \"\
+          application_status\": application_status,\n        \"application_title\"\
+          : app.get(\"application_title\", \"\"),\n        \"application_type\": app.get(\"\
+          application_type\", \"商品采购\"),\n        \"apply_date\": app.get(\"apply_date\"\
+          , now.strftime(\"%Y-%m-%d\")),\n\n        \"supplier_name\": app.get(\"\
+          supplier_name\", \"\"),\n\n        \"item_name\": app.get(\"item_name\"\
+          , \"\"),\n        \"item_model\": app.get(\"item_model\", \"\"),\n     \
+          \   \"unit\": app.get(\"unit\", \"\"),\n        \"quantity\": app.get(\"\
+          quantity\", \"\"),\n\n        \"purchase_unit_price\": app.get(\"purchase_unit_price\"\
+          , \"\"),\n        \"purchase_total_amount\": app.get(\"purchase_total_amount\"\
+          , \"\"),\n        \"currency\": app.get(\"currency\", \"CNY\"),\n\n    \
+          \    \"expected_delivery_date\": app.get(\"expected_delivery_date\", \"\"\
+          ),\n        \"delivery_location\": app.get(\"delivery_location\", \"\"),\n\
+          \        \"payment_terms\": app.get(\"payment_terms\", \"\"),\n\n      \
+          \  \"create_time\": now.strftime(\"%Y-%m-%d %H:%M:%S\"),\n        \"message\"\
+          : \"采购申请单已自动创建并提交审批。\"\n    }\n\n    return {\n        \"create_success\"\
+          : \"true\",\n        \"application_no\": application_no,\n        \"application_status\"\
+          : application_status,\n        \"message\": \"采购申请单已自动创建并提交审批。\",\n    \
+          \    \"app_result_json\": json.dumps(result, ensure_ascii=False)\n    }"
+        code_language: python3
+        outputs:
+          app_result_json:
+            children: null
+            type: string
+          application_no:
+            children: null
+            type: string
+          application_status:
+            children: null
+            type: string
+          create_success:
+            children: null
+            type: string
+          message:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 2
+        type: code
+        variables:
+        - value_selector:
+          - '1783326932286'
+          - purchase_application_json
+          value_type: string
+          variable: purchase_application_json
+      height: 51
+      id: '1783328656186'
+      position:
+        x: 1745.1425568652467
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 1745.1425568652467
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 32850cd2-41ee-4117-a636-84c96215cfb1
+          role: system
+          text: '你是企业采购经理 AI Agent 的结果回复模块。
+
+            当前采购申请单已经创建完成。请根据传入的{{#1783328656186.app_result_json#}}，生成一段简洁、清晰的用户通知。
+
+            要求：
+
+            1. 明确说明采购申请单已创建并提交审批。
+
+            2. 展示申请编号、申请状态、供应商、采购内容、数量、单价、总金额、预计交付日期、交付地点。
+
+            3. 如果有付款条款，请简要展示。
+
+            4. 不要编造 JSON 中不存在的信息。
+
+            5. 使用中文回复，适合飞书消息通知。'
+        reasoning_format: separated
+        selected: false
+        structured_output_enabled: false
+        title: 申请单创建完成回复
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783328951828'
+      position:
+        x: 2043.9918509689992
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 2043.9918509689992
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"对创建状态进行回复","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783329030094'
+      position:
+        x: 1705.9473946648814
+        y: -464.8930682284936
+      positionAbsolute:
+        x: 1705.9473946648814
+        y: -464.8930682284936
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        outputs:
+        - value_selector:
+          - '1783328951828'
+          - text
+          value_type: string
+          variable: success
+        selected: true
+        title: 输出
+        type: end
+      height: 87
+      id: '1783329088829'
+      position:
+        x: 2350.980741101017
+        y: 176.65732532083157
+      positionAbsolute:
+        x: 2350.980741101017
+        y: 176.65732532083157
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 7969415e-c886-4577-8535-cb779449b30b
+          role: system
+          text: "你是企业采购经理 AI Agent 的采购申请单异常处理模块。\n当前采购申请单未能创建成功。请根据输入的字段校验结果，生成一段适合飞书通知用户的中文回复。\n\
+            你的任务：\n1. 明确说明采购申请单暂未创建。\n2. 根据校验状态{{#1783326932286.check_status#}}并结合系统提示{{#1783326932286.message#}}判断异常类型：\n\
+            \   - MISSING_FIELD：存在缺失字段\n   - ABNORMAL_FIELD：存在异常字段\n   - JSON_PARSE_ERROR：上游模型输出无法正常解析\n\
+            \   - EMPTY_OUTPUT：上游未获取到有效采购信息。提示用户重新提交采购信息或重新上传采购合同\n   - FAIL：其他失败原因\n\
+            3.根据{{#1783326932286.purchase_application_json#}}，展示当前已经识别出的采购申请单信息。 只展示输入中真实存在的信息，不要编造，也不要把空值、未知、未提及等内容描述为有效字段。\
+            \ 按照以下固定顺序展示： \n【当前已识别的采购申请单信息】 \n申请标题、申请日期、供应商名称、商品名称、规格型号、采购数量、单位、采购单价、采购总金额、预计交付日期、交付地点、付款条款。没有有效值的字段可以省略，输出时信息之间请换行输出。\n\
+            3. 如果{{#1783326932286.check_status#}}为 MISSING_FIELD，则用中文名称对应列出实际缺失字段，明确告诉用户需要补充哪些信息，并提示用户可以直接使用自然语言回复\n\
+            4.如果{{#1783326932286.check_status#}}为 ABNORMAL_FIELD，则展示对应异常字段并说明异常原因和建议修改内容，并提示用户回复需要更正后的值，异常字段说明放在缺失字段说明后\n\
+            5. 给出用户下一步处理建议。\n6.回复必须完整保留当前已经识别出的采购申请单信息和需要补充或修改的字段\n7. 不要编造输入中不存在的信息。\n\
+            8. 不要输出 JSON，直接输出自然语言消息，回复要简洁清晰，适合飞书消息通知。"
+        reasoning_format: separated
+        selected: false
+        title: 采购申请单异常处理
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783329235272'
+      position:
+        x: 1745.1425568652467
+        y: 140.571666416904
+      positionAbsolute:
+        x: 1745.1425568652467
+        y: 140.571666416904
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"异常分支回复节点，缺少或是某些字段异常","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783329242156'
+      position:
+        x: 1688.2981495467989
+        y: 736.8734027520164
+      positionAbsolute:
+        x: 1688.2981495467989
+        y: 736.8734027520164
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        outputs:
+        - value_selector:
+          - '1783329235272'
+          - text
+          value_type: string
+          variable: text1
+        selected: false
+        title: 输出 2
+        type: end
+      height: 87
+      id: '1783602981921'
+      position:
+        x: 2043.9918509689992
+        y: 163.20598106260317
+      positionAbsolute:
+        x: 2043.9918509689992
+        y: 163.20598106260317
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: 蔡源博
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"通过销售合同提取采购相关字段","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783928769898'
+      position:
+        x: 382.39321266551156
+        y: -88.64894627131856
+      positionAbsolute:
+        x: 382.39321266551156
+        y: -88.64894627131856
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: 蔡源博
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"要加入商品建档和库存对比","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783928810354'
+      position:
+        x: 2049.5531975823765
+        y: -71.34739153202578
+      positionAbsolute:
+        x: 2049.5531975823765
+        y: -71.34739153202578
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 21fa11da-5084-4dd8-9927-0e2de8b83d9d
+          role: system
+          text: '{{#1783328656186.app_result_json#}}根据这个json文件，与   “库存变量json文件”对比，输出库存是否充足，通过只输出1，不通过输出0，
+            目前测试阶段默认为不通过
+
+            '
+        reasoning_format: separated
+        selected: false
+        structured_output_enabled: false
+        title: 库存对比
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783928901127'
+      position:
+        x: 2608.693712638751
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 2608.693712638751
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: 蔡源博
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"库存数据如何调用，先默认通过","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1783928990863'
+      position:
+        x: 2608.693712638751
+        y: -80.82618567220388
+      positionAbsolute:
+        x: 2608.693712638751
+        y: -80.82618567220388
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 601cdd52-4274-4a04-a62b-52ea4dd0b1f8
+            value: '1'
+            varType: string
+            variable_selector:
+            - '1783928901127'
+            - text
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 检查库存
+        type: if-else
+      height: 123
+      id: '1783929122117'
+      position:
+        x: 2914.6656791600008
+        y: 55.39999999999999
+      positionAbsolute:
+        x: 2914.6656791600008
+        y: 55.39999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: ae768de4-21e9-4768-895e-0e4395bcbcc8
+          role: system
+          text: '你是企业采购经理 AI Agent 的结果回复模块。
+
+            当前采购申请单已经审批完成。请根据传入的{{#1783328656186.app_result_json#}}，生成一段简洁、清晰的用户通知。
+
+            要求：
+
+
+            1. 展示申请编号、申请状态、供应商、采购内容、数量、单价、总金额、预计交付日期、交付地点。
+
+            2. 如果有付款条款，请简要展示。
+
+            3. 不要编造 JSON 中不存在的信息。
+
+            4. 使用中文回复，适合飞书消息通知。'
+        reasoning_format: separated
+        selected: false
+        title: 库存无货时
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783929139090'
+      position:
+        x: 3193.6656791600008
+        y: -4.599999999999849
+      positionAbsolute:
+        x: 3193.6656791600008
+        y: -4.599999999999849
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        outputs:
+        - value_selector:
+          - '1783951280599'
+          - text
+          value_type: string
+          variable: text2
+        selected: false
+        title: 输出5
+        type: end
+      height: 87
+      id: '1783929161557'
+      position:
+        x: 3505.6656791600008
+        y: 219.39999999999986
+      positionAbsolute:
+        x: 3505.6656791600008
+        y: 219.39999999999986
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        outputs:
+        - value_selector:
+          - '1783929139090'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: 输出 4
+        type: end
+      height: 87
+      id: '1783951207795'
+      position:
+        x: 3494.6656791600008
+        y: -4.599999999999849
+      positionAbsolute:
+        x: 3494.6656791600008
+        y: -4.599999999999849
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 5d47f925-1071-4ef0-9a5f-7057e861ec63
+          role: system
+          text: '你是企业采购经理 AI Agent 的结果回复模块。
+
+            当前采购申请单已经审批完成。请根据传入的{{#1783328656186.app_result_json#}}，减去库存中的数量，生成新的一段简洁、清晰的用户通知。假设现在库存中有一套。
+
+            要求：
+
+
+            1. 展示申请编号、申请状态、供应商、采购内容、数量、单价、总金额、预计交付日期、交付地点。
+
+            2. 如果有付款条款，请简要展示。
+
+            3. 不要编造 JSON 中不存在的信息。
+
+            4. 使用中文回复，适合飞书消息通知。'
+        selected: false
+        title: 库存中有货时
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1783951280599'
+      position:
+        x: 3205.6656791600008
+        y: 219.39999999999986
+      positionAbsolute:
+        x: 3205.6656791600008
+        y: 219.39999999999986
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: 蔡源博
+        desc: ''
+        height: 112
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"初步想通过提示词直接修改输出，不行，得根据库存数据更新采购申请单的json","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 267
+      height: 112
+      id: '1783951646422'
+      position:
+        x: 3210.6245016168277
+        y: 347.20919992103285
+      positionAbsolute:
+        x: 3210.6245016168277
+        y: 347.20919992103285
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 267
+    - data:
+        author: 蔡源博
+        desc: ''
+        height: 150
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"最新，应该直接在这进行库存对比，然后直接输出json，不需要后面的对比","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 281
+      height: 150
+      id: '1783952020382'
+      position:
+        x: 1551.2408768906366
+        y: 270.02384471072213
+      positionAbsolute:
+        x: 1551.2408768906366
+        y: 270.02384471072213
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 281
+    viewport:
+      x: -1135.8841261598782
+      y: 500.72047373321584
+      zoom: 0.7578582832552002
+  rag_pipeline_variables: []
