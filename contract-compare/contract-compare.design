@@ -1,0 +1,147 @@
+{
+  "data": [
+    {
+      "id": "page-login",
+      "title": "登录",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752402000000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/login.html",
+        "interactions": [
+          {
+            "domId": "btn-register",
+            "targetPageId": "page-task-list",
+            "hideEdge": true,
+            "transitionLabel": "Register success"
+          },
+          {
+            "domId": "btn-login",
+            "targetPageId": "page-task-list",
+            "transitionLabel": "Login success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-task-list",
+      "title": "任务列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752402000000,
+      "canvasData": {
+        "x": 620,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/task-list.html",
+        "interactions": [
+          {
+            "domId": "nav-admin-overview",
+            "targetPageId": "page-admin-overview",
+            "hideEdge": true,
+            "transitionLabel": "Switch to admin"
+          },
+          {
+            "domId": "task-row-1001",
+            "targetPageId": "page-task-detail",
+            "transitionLabel": "View task detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-task-detail",
+      "title": "任务详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752402000000,
+      "canvasData": {
+        "x": 1240,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/task-detail.html",
+        "interactions": [
+          {
+            "domId": "btn-back-list",
+            "targetPageId": "page-task-list",
+            "hideEdge": true,
+            "transitionLabel": "Back to list"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-admin-overview",
+      "title": "管理概览",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752402000000,
+      "canvasData": {
+        "x": 0,
+        "y": 377,
+        "group": 1
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/admin-overview.html",
+        "interactions": [
+          {
+            "domId": "nav-user-tasks",
+            "targetPageId": "page-task-list",
+            "hideEdge": true,
+            "transitionLabel": "Switch to user"
+          },
+          {
+            "domId": "nav-admin-users",
+            "targetPageId": "page-admin-users",
+            "transitionLabel": "Go to users"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-admin-users",
+      "title": "用户管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1752402000000,
+      "canvasData": {
+        "x": 620,
+        "y": 377,
+        "group": 1
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/admin-users.html",
+        "interactions": [
+          {
+            "domId": "btn-back-admin",
+            "targetPageId": "page-admin-overview",
+            "hideEdge": true,
+            "transitionLabel": "Back to overview"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "projectName": "合同对比 Agent 前端",
+    "designLibrary": {
+      "name": "谷歌",
+      "id": "dl_builtin_google",
+      "version": null,
+      "scope": "built-in-global",
+      "path": "c:\\Users\\xingchen\\.trae-cn\\design_libraries\\dl_builtin_google",
+      "versionSource": "metadata.json"
+    }
+  }
+}

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理概览 - 合同对比 Agent</title>
+    <style id="theme-vars">
+/* Source: structured-spec */
+/* Brand profile: google / dashboard / clean / analytical / modern */
+/* Theme mode: light-dark */
+/* Alias layer: enabled */
+
+/* Light mode source tokens */
+:root {
+  /* Core surface colors */
+  --background: #ffffff;
+  --foreground: #0e1115;
+  --card: #ffffff;
+  --card-foreground: #0e1115;
+  --popover: #f9f9fa;
+  --popover-foreground: #0e1115;
+
+  /* Semantic action colors */
+  --primary: #4285f4;
+  --primary-foreground: #ffffff;
+  --secondary: #dbeafe;
+  --secondary-foreground: #333942;
+  --muted: #eff1f4;
+  --muted-foreground: #7f8d9f;
+  --accent: #dbeafe;
+  --accent-foreground: #003e8f;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Borders, inputs, focus */
+  --border: #ebebeb;
+  --input: #e2e3e4;
+  --ring: #4285f4;
+
+  /* Data visualization */
+  --chart-1: #4285f4;
+  --chart-2: #ea4335;
+  --chart-3: #fbbc05;
+  --chart-4: #0043ad;
+  --chart-5: #34a853;
+
+  /* Sidebar */
+  --sidebar: #f0f6ff;
+  --sidebar-foreground: #0e1115;
+  --sidebar-primary: #4285f4;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #dbeafe;
+  --sidebar-accent-foreground: #003e8f;
+  --sidebar-border: #e7eaef;
+  --sidebar-ring: #4285f4;
+
+  /* Typography */
+  --font-sans: DM Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: DM Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-mono: JetBrains Mono, monospace;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Shadow primitives */
+  --shadow-x: 0;
+  --shadow-y: 3px;
+  --shadow-blur: 0px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0;
+  --shadow-color: #0e1115;
+
+  /* Elevation */
+  --shadow-2xs: 0 3px 0px 0px rgba(14, 17, 21, 0);
+  --shadow-xs: 0 3px 0px 0px rgba(14, 17, 21, 0);
+  --shadow-sm: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 1px 2px -1px rgba(14, 17, 21, 0);
+  --shadow: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 1px 2px -1px rgba(14, 17, 21, 0);
+  --shadow-md: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 2px 4px -1px rgba(14, 17, 21, 0);
+  --shadow-lg: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 4px 6px -1px rgba(14, 17, 21, 0);
+  --shadow-xl: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 8px 10px -1px rgba(14, 17, 21, 0);
+  --shadow-2xl: 0 3px 0px 0px rgba(14, 17, 21, 0);
+
+  /* Rhythm */
+  --tracking-normal: 0em;
+  --spacing: 0.24rem;
+}
+
+/* Dark mode source tokens */
+.dark {
+  /* Core surface colors */
+  --background: #161616;
+  --foreground: #eff1f4;
+  --card: #1d1d1c;
+  --card-foreground: #eff1f4;
+  --popover: #2e2e2e;
+  --popover-foreground: #e5e5e5;
+
+  /* Semantic action colors */
+  --primary: #fc2c50;
+  --primary-foreground: #ffffff;
+  --secondary: #383838;
+  --secondary-foreground: #e5e5e5;
+  --muted: #383838;
+  --muted-foreground: #949494;
+  --accent: #4a2026;
+  --accent-foreground: #fc2c50;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Borders, inputs, focus */
+  --border: #1d1d1c;
+  --input: #000000;
+  --ring: #ffffff;
+
+  /* Data visualization */
+  --chart-1: #2dccd3;
+  --chart-2: #f1204a;
+  --chart-3: #edbbe8;
+  --chart-4: #fbeb35;
+  --chart-5: #baf6f0;
+
+  /* Sidebar */
+  --sidebar: #171717;
+  --sidebar-foreground: #e5e5e5;
+  --sidebar-primary: #0065fd;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #00266b;
+  --sidebar-accent-foreground: #bfdbfe;
+  --sidebar-border: #404040;
+  --sidebar-ring: #00266b;
+
+  /* Typography */
+  --font-sans: DM Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: DM Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-mono: JetBrains Mono, monospace;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Shadow primitives */
+  --shadow-x: 0;
+  --shadow-y: 3px;
+  --shadow-blur: 0px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0;
+  --shadow-color: #000000;
+
+  /* Elevation */
+  --shadow-2xs: 0 3px 0px 0px rgba(0, 0, 0, 0);
+  --shadow-xs: 0 3px 0px 0px rgba(0, 0, 0, 0);
+  --shadow-sm: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 1px 2px -1px rgba(0, 0, 0, 0);
+  --shadow: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 1px 2px -1px rgba(0, 0, 0, 0);
+  --shadow-md: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 2px 4px -1px rgba(0, 0, 0, 0);
+  --shadow-lg: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 4px 6px -1px rgba(0, 0, 0, 0);
+  --shadow-xl: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 8px 10px -1px rgba(0, 0, 0, 0);
+  --shadow-2xl: 0 3px 0px 0px rgba(0, 0, 0, 0);
+}
+
+/* Alias layer */
+@theme inline {
+  /* Color aliases */
+  --google-color-background: var(--background);
+  --google-color-foreground: var(--foreground);
+  --google-color-card: var(--card);
+  --google-color-card-foreground: var(--card-foreground);
+  --google-color-popover: var(--popover);
+  --google-color-popover-foreground: var(--popover-foreground);
+  --google-color-primary: var(--primary);
+  --google-color-primary-foreground: var(--primary-foreground);
+  --google-color-secondary: var(--secondary);
+  --google-color-secondary-foreground: var(--secondary-foreground);
+  --google-color-muted: var(--muted);
+  --google-color-muted-foreground: var(--muted-foreground);
+  --google-color-accent: var(--accent);
+  --google-color-accent-foreground: var(--accent-foreground);
+  --google-color-destructive: var(--destructive);
+  --google-color-destructive-foreground: var(--destructive-foreground);
+  --google-color-border: var(--border);
+  --google-color-input: var(--input);
+  --google-color-ring: var(--ring);
+  --google-color-chart-1: var(--chart-1);
+  --google-color-chart-2: var(--chart-2);
+  --google-color-chart-3: var(--chart-3);
+  --google-color-chart-4: var(--chart-4);
+  --google-color-chart-5: var(--chart-5);
+  --google-color-sidebar: var(--sidebar);
+  --google-color-sidebar-foreground: var(--sidebar-foreground);
+  --google-color-sidebar-primary: var(--sidebar-primary);
+  --google-color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --google-color-sidebar-accent: var(--sidebar-accent);
+  --google-color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --google-color-sidebar-border: var(--sidebar-border);
+  --google-color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography aliases */
+  --google-font-sans: var(--font-sans);
+  --google-font-serif: var(--font-serif);
+  --google-font-mono: var(--font-mono);
+
+  /* Radius aliases */
+  --google-radius: var(--radius);
+  --google-radius-sm: calc(var(--radius) - 4px);
+  --google-radius-md: calc(var(--radius) - 2px);
+  --google-radius-lg: var(--radius);
+  --google-radius-xl: calc(var(--radius) + 4px);
+
+  /* Shadow aliases */
+  --google-shadow-x: var(--shadow-x);
+  --google-shadow-y: var(--shadow-y);
+  --google-shadow-blur: var(--shadow-blur);
+  --google-shadow-spread: var(--shadow-spread);
+  --google-shadow-opacity: var(--shadow-opacity);
+  --google-shadow-color: var(--shadow-color);
+  --google-shadow-2xs: var(--shadow-2xs);
+  --google-shadow-xs: var(--shadow-xs);
+  --google-shadow-sm: var(--shadow-sm);
+  --google-shadow: var(--shadow);
+  --google-shadow-md: var(--shadow-md);
+  --google-shadow-lg: var(--shadow-lg);
+  --google-shadow-xl: var(--shadow-xl);
+  --google-shadow-2xl: var(--shadow-2xl);
+
+  /* Rhythm aliases */
+  --google-tracking-normal: var(--tracking-normal);
+  --google-spacing: var(--spacing);
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-foreground: var(--card-foreground);
+  }
+  @layer base {
+    body { background: var(--card-background); color: var(--card-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+      <div class="admin-grid" style="display:grid;grid-template-columns:260px 1fr;min-height:100vh;background:var(--background)">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" style="background:var(--sidebar);color:var(--sidebar-foreground);border-right:1px solid var(--sidebar-border);padding:calc(var(--spacing)*6);display:flex;flex-direction:column;gap:calc(var(--spacing)*5)">
+          <div style="display:flex;align-items:center;gap:calc(var(--spacing)*3)">
+            <div style="width:40px;height:40px;border-radius:calc(var(--radius) + 8px);display:grid;place-items:center;background:var(--sidebar-primary);color:var(--sidebar-primary-foreground);font-weight:700;font-size:1rem">CC</div>
+            <div>
+              <div class="sidebar-label" style="font-weight:600;font-size:1rem">合同对比 Agent</div>
+              <div class="sidebar-brand-sub" style="color:var(--muted-foreground);font-size:.82rem;margin-top:.18rem 0 0">Contract Compare</div>
+            </div>
+          </div>
+          <nav style="display:flex;flex-direction:column;gap:calc(var(--spacing)*2)">
+            <a data-dom-id="nav-user-tasks" href="#" style="display:flex;align-items:center;gap:calc(var(--spacing)*3);width:100%;padding:calc(var(--spacing)*3.5) calc(var(--spacing)*4);border-radius:var(--radius);color:var(--sidebar-foreground);text-decoration:none;transition:background .2s ease">
+              <i data-lucide="list-todo" style="width:1.2rem;height:1.2rem;flex:0 0 1.2rem"></i>
+              <span class="sidebar-label">用户任务</span>
+            </a>
+            <a href="#" class="nav-active" style="display:flex;align-items:center;gap:calc(var(--spacing)*3);width:100%;padding:calc(var(--spacing)*3.5) calc(var(--spacing)*4);border-radius:var(--radius);background:var(--sidebar-primary);color:var(--sidebar-primary-foreground);text-decoration:none;font-weight:500">
+              <i data-lucide="layout-dashboard" style="width:1.2rem;height:1.2rem;flex:0 0 1.2rem"></i>
+              <span class="sidebar-label">管理概览</span>
+            </a>
+            <a data-dom-id="nav-admin-users" href="#" style="display:flex;align-items:center;gap:calc(var(--spacing)*3);width:100%;padding:calc(var(--spacing)*3.5) calc(var(--spacing)*4);border-radius:var(--radius);color:var(--sidebar-foreground);text-decoration:none;transition:background .2s ease">
+              <i data-lucide="users" style="width:1.2rem;height:1.2rem;flex:0 0 1.2rem"></i>
+              <span class="sidebar-label">用户管理</span>
+            </a>
+            <a href="#" style="display:flex;align-items:center;gap:calc(var(--spacing)*3);width:100%;padding:calc(var(--spacing)*3.5) calc(var(--spacing)*4);border-radius:var(--radius);color:var(--sidebar-foreground);text-decoration:none;transition:background .2s ease">
+              <i data-lucide="shield-alert" style="width:1.2rem;height:1.2rem;flex:0 0 1.2rem"></i>
+              <span class="sidebar-label">风险规则</span>
+            </a>
+            <a href="#" style="display:flex;align-items:center;gap:calc(var(--spacing)*3);width:100%;padding:calc(var(--spacing)*3.5) calc(var(--spacing)*4);border-radius:var(--radius);color:var(--sidebar-foreground);text-decoration:none;transition:background .2s ease">
+              <i data-lucide="file-text" style="width:1.2rem;height:1.2rem;flex:0 0 1.2rem"></i>
+              <span class="sidebar-label">LLM 日志</span>
+            </a>
+          </nav>
+          <div class="sidebar-foot-text" style="margin-top:auto;padding-top:calc(var(--spacing)*4);border-top:1px solid var(--sidebar-border);font-size:.82rem;color:var(--muted-foreground)">
+            管理员控制台 v1.0
+          </div>
+        </aside>
+
+        <!-- Main Area -->
+        <div style="display:flex;flex-direction:column;min-width:0">
+          <!-- Topbar -->
+          <header style="height:76px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:calc(var(--spacing)*4);padding:0 calc(var(--spacing)*6);background:var(--background)">
+            <div style="display:flex;align-items:center;gap:calc(var(--spacing)*3)">
+              <div class="admin-search" style="display:flex;align-items:center;gap:calc(var(--spacing)*3);width:min(420px,46vw);padding:calc(var(--spacing)*3) calc(var(--spacing)*4);border:1px solid var(--input);border-radius:999px;background:var(--popover)">
+                <i data-lucide="search" style="width:1rem;height:1rem;flex:0 0 1rem;color:var(--muted-foreground)"></i>
+                <input type="text" placeholder="搜索任务、用户或日志..." style="border:none;outline:none;background:transparent;color:var(--foreground);width:100%;font:inherit" aria-label="搜索">
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:calc(var(--spacing)*3)">
+              <button style="width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--border);background:var(--card);color:var(--foreground);border-radius:var(--radius);cursor:pointer">
+                <i data-lucide="bell" style="width:1rem;height:1rem"></i>
+              </button>
+              <div style="width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--primary);color:var(--primary-foreground);font-weight:700;font-size:.9rem">A</div>
+            </div>
+          </header>
+
+          <!-- Content -->
+          <section class="admin-content" style="padding:calc(var(--spacing)*6);display:flex;flex-direction:column;gap:calc(var(--spacing)*5);min-height:0;overflow-y:auto">
+            <!-- Hero -->
+            <div>
+              <h2 style="margin:0;font-size:1.7rem;text-wrap:balance;word-break:keep-all;overflow-wrap:break-word">管理概览</h2>
+              <p style="margin:.45rem 0 0;color:var(--muted-foreground);font-size:.95rem">系统运行状态与关键指标监控</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:calc(var(--spacing)*4)">
+              <!-- Stat 1: 注册用户 -->
+              <article style="background:var(--card);color:var(--card-foreground);border:1px solid var(--border);border-radius:calc(var(--radius) + 6px);padding:calc(var(--spacing)*5);box-shadow:var(--shadow-sm)">
+                <span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">注册用户</span>
+                <div style="font-size:1.8rem;font-weight:700;margin:.45rem 0;white-space:nowrap">28</div>
+                <span style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--muted);color:var(--foreground);font-size:.82rem">+3 本周</span>
+              </article>
+              <!-- Stat 2: 对比任务 -->
+              <article style="background:var(--card);color:var(--card-foreground);border:1px solid var(--border);border-radius:calc(var(--radius) + 6px);padding:calc(var(--spacing)*5);box-shadow:var(--shadow-sm)">
+                <span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">对比任务</span>
+                <div style="font-size:1.8rem;font-weight:700;margin:.45rem 0;white-space:nowrap">156</div>
+                <span style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:var(--muted);color:var(--foreground);font-size:.82rem">+12 今日</span>
+              </article>
+              <!-- Stat 3: 今日 LLM 调用 -->
+              <article style="background:var(--card);color:var(--card-foreground);border:1px solid var(--border);border-radius:calc(var(--radius) + 6px);padding:calc(var(--spacing)*5);box-shadow:var(--shadow-sm)">
+                <span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">今日 LLM 调用</span>
+                <div style="font-size:1.8rem;font-weight:700;margin:.45rem 0;white-space:nowrap">47</div>
+                <span style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:color-mix(in srgb, var(--chart-5) 18%, var(--background));color:var(--chart-5);font-size:.82rem;font-weight:600">正常</span>
+              </article>
+              <!-- Stat 4: 今日 Token 消耗 -->
+              <article style="background:var(--card);color:var(--card-foreground);border:1px solid var(--border);border-radius:calc(var(--radius) + 6px);padding:calc(var(--spacing)*5);box-shadow:var(--shadow-sm)">
+                <span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">今日 Token 消耗</span>
+                <div style="font-size:1.8rem;font-weight:700;margin:.45rem 0;white-space:nowrap">184,320</div>
+                <span style="display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .6rem;border-radius:999px;background:color-mix(in srgb, var(--chart-5) 18%, var(--background));color:var(--chart-5);font-size:.82rem;font-weight:600">↓ 8%</span>
+              </article>
+            </div>
+
+            <!-- Two-Column Grid: Chart + Activity -->
+            <div class="panels-grid" style="display:grid;grid-template-columns:1.7fr 1fr;gap:calc(var(--spacing)*4)">
+              <!-- Left: Task Status Distribution Bar Chart -->
+              <article style="background:var(--card);color:var(--card-foreground);border:1px solid var(--border);border-radius:calc(var(--radius) + 6px);padding:calc(var(--spacing)*5);box-shadow:var(--shadow-sm)">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:calc(var(--spacing)*3);margin-bottom:calc(var(--spacing)*4)">
+                  <div>
+                    <div style="font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">任务状态分布</div>
+                    <strong style="font-size:.95rem">全部 156 项任务</strong>
+                  </div>
+                  <span style="display:inline-flex;align-items:center;gap:.35rem;padding:.34rem .65rem;border-radius:999px;background:var(--muted);color:var(--foreground);font-size:.8rem">实时</span>
+                </div>
+                <!-- CSS Bar Chart -->
+                <div style="display:flex;align-items:flex-end;gap:calc(var(--spacing)*5);height:180px;padding-top:calc(var(--spacing)*2)">
+                  <!-- PENDING -->
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:calc(var(--spacing)*2);height:100%">
+                    <span style="font-size:.78rem;font-weight:600;color:var(--foreground)">3</span>
+                    <div style="width:100%;max-width:56px;border-radius:999px 999px 10px 10px;background:var(--chart-1);height:9.7%;min-height:20px;transition:height .3s ease"></div>
+                  </div>
+                  <!-- RUNNING -->
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:calc(var(--spacing)*2);height:100%">
+                    <span style="font-size:.78rem;font-weight:600;color:var(--foreground)">1</span>
+                    <div style="width:100%;max-width:56px;border-radius:999px 999px 10px 10px;background:var(--chart-3);height:3.2%;min-height:20px;transition:height .3s ease"></div>
+                  </div>
+                  <!-- DONE -->
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:calc(var(--spacing)*2);height:100%">
+                    <span style="font-size:.78rem;font-weight:600;color:var(--foreground)">148</span>
+                    <div style="width:100%;max-width:56px;border-radius:999px 999px 10px 10px;background:var(--chart-5);height:94.9%;min-height:20px;transition:height .3s ease"></div>
+                  </div>
+                  <!-- FAILED -->
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:calc(var(--spacing)*2);height:100%">
+                    <span style="font-size:.78rem;font-weight:600;color:var(--foreground)">4</span>
+                    <div style="width:100%;max-width:56px;border-radius:999px 999px 10px 10px;background:var(--chart-2);height:12.9%;min-height:20px;transition:height .3s ease"></div>
+                  </div>
+                </div>
+                <!-- Labels -->
+                <div style="display:flex;gap:calc(var(--spacing)*5);margin-top:calc(var(--spacing)*3)">
+                  <span style="flex:1;text-align:center;font-size:.78rem;color:var(--muted-foreground);white-space:nowrap">PENDING</span>
+                  <span style="flex:1;text-align:center;font-size:.78rem;color:var(--muted-foreground);white-space:nowrap">RUNNING</span>
+                  <span style="flex:1;text-align:center;font-size:.78rem;color:var(--muted-foreground);white-space:nowrap">DONE</span>
+                  <span style="flex:1;text-align:center;font-size:.78rem;color:var(--muted-foreground);white-space-nowrap">FAILED</span>
+                </div>
+              </article>
+
+              <!-- Right: Recent Activity List -->
+              <article style="background:var(--card);color:var(--card-foreground);border:1px solid var(--border);border-radius:calc(var(--radius) + 6px);padding:calc(var(--spacing)*5);box-shadow:var(--shadow-sm)">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:calc(var(--spacing)*3);margin-bottom:calc(var(--spacing)*4)">
+                  <div>
+                    <div style="font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">动态</div>
+                    <strong style="font-size:.95rem">最近活动</strong>
+                  </div>
+                  <span style="display:inline-flex;align-items:center;gap:.35rem;padding:.34rem .65rem;border-radius:999px;background:var(--secondary);color:var(--secondary-foreground);font-size:.8rem">5 条</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:0">
+                  <!-- Item 1 -->
+                  <div style="display:flex;justify-content:space-between;gap:calc(var(--spacing)*3);padding:calc(var(--spacing)*3.5) 0;border-top:1px solid var(--border)">
+                    <div style="min-width:0">
+                      <div style="font-size:.88rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">用户 zhangsan 创建了新对比任务</div>
+                    </div>
+                    <span style="font-size:.78rem;color:var(--muted-foreground);white-space:nowrap;flex-shrink:0">2分钟前</span>
+                  </div>
+                  <!-- Item 2 -->
+                  <div style="display:flex;justify-content:space-between;gap:calc(var(--spacing)*3);padding:calc(var(--spacing)*3.5) 0;border-top:1px solid var(--border)">
+                    <div style="min-width:0">
+                      <div style="font-size:.88rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">任务 #998 对比完成，风险等级：HIGH</div>
+                    </div>
+                    <span style="font-size:.78rem;color:var(--muted-foreground);white-space:nowrap;flex-shrink-0">15分钟前</span>
+                  </div>
+                  <!-- Item 3 -->
+                  <div style="display:flex;justify-content:space-between;gap:calc(var(--spacing)*3);padding:calc(var(--spacing)*3.5) 0;border-top:1px solid var(--border)">
+                    <div style="min-width:0">
+                      <div style="font-size:.88rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">用户 lisi 注册账号</div>
+                    </div>
+                    <span style="font-size:.78rem;color:var(--muted-foreground);white-space:nowrap;flex-shrink-0">1小时前</span>
+                  </div>
+                  <!-- Item 4 -->
+                  <div style="display:flex;justify-content:space-between;gap:calc(var(--spacing)*3);padding:calc(var(--spacing)*3.5) 0;border-top:1px solid var(--border)">
+                    <div style="min-width:0">
+                      <div style="font-size:.88rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">任务 #995 LLM 调用失败，已自动重试</div>
+                    </div>
+                    <span style="font-size:.78rem;color:var(--muted-foreground);white-space:nowrap;flex-shrink-0">2小时前</span>
+                  </div>
+                  <!-- Item 5 -->
+                  <div style="display:flex;justify-content:space-between;gap:calc(var(--spacing)*3);padding:calc(var(--spacing)*3.5) 0;border-top:1px solid var(--border)">
+                    <div style="min-width:0">
+                      <div style="font-size:.88rem;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">管理员修改了风险规则 #3</div>
+                    </div>
+                    <span style="font-size:.78rem;color:var(--muted-foreground);white-space:nowrap;flex-shrink-0">3小时前</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Bottom: Recent Tasks Table -->
+            <article style="background:var(--card);color:var(--card-foreground);border:1px solid var(--border);border-radius:calc(var(--radius) + 6px);box-shadow:var(--shadow-sm);overflow:hidden">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:calc(var(--spacing)*3) calc(var(--spacing)*4);border-bottom:1px solid var(--border)">
+                <div>
+                  <span style="font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">执行面板</span>
+                  <strong style="font-size:.95rem;margin-left:calc(var(--spacing)*3)">最近任务</strong>
+                </div>
+                <button style="border:1px solid var(--border);border-radius:var(--radius);background:var(--background);color:var(--foreground);padding:6px 10px;font:inherit;cursor:pointer;white-space:nowrap">导出 CSV</button>
+              </div>
+              <div class="task-table-wrap" style="overflow-x:auto">
+                <table style="width:100%;border-collapse:collapse">
+                  <thead>
+                    <tr>
+                      <th style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;background:var(--muted);color:var(--muted-foreground);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">任务ID</th>
+                      <th style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;background:var(--muted);color:var(--muted-foreground);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">任务名称</th>
+                      <th style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;background:var(--muted);color:var(--muted-foreground);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">用户</th>
+                      <th style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;background:var(--muted);color:var(--muted-foreground);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">状态</th>
+                      <th style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;background:var(--muted);color:var(--muted-foreground);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap">风险等级</th>
+                      <th style="padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;background:var(--muted);color:var(--muted-foreground);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space-nowrap">创建时间</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;font-family:var(--font-mono);font-size:.85rem">#998</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:260px">采购合同 A vs 供应商协议 B</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap">zhangsan</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--chart-5) 18%, var(--background));color:var(--chart-5);font-size:11px;font-weight:500">DONE</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--chart-2) 18%, var(--background));color:var(--chart-2);font-size:11px;font-weight:500">HIGH</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;color:var(--muted-foreground);font-size:.85rem">2026-07-13 14:22</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;font-family:var(--font-mono);font-size:.85rem">#997</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:260px">劳动合同 2026 版对比</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap">lisi</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--chart-3) 18%, var(--background));color:var(--foreground);font-size:11px;font-weight:500">RUNNING</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:var(--muted);color:var(--muted-foreground);font-size:11px;font-weight:500">--</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;color:var(--muted-foreground);font-size:.85rem">2026-07-13 13:45</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;font-family:var(--font-mono);font-size:.85rem">#996</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:260px">NDA 甲方 vs NDA 乙方</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap">wangwu</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--chart-5) 18%, var(--background));color:var(--chart-5);font-size:11px;font-weight:500">DONE</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--chart-3) 18%, var(--background));color:var(--foreground);font-size:11px;font-weight:500">MEDIUM</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;color:var(--muted-foreground);font-size:.85rem">2026-07-13 11:30</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;font-family:var(--font-mono);font-size:.85rem">#995</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:260px">服务级别协议 SLA 对比</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap">zhangsan</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--chart-2) 18%, var(--background));color:var(--chart-2);font-size:11px;font-weight:500">FAILED</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:var(--muted);color:var(--muted-foreground);font-size:11px;font-weight:500">--</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;color:var(--muted-foreground);font-size:.85rem">2026-07-13 10:15</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;font-family:var(--font-mono);font-size:.85rem">#994</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:260px">租赁合同续签对比</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap">lisi</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--chart-5) 18%, var(--background));color:var(--chart-5);font-size:11px;font-weight:500">DONE</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap"><span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--chart-1) 18%, var(--background));color:var(--foreground);font-size:11px;font-weight:500">LOW</span></td>
+                      <td style="padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;color:var(--muted-foreground);font-size:.85rem">2026-07-12 17:50</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:calc(var(--spacing)*3) calc(var(--spacing)*4);color:var(--muted-foreground);font-size:.82rem">
+                <span>1-5 of 156</span>
+                <div style="display:flex;gap:6px;align-items:center">
+                  <b style="display:inline-flex;min-width:22px;justify-content:center;padding:4px 0;border-radius:999px;background:var(--primary);color:var(--primary-foreground);font-size:.82rem">1</b>
+                  <span style="cursor:pointer;padding:2px 6px">2</span>
+                  <span style="cursor:pointer;padding:2px 6px">3</span>
+                  <span style="cursor:pointer;padding:2px 6px">...</span>
+                  <span style="cursor:pointer;padding:2px 6px">32</span>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+    <style>
+      @media (max-width:1100px) {
+        .admin-grid { grid-template-columns: 88px 1fr !important; }
+        .admin-sidebar { width: 88px !important; padding-inline: calc(var(--spacing) * 3.5) !important; }
+        .admin-sidebar .sidebar-label,
+        .admin-sidebar .sidebar-brand-sub,
+        .admin-sidebar .sidebar-foot-text { opacity: 0; max-width: 0; overflow: hidden; }
+        .stats-grid { grid-template-columns: 1fr 1fr !important; }
+        .panels-grid { grid-template-columns: 1fr !important; }
+      }
+      @media (max-width:760px) {
+        .admin-grid { grid-template-columns: 1fr !important; }
+        .admin-sidebar { display: none !important; }
+        .admin-content { padding-inline: calc(var(--spacing) * 4) !important; }
+        .stats-grid { grid-template-columns: 1fr 1fr !important; }
+        .admin-search { display: none !important; }
+        .task-table-wrap { overflow-x: auto; }
+      }
+    </style>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

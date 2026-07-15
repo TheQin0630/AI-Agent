@@ -1,0 +1,9 @@
+{
+  "name": "contract-agent-monorepo",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev:user": "pnpm --dir frontend dev",
+    "dev:admin": "pnpm --dir frontend-admin dev"
+  }
+}

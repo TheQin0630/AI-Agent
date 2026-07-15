@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style id="theme-vars">
+{"color":{"bg":{"background":{"hex":"#ffffff","opacity":"1"},"card":{"hex":"#ffffff","opacity":"1"},"popover":{"hex":"#f9f9fa","opacity":"1"},"muted":{"hex":"#eff1f4","opacity":"1"}},"text":{"foreground":{"hex":"#0e1115","opacity":"1"},"card-foreground":{"hex":"#0e1115","opacity":"1"},"popover-foreground":{"hex":"#0e1115","opacity":"1"},"primary-foreground":{"hex":"#ffffff","opacity":"1"},"secondary-foreground":{"hex":"#333942","opacity":"1"},"muted-foreground":{"hex":"#7f8d9f","opacity":"1"},"accent-foreground":{"hex":"#003e8f","opacity":"1"},"destructive-foreground":{"hex":"#ffffff","opacity":"1"}},"accent":{"primary":{"hex":"#4285f4","opacity":"1"},"secondary":{"hex":"#dbeafe","opacity":"1"},"accent":{"hex":"#dbeafe","opacity":"1"},"input":{"hex":"#e2e3e4","opacity":"1"},"ring":{"hex":"#4285f4","opacity":"1"}},"status":{"destructive":{"hex":"#ef4444","opacity":"1"}},"border":{"border":{"hex":"#ebebeb","opacity":"1"}},"chart":{"chart-1":{"hex":"#4285f4","opacity":"1"},"chart-2":{"hex":"#ea4335","opacity":"1"},"chart-3":{"hex":"#fbbc05","opacity":"1"},"chart-4":{"hex":"#0043ad","opacity":"1"},"chart-5":{"hex":"#34a853","opacity":"1"}},"sidebar":{"sidebar":{"hex":"#f0f6ff","opacity":"1"},"sidebar-foreground":{"hex":"#0e1115","opacity":"1"},"sidebar-primary":{"hex":"#4285f4","opacity":"1"},"sidebar-primary-foreground":{"hex":"#ffffff","opacity":"1"},"sidebar-accent":{"hex":"#dbeafe","opacity":"1"},"sidebar-accent-foreground":{"hex":"#003e8f","opacity":"1"},"sidebar-border":{"hex":"#e7eaef","opacity":"1"},"sidebar-ring":{"hex":"#4285f4","opacity":"1"}},"dark":{"background":{"hex":"#161616","opacity":"1"},"foreground":{"hex":"#eff1f4","opacity":"1"},"card":{"hex":"#1d1d1c","opacity":"1"},"card-foreground":{"hex":"#eff1f4","opacity":"1"},"popover":{"hex":"#2e2e2e","opacity":"1"},"popover-foreground":{"hex":"#e5e5e5","opacity":"1"},"primary":{"hex":"#fc2c50","opacity":"1"},"primary-foreground":{"hex":"#ffffff","opacity":"1"},"secondary":{"hex":"#383838","opacity":"1"},"secondary-foreground":{"hex":"#e5e5e5","opacity":"1"},"muted":{"hex":"#383838","opacity":"1"},"muted-foreground":{"hex":"#949494","opacity":"1"},"accent":{"hex":"#4a2026","opacity":"1"},"accent-foreground":{"hex":"#fc2c50","opacity":"1"},"destructive":{"hex":"#ef4444","opacity":"1"},"destructive-foreground":{"hex":"#ffffff","opacity":"1"},"border":{"hex":"#1d1d1c","opacity":"1"},"input":{"hex":"#000000","opacity":"1"},"ring":{"hex":"#ffffff","opacity":"1"},"chart-1":{"hex":"#2dccd3","opacity":"1"},"chart-2":{"hex":"#f1204a","opacity":"1"},"chart-3":{"hex":"#edbbe8","opacity":"1"},"chart-4":{"hex":"#fbeb35","opacity":"1"},"chart-5":{"hex":"#baf6f0","opacity":"1"},"sidebar":{"hex":"#171717","opacity":"1"},"sidebar-foreground":{"hex":"#e5e5e5","opacity":"1"},"sidebar-primary":{"hex":"#0065fd","opacity":"1"},"sidebar-primary-foreground":{"hex":"#ffffff","opacity":"1"},"sidebar-accent":{"hex":"#00266b","opacity":"1"},"sidebar-accent-foreground":{"hex":"#bfdbfe","opacity":"1"},"sidebar-border":{"hex":"#404040","opacity":"1"},"sidebar-ring":{"hex":"#00266b","opacity":"1"},"shadow-2xs":{"hex":"#000000","opacity":"0"},"shadow-2xl":{"hex":"#000000","opacity":"0"}}},"font":{"family":{"font-sans":"DM Sans, ui-sans-serif, sans-serif, system-ui","font-serif":"DM Sans, ui-sans-serif, sans-serif, system-ui","font-mono":"JetBrains Mono, monospace"},"size":{},"weight":{},"lineHeight":{}},"shadow":{"shadow-xs":{"xOffset":"0px","yOffset":"3px","blur":"0px","spread":"0px","color":{"hex":"#0e1115","opacity":"0"}},"shadow-sm":{"xOffset":"0px","yOffset":"3px","blur":"0px","spread":"0px","color":{"hex":"#0e1115","opacity":"0"}},"shadow":{"xOffset":"0px","yOffset":"3px","blur":"0px","spread":"0px","color":{"hex":"#0e1115","opacity":"0"}},"shadow-md":{"xOffset":"0px","yOffset":"3px","blur":"0px","spread":"0px","color":{"hex":"#0e1115","opacity":"0"}},"shadow-lg":{"xOffset":"0px","yOffset":"3px","blur":"0px","spread":"0px","color":{"hex":"#0e1115","opacity":"0"}},"shadow-xl":{"xOffset":"0px","yOffset":"3px","blur":"0px","spread":"0px","color":{"hex":"#0e1115","opacity":"0"}}},"radius":{"radius":"8px"},"spacing":{"spacing":"3.84px"},"size":{}}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  
+  @layer base {
+    body { background: var(--background); color: var(--foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main class="flex items-center justify-center min-h-screen px-4">
+  <div class="w-full max-w-sm">
+
+    <!-- Brand -->
+    <div class="flex items-center gap-3 mb-8 justify-center">
+      <div class="w-10 h-10 rounded-lg grid place-items-center font-bold text-sm" style="background:var(--sidebar-primary);color:var(--sidebar-primary-foreground);border-radius:calc(var(--radius) + 4px);">CC</div>
+      <div>
+        <h1 class="text-base font-semibold leading-tight" style="color:var(--foreground);">合同对比 Agent</h1>
+        <p class="text-xs" style="color:var(--muted-foreground);">Contract Compare Platform</p>
+      </div>
+    </div>
+
+    <!-- Card (border-based, zero elevation) -->
+    <div class="rounded-lg" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:calc(var(--spacing)*6);">
+
+      <!-- Tabs -->
+      <div class="flex gap-0 mb-6" style="border-bottom:1px solid var(--border);">
+        <button id="tab-login" class="tab-btn pb-3 text-sm font-semibold cursor-pointer bg-transparent border-0" style="color:var(--primary);border-bottom:2px solid var(--primary);margin-bottom:-1px;" onclick="switchTab('login')">登录</button>
+        <button id="tab-register" class="tab-btn pb-3 text-sm font-semibold cursor-pointer bg-transparent border-0" style="color:var(--muted-foreground);border-bottom:2px solid transparent;margin-bottom:-1px;margin-left:calc(var(--spacing)*4);" onclick="switchTab('register')">注册</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="form-login" class="flex flex-col gap-4" onsubmit="return false;">
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-medium" style="color:var(--muted-foreground);">用户名</label>
+          <div class="flex items-center gap-2 rounded-md" style="border:1px solid var(--input);background:var(--popover);padding:0 calc(var(--spacing)*3);height:32px;">
+            <i data-lucide="user" style="width:16px;height:16px;color:var(--muted-foreground);flex-shrink:0;"></i>
+            <input type="text" placeholder="请输入用户名" class="bg-transparent border-0 outline-none text-sm w-full" style="color:var(--foreground);font-family:var(--font-sans);">
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-medium" style="color:var(--muted-foreground);">密码</label>
+          <div class="flex items-center gap-2 rounded-md" style="border:1px solid var(--input);background:var(--popover);padding:0 calc(var(--spacing)*3);height:32px;">
+            <i data-lucide="lock" style="width:16px;height:16px;color:var(--muted-foreground);flex-shrink:0;"></i>
+            <input type="password" placeholder="请输入密码" class="bg-transparent border-0 outline-none text-sm w-full" style="color:var(--foreground);font-family:var(--font-sans);">
+          </div>
+        </div>
+        <button data-dom-id="btn-login" type="submit" class="mt-2 flex items-center justify-center gap-2 cursor-pointer font-medium text-sm" style="height:32px;padding:0 calc(var(--spacing)*4);background:var(--primary);color:var(--primary-foreground);border:1px solid transparent;border-radius:var(--radius);box-shadow:none;transition:filter .15s ease;" onmouseover="this.style.filter='brightness(0.96)'" onmouseout="this.style.filter='none'">登录</button>
+      </form>
+
+      <!-- Register Form (hidden by default) -->
+      <form id="form-register" class="flex flex-col gap-4 hidden" onsubmit="return false;">
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-medium" style="color:var(--muted-foreground);">用户名</label>
+          <div class="flex items-center gap-2 rounded-md" style="border:1px solid var(--input);background:var(--popover);padding:0 calc(var(--spacing)*3);height:32px;">
+            <i data-lucide="user" style="width:16px;height:16px;color:var(--muted-foreground);flex-shrink:0;"></i>
+            <input type="text" placeholder="请输入用户名" class="bg-transparent border-0 outline-none text-sm w-full" style="color:var(--foreground);font-family:var(--font-sans);">
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-medium" style="color:var(--muted-foreground);">密码</label>
+          <div class="flex items-center gap-2 rounded-md" style="border:1px solid var(--input);background:var(--popover);padding:0 calc(var(--spacing)*3);height:32px;">
+            <i data-lucide="lock" style="width:16px;height:16px;color:var(--muted-foreground);flex-shrink:0;"></i>
+            <input type="password" placeholder="请输入密码" class="bg-transparent border-0 outline-none text-sm w-full" style="color:var(--foreground);font-family:var(--font-sans);">
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-medium" style="color:var(--muted-foreground);">确认密码</label>
+          <div class="flex items-center gap-2 rounded-md" style="border:1px solid var(--input);background:var(--popover);padding:0 calc(var(--spacing)*3);height:32px;">
+            <i data-lucide="lock" style="width:16px;height:16px;color:var(--muted-foreground);flex-shrink:0;"></i>
+            <input type="password" placeholder="请再次输入密码" class="bg-transparent border-0 outline-none text-sm w-full" style="color:var(--foreground);font-family:var(--font-sans);">
+          </div>
+        </div>
+        <button data-dom-id="btn-register" type="submit" class="mt-2 flex items-center justify-center gap-2 cursor-pointer font-medium text-sm" style="height:32px;padding:0 calc(var(--spacing)*4);background:var(--secondary);color:var(--secondary-foreground);border:1px solid var(--border);border-radius:var(--radius);box-shadow:none;transition:background .15s ease, border-color .15s ease;" onmouseover="this.style.background='var(--accent)';this.style.borderColor='var(--accent)';this.style.color='var(--accent-foreground)'" onmouseout="this.style.background='var(--secondary)';this.style.borderColor='var(--border)';this.style.color='var(--secondary-foreground)'">注册</button>
+      </form>
+
+    </div>
+
+  </div>
+</main>
+    <script>
+    function switchTab(tab) {
+      var loginForm = document.getElementById('form-login');
+      var registerForm = document.getElementById('form-register');
+      var tabLogin = document.getElementById('tab-login');
+      var tabRegister = document.getElementById('tab-register');
+      if (tab === 'login') {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        tabLogin.style.color = 'var(--primary)';
+        tabLogin.style.borderBottom = '2px solid var(--primary)';
+        tabRegister.style.color = 'var(--muted-foreground)';
+        tabRegister.style.borderBottom = '2px solid transparent';
+      } else {
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
+        tabRegister.style.color = 'var(--primary)';
+        tabRegister.style.borderBottom = '2px solid var(--primary)';
+        tabLogin.style.color = 'var(--muted-foreground)';
+        tabLogin.style.borderBottom = '2px solid transparent';
+      }
+    }
+    lucide.createIcons();
+    </script>
+</body>
+</html>

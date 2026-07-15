@@ -1,0 +1,28 @@
+# 通用
+.git
+.gitignore
+.idea
+.vscode
+*.iml
+**/node_modules
+**/dist
+storage
+logs
+*.log
+.env
+Thumbs.db
+desktop.ini
+
+# 文档与设计稿
+docs/
+design/
+contract-compare/
+README.md
+
+# 构建产物
+backend/target/
+
+# TypeScript 构建副产物
+**/*.tsbuildinfo
+**/vite.config.d.ts
+**/vite.config.js

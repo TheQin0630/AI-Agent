@@ -225,30 +225,6 @@ workflow:
       zIndex: 0
     - data:
         isInLoop: false
-        sourceType: code
-        targetType: llm
-      id: 1783340661478-source-1783340801210-target
-      selected: false
-      source: '1783340661478'
-      sourceHandle: source
-      target: '1783340801210'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: llm
-        targetType: tool
-      id: 1783340801210-source-17833408553560-target
-      selected: false
-      source: '1783340801210'
-      sourceHandle: source
-      target: '17833408553560'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
         sourceType: if-else
         targetType: llm
       id: 1783339889948-true-1783580340279-target
@@ -696,6 +672,7 @@ workflow:
         sourceType: parameter-extractor
         targetType: template-transform
       id: 1783337962103-source-1783999635093-target
+      selected: false
       source: '1783337962103'
       sourceHandle: source
       target: '1783999635093'
@@ -707,6 +684,7 @@ workflow:
         sourceType: parameter-extractor
         targetType: template-transform
       id: 17838653196780-source-17839998037740-target
+      selected: false
       source: '17838653196780'
       sourceHandle: source
       target: '17839998037740'
@@ -718,6 +696,7 @@ workflow:
         sourceType: template-transform
         targetType: variable-aggregator
       id: 1783998818190-source-1784000101343-target
+      selected: false
       source: '1783998818190'
       sourceHandle: source
       target: '1784000101343'
@@ -729,6 +708,7 @@ workflow:
         sourceType: template-transform
         targetType: variable-aggregator
       id: 1783999635093-source-1784000101343-target
+      selected: false
       source: '1783999635093'
       sourceHandle: source
       target: '1784000101343'
@@ -740,6 +720,7 @@ workflow:
         sourceType: template-transform
         targetType: variable-aggregator
       id: 17839992294090-source-1784000129262-target
+      selected: false
       source: '17839992294090'
       sourceHandle: source
       target: '1784000129262'
@@ -751,6 +732,7 @@ workflow:
         sourceType: template-transform
         targetType: variable-aggregator
       id: 17839998037740-source-1784000129262-target
+      selected: false
       source: '17839998037740'
       sourceHandle: source
       target: '1784000129262'
@@ -762,6 +744,7 @@ workflow:
         sourceType: variable-aggregator
         targetType: code
       id: 1784000101343-source-1784000208731-target
+      selected: false
       source: '1784000101343'
       sourceHandle: source
       target: '1784000208731'
@@ -773,6 +756,7 @@ workflow:
         sourceType: variable-aggregator
         targetType: code
       id: 1784000129262-source-1784000208731-target
+      selected: false
       source: '1784000129262'
       sourceHandle: source
       target: '1784000208731'
@@ -784,9 +768,55 @@ workflow:
         sourceType: code
         targetType: llm
       id: 1784000208731-source-1783339166621-target
+      selected: false
       source: '1784000208731'
       sourceHandle: source
       target: '1783339166621'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1783340661478-source-1783340801210-target
+      selected: false
+      source: '1783340661478'
+      sourceHandle: source
+      target: '1783340801210'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1783340661478-source-1784041477300-target
+      source: '1783340661478'
+      sourceHandle: source
+      target: '1784041477300'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1784041477300-source-1784092913093-target
+      source: '1784041477300'
+      sourceHandle: source
+      target: '1784092913093'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1784092913093-source-17833408553560-target
+      source: '1784092913093'
+      sourceHandle: source
+      target: '17833408553560'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -880,11 +910,11 @@ workflow:
       height: 88
       id: '1782918106254'
       position:
-        x: 799.1729812730903
-        y: 1249.1663422998035
+        x: 584.5753843535704
+        y: 1156.579689234895
       positionAbsolute:
-        x: 799.1729812730903
-        y: 1249.1663422998035
+        x: 584.5753843535704
+        y: 1156.579689234895
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1120,7 +1150,7 @@ workflow:
         subscription_id: ''
         title: 收到消息
         type: trigger-plugin
-      height: 84
+      height: 108
       id: '1782981177946'
       position:
         x: -3380.89445335807
@@ -1147,11 +1177,11 @@ workflow:
       height: 102
       id: '1782990858697'
       position:
-        x: 799.1729812730903
-        y: 1350.7685201064676
+        x: 608.8342431357769
+        y: 1289.1883401208663
       positionAbsolute:
-        x: 799.1729812730903
-        y: 1350.7685201064676
+        x: 608.8342431357769
+        y: 1289.1883401208663
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3112,7 +3142,7 @@ workflow:
             \ JSON 中的字段，再进行业务比对，不得将整个 JSON 字符串直接作为字段值。\n\nuser_compare_text 要求：\n\
             1.格式为：\n比对中：字段名称，销售合同为 xxx，采购合同为 xxx，结果：通过/风险提示/阻断异常。\n2. 如果存在异常，需要在该行后补充简短原因。\n\
             3. 不要编造输入中不存在的信息。\n4. 如果字段缺失，写成“未提取到”。\n5. user_compare_text 不要使用 markdown\
-            \ 表格，使用普通换行文本。\n\n请严格按照以下规则判断：\n1. 商品名称比对\n- 销售合同商品名称和采购合同商品名称应一致或语义高度相似。\n\
+            \ 表格，使用普通换行文本。\n\n请严格按照以下规则判断：\n1. 商品名称比对\n- 销售合同商品名称和采购合同商品名称应语义高度相似。\n\
             - 如果明显不是同一商品，则作为阻断异常。\n\n2. 规格型号比对\n- 销售合同规格型号和采购合同规格型号应一致。\n- 如果型号不一致，则作为阻断异常。\n\
             - 如果一方缺失规格型号，也作为阻断异常。\n\n3. 数量比对\n- 采购数量应大于等于销售数量。\n- 如果采购数量小于销售数量，则作为阻断异常。\n\
             - 如果任一方数量缺失或不是有效数字，则作为阻断异常。\n\n4. 单位比对\n- 销售单位和采购单位应一致，例如都是“台”“套”“件”等。\n\
@@ -3124,7 +3154,7 @@ workflow:
             - 如果交付日期为相对时间而非准确日期，作为风险提示\n\n8. 付款条款检查\n- 分析销售回款时间和采购付款时间之间是否可能形成资金垫付，如果采购合同要求预付款，或者采购付款预计早于销售回款，导致企业需要先向供应商付款、后收到客户回款，则作为风险提示。\n\
             - 如果采购合同明确约定收到最终客户回款后， 才向供应商付款，则通常不构成资金垫付风险， 不得仅因为两份合同付款条款不同而判定为风险。\n\
             - 如果无法根据已提取信息判断付款先后顺序， 则作为风险提示，并说明“付款时间关系暂无法确认”。\n- 付款条款问题当前只作为 warning，不为阻断异常。\n\
-            \n输出要求：\n1. 只输出合法 JSON。\n2. 不要输出 markdown。\n3. 不要输出解释性文字。\n4. 不要编造输入中不存在的信息。\n\
+            \n输出要求：\n1. 只输出合法 JSON。\n2. **禁止**使用 markdown。\n3. 不要输出解释性文字。\n4. 不要编造输入中不存在的信息。\n\
             5. 如果字段缺失，请明确写入 blocking_issues 或 warning_issues。\n6. 只要 blocking_issues\
             \ 非空，is_passed 必须为 false。\n7. 如果 blocking_issues 为空，即使 warning_issues\
             \ 非空，is_passed 也可以为 true。\n\n请按照以下 JSON 格式输出：\n{\n  \"is_passed\": true,\n\
@@ -3301,20 +3331,20 @@ workflow:
             5.不要编造合同中不存在的供应商、金额、数量、日期。\n6.如果校验通过（abnormal_fields与missing_fields为空），将is_ready设为true\n\
             \n必填字段：\n- supplier_name：供应商名称\n- item_name：采购商品名称\n- item_model：采购商品规格型号\n\
             - quantity：采购数量\n- unit：采购单位\n- purchase_unit_price：采购单价\n- purchase_total_amount：采购总金额\n\
-            - delivery_date：预计交付日期\n- delivery_location：交付地点\n- payment_terms：付款条款\n\
-            \n校验规则：\n1. quantity 必须为大于 0 的数字,\n2. purchase_unit_price 必须为大于 0 的数字。\n\
-            3. purchase_total_amount 必须为大于 0 的数字。\n4. expected_delivery_date 必须是明确日期。\n\
-            5. 字段为空、未知、未提及、无法判断时，视为缺失字段,放入missing_fields\n6. 如果 purchase_total_amount\
+            - expected_delivery_date：预计交付日期（在采购合同中是delivery_date字段）\n- delivery_location：交付地点\n\
+            - payment_terms：付款条款\n\n校验规则：\n1. quantity 必须为大于 0 的数字,\n2. purchase_unit_price\
+            \ 必须为大于 0 的数字。\n3. purchase_total_amount 必须为大于 0 的数字。\n4. expected_delivery_date\
+            \ 必须是明确日期。\n5. 字段为空、未知、未提及、无法判断时，视为缺失字段,放入missing_fields\n6. 如果 purchase_total_amount\
             \ 与 quantity × purchase_unit_price 明显不一致,放入 abnormal_fields。\n输出格式：\n\
             {\n  “is_ready”: true 或 false\n  \"missing_fields\": [],\n  \"abnormal_fields\"\
             : [],\n  \"purchase_application\": {\n    \"application_title\": \"\"\
             ,\n    \"apply_date\": \"\",\n    \"supplier_name\": \"\",\n    \"item_name\"\
             : \"\",\n    \"item_model\": \"\",\n    \"unit\": \"\",\n    \"quantity\"\
             : \"\",\n    \"purchase_unit_price\": \"\",\n    \"purchase_total_amount\"\
-            : \"\",\n    \"delivery_date\": \"\",\n    \"payment_terms\": \"\",\n\
-            \    \"delivery_location\": \"\",\n  }\n}\n"
+            : \"\",\n    \"expected_delivery_date\": \"\",\n    \"payment_terms\"\
+            : \"\",\n    \"delivery_location\": \"\",\n  }\n}\n"
         reasoning_format: separated
-        selected: true
+        selected: false
         title: 整理采购申请单所需字段内容
         type: llm
         vision:
@@ -3327,174 +3357,336 @@ workflow:
       positionAbsolute:
         x: 1093.623941037789
         y: 89.11267687444071
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 241
     - data:
-        code: "import json\nimport re\nfrom datetime import datetime\n\n\ndef main(text:\
-          \ str) -> dict:\n    \"\"\"\n    商品采购申请单创建前校验节点\n\n    功能：\n    1. 解析 LLM\
-          \ 输出的 JSON 字符串\n    2. 自动补全 application_title 和 apply_date\n    3. 统一字段名\
-          \ item_name / product_name、item_model / product_model\n    4. 校验商品采购申请单必填字段\n\
-          \    5. 校验数量、单价、总金额是否合理\n    6. 输出可供 IF/ELSE 节点判断的 is_ready\n    \"\"\"\n\
-          \n    # ---------- 1. 处理空输出 ----------\n    if not text or not text.strip():\n\
-          \        return {\n            \"is_ready\": \"false\",\n            \"\
-          check_status\": \"EMPTY_OUTPUT\",\n            \"message\": \"LLM 输出为空，无法创建采购申请单。\"\
-          ,\n            \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
-          : json.dumps([\n                {\n                    \"field\": \"llm_output\"\
-          ,\n                    \"field_name\": \"LLM输出\",\n                    \"\
-          reason\": \"LLM 输出为空\"\n                }\n            ], ensure_ascii=False),\n\
-          \            \"purchase_application_json\": \"\"\n        }\n\n    raw =\
-          \ text.strip()\n\n    # ---------- 2. 清理 markdown 包裹 ----------\n    raw\
-          \ = raw.replace(\"```json\", \"\").replace(\"```\", \"\").strip()\n\n  \
-          \  # ---------- 3. 兼容外层 {\"text\": \"...\"} 的情况 ----------\n    try:\n \
-          \       outer = json.loads(raw)\n        if isinstance(outer, dict) and\
-          \ \"text\" in outer:\n            raw = outer[\"text\"]\n    except Exception:\n\
-          \        pass\n\n    # ---------- 4. 提取 JSON 主体，避免模型前后输出说明文字 ----------\n\
-          \    match = re.search(r\"\\{[\\s\\S]*\\}\", raw)\n    if match:\n     \
-          \   raw = match.group(0)\n\n    # ---------- 5. 解析 JSON ----------\n   \
-          \ try:\n        data = json.loads(raw)\n    except Exception as e:\n   \
-          \     return {\n            \"is_ready\": \"false\",\n            \"check_status\"\
-          : \"JSON_PARSE_ERROR\",\n            \"message\": f\"LLM 输出不是合法 JSON：{str(e)}\"\
-          ,\n            \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
-          : json.dumps([\n                {\n                    \"field\": \"llm_output\"\
-          ,\n                    \"field_name\": \"LLM输出\",\n                    \"\
-          reason\": \"LLM 输出不是合法 JSON\",\n                    \"raw_output\": text\n\
-          \                }\n            ], ensure_ascii=False),\n            \"\
-          purchase_application_json\": \"\"\n        }\n\n    # ---------- 6. 获取采购申请单主体\
-          \ ----------\n    app = data.get(\"purchase_application\") or {}\n\n   \
-          \ if not isinstance(app, dict):\n        return {\n            \"is_ready\"\
-          : \"false\",\n            \"check_status\": \"INVALID_APPLICATION\",\n \
-          \           \"message\": \"purchase_application 字段格式异常，无法创建采购申请单。\",\n \
-          \           \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
-          : json.dumps([\n                {\n                    \"field\": \"purchase_application\"\
-          ,\n                    \"field_name\": \"采购申请单\",\n                    \"\
-          reason\": \"purchase_application 不是对象格式\"\n                }\n         \
-          \   ], ensure_ascii=False),\n            \"purchase_application_json\":\
-          \ \"\"\n        }\n\n    # ---------- 7. 字段名兼容处理 ----------\n    # 兼容 product_name\
-          \ / item_name\n    if not app.get(\"item_name\") and app.get(\"product_name\"\
-          ):\n        app[\"item_name\"] = app.get(\"product_name\")\n\n    if not\
-          \ app.get(\"product_name\") and app.get(\"item_name\"):\n        app[\"\
-          product_name\"] = app.get(\"item_name\")\n\n    # 兼容 product_model / item_model\n\
-          \    if not app.get(\"item_model\") and app.get(\"product_model\"):\n  \
-          \      app[\"item_model\"] = app.get(\"product_model\")\n\n    if not app.get(\"\
-          product_model\") and app.get(\"item_model\"):\n        app[\"product_model\"\
-          ] = app.get(\"item_model\")\n\n    # ---------- 8. 自动补全系统生成字段 ----------\n\
-          \    # application_title 不需要 LLM 强制提取\n    if not app.get(\"application_title\"\
-          ):\n        item_name = app.get(\"item_name\") or app.get(\"product_name\"\
-          ) or \"商品\"\n        app[\"application_title\"] = f\"采购申请单-{item_name}\"\
-          \n\n    # apply_date 不需要 LLM 强制提取\n    if not app.get(\"apply_date\"):\n\
-          \        app[\"apply_date\"] = datetime.now().strftime(\"%Y-%m-%d\")\n\n\
-          \    # application_type 固定为商品采购\n    if not app.get(\"application_type\"\
-          ):\n        app[\"application_type\"] = \"商品采购\"\n\n    # currency 默认 CNY\n\
-          \    if not app.get(\"currency\"):\n        app[\"currency\"] = \"CNY\"\n\
-          \n    # application_status 默认待提交\n    if not app.get(\"application_status\"\
-          ):\n        app[\"application_status\"] = \"待提交\"\n\n    # ---------- 9.\
-          \ 工具函数 ----------\n    def is_empty(value):\n        \"\"\"\n        判断字段是否为空。\n\
-          \        \"\"\"\n        if value is None:\n            return True\n\n\
-          \        if isinstance(value, str):\n            value = value.strip()\n\
-          \            if value == \"\":\n                return True\n          \
-          \  if value in [\"无\", \"未知\", \"未提及\", \"无法判断\", \"N/A\", \"null\", \"\
-          None\"]:\n                return True\n\n        return False\n\n    def\
-          \ to_number(value):\n        \"\"\"\n        将金额、数量字段转为数字。\n        支持：\n\
-          \        760\n        760.00\n        \"760元\"\n        \"¥760.00\"\n  \
-          \      \"152,000.00\"\n        \"\"\"\n        if value is None:\n     \
-          \       return None\n\n        if isinstance(value, (int, float)):\n   \
-          \         return float(value)\n\n        if isinstance(value, str):\n  \
-          \          cleaned = value.strip()\n            cleaned = cleaned.replace(\"\
-          ,\", \"\")\n            cleaned = cleaned.replace(\"¥\", \"\")\n       \
-          \     cleaned = cleaned.replace(\"￥\", \"\")\n            cleaned = cleaned.replace(\"\
-          元\", \"\")\n            cleaned = cleaned.replace(\"人民币\", \"\")\n     \
-          \       cleaned = cleaned.strip()\n\n            match = re.search(r\"-?\\\
-          d+(\\.\\d+)?\", cleaned)\n            if match:\n                try:\n\
-          \                    return float(match.group(0))\n                except\
-          \ Exception:\n                    return None\n\n        return None\n\n\
-          \    def get_field_name(field):\n        \"\"\"\n        从 missing_fields\
-          \ 或 abnormal_fields 中取字段名。\n        兼容：\n        [\"apply_date\"]\n    \
-          \    [{\"field\": \"apply_date\", \"reason\": \"...\"}]\n        \"\"\"\n\
-          \        if isinstance(field, str):\n            return field\n\n      \
-          \  if isinstance(field, dict):\n            return field.get(\"field\")\
-          \ or field.get(\"name\") or \"\"\n\n        return \"\"\n\n    # ----------\
-          \ 10. 清理 LLM 原本给出的 missing_fields ----------\n    llm_missing_fields = data.get(\"\
-          missing_fields\") or []\n    llm_abnormal_fields = data.get(\"abnormal_fields\"\
-          ) or []\n\n    if not isinstance(llm_missing_fields, list):\n        llm_missing_fields\
-          \ = []\n\n    if not isinstance(llm_abnormal_fields, list):\n        llm_abnormal_fields\
-          \ = []\n\n    # 这些字段可以系统自动生成，不应该继续算作缺失\n    auto_fill_fields = {\n     \
-          \   \"apply_date\",\n        \"application_title\",\n        \"application_type\"\
-          ,\n        \"currency\",\n        \"application_status\"\n    }\n\n    cleaned_missing_fields\
-          \ = []\n\n    for field in llm_missing_fields:\n        field_name = get_field_name(field)\n\
-          \n        # 自动生成字段不算缺失\n        if field_name in auto_fill_fields:\n   \
-          \         continue\n\n        # 如果字段已经在 app 中存在，也不算缺失\n        if field_name\
-          \ and not is_empty(app.get(field_name)):\n            continue\n\n     \
-          \   cleaned_missing_fields.append(field)\n\n    # ---------- 11. 当前商品采购申请单必填字段\
-          \ ----------\n    required_fields = [\n        {\n            \"field\"\
-          : \"supplier_name\",\n            \"field_name\": \"供应商名称\"\n        },\n\
-          \        {\n            \"field\": \"item_name\",\n            \"field_name\"\
-          : \"商品名称\"\n        },\n        {\n            \"field\": \"item_model\"\
-          ,\n            \"field_name\": \"规格型号\"\n        },\n        {\n       \
-          \     \"field\": \"unit\",\n            \"field_name\": \"单位\"\n       \
-          \ },\n        {\n            \"field\": \"quantity\",\n            \"field_name\"\
-          : \"采购数量\"\n        },\n        {\n            \"field\": \"purchase_unit_price\"\
-          ,\n            \"field_name\": \"采购单价\"\n        },\n        {\n       \
-          \     \"field\": \"purchase_total_amount\",\n            \"field_name\"\
-          : \"采购总金额\"\n        },\n        {\n            \"field\": \"expected_delivery_date\"\
-          ,\n            \"field_name\": \"预计交付日期\"\n        },\n        {\n     \
-          \       \"field\": \"payment_terms\",\n            \"field_name\": \"付款条款\"\
-          \n        },\n        {\n            \"field\": \"delivery_location\",\n\
-          \            \"field_name\": \"交付地点\"\n        }\n    ]\n\n    # ----------\
-          \ 12. 根据 app 再做一次确定性缺失检查 ----------\n    existing_missing_field_names =\
-          \ set()\n\n    for field in cleaned_missing_fields:\n        field_name\
-          \ = get_field_name(field)\n        if field_name:\n            existing_missing_field_names.add(field_name)\n\
-          \n    for item in required_fields:\n        field = item[\"field\"]\n  \
-          \      field_name = item[\"field_name\"]\n\n        if is_empty(app.get(field))\
-          \ and field not in existing_missing_field_names:\n            cleaned_missing_fields.append({\n\
-          \                \"field\": field,\n                \"field_name\": field_name,\n\
-          \                \"reason\": f\"{field_name}缺失，无法创建采购申请单。\",\n         \
-          \       \"suggestion\": f\"请补充{field_name}。\"\n            })\n        \
-          \    existing_missing_field_names.add(field)\n\n    # ---------- 13. 数值与业务规则校验\
-          \ ----------\n    abnormal_fields = []\n\n    # 保留 LLM 原本发现的异常\n    for\
-          \ field in llm_abnormal_fields:\n        abnormal_fields.append(field)\n\
-          \n    quantity = to_number(app.get(\"quantity\"))\n    unit_price = to_number(app.get(\"\
-          purchase_unit_price\"))\n    total_amount = to_number(app.get(\"purchase_total_amount\"\
-          ))\n\n    # 数量必须大于 0\n    if not is_empty(app.get(\"quantity\")):\n    \
-          \    if quantity is None or quantity <= 0:\n            abnormal_fields.append({\n\
-          \                \"field\": \"quantity\",\n                \"field_name\"\
-          : \"采购数量\",\n                \"reason\": \"采购数量必须是大于 0 的数字。\",\n       \
-          \         \"current_value\": app.get(\"quantity\"),\n                \"\
-          suggestion\": \"请检查采购数量是否填写正确。\"\n            })\n\n    # 单价必须大于 0\n   \
-          \ if not is_empty(app.get(\"purchase_unit_price\")):\n        if unit_price\
-          \ is None or unit_price <= 0:\n            abnormal_fields.append({\n  \
-          \              \"field\": \"purchase_unit_price\",\n                \"field_name\"\
-          : \"采购单价\",\n                \"reason\": \"采购单价必须是大于 0 的数字。\",\n       \
-          \         \"current_value\": app.get(\"purchase_unit_price\"),\n       \
-          \         \"suggestion\": \"请检查采购单价是否填写正确。\"\n            })\n\n    # 总金额必须大于\
-          \ 0\n    if not is_empty(app.get(\"purchase_total_amount\")):\n        if\
-          \ total_amount is None or total_amount <= 0:\n            abnormal_fields.append({\n\
-          \                \"field\": \"purchase_total_amount\",\n               \
-          \ \"field_name\": \"采购总金额\",\n                \"reason\": \"采购总金额必须是大于 0\
-          \ 的数字。\",\n                \"current_value\": app.get(\"purchase_total_amount\"\
-          ),\n                \"suggestion\": \"请检查采购总金额是否填写正确。\"\n            })\n\
-          \n    # 校验 总金额 ≈ 数量 × 单价\n    if quantity is not None and unit_price is\
-          \ not None and total_amount is not None:\n        calculated_total = quantity\
-          \ * unit_price\n\n        # 允许 1 元以内误差，避免小数或四舍五入问题\n        if abs(calculated_total\
-          \ - total_amount) > 1:\n            abnormal_fields.append({\n         \
-          \       \"field\": \"purchase_total_amount\",\n                \"field_name\"\
-          : \"采购总金额\",\n                \"reason\": \"采购总金额与采购数量 × 采购单价不一致。\",\n \
-          \               \"current_value\": total_amount,\n                \"calculated_value\"\
-          : calculated_total,\n                \"suggestion\": \"请检查采购数量、采购单价或采购总金额是否填写正确。\"\
-          \n            })\n\n    # ---------- 14. 最终状态判断 ----------\n    if cleaned_missing_fields:\n\
-          \        is_ready = False\n        check_status = \"MISSING_FIELD\"\n  \
-          \      message = \"采购申请单字段缺失，暂不能创建采购申请单。\"\n    elif abnormal_fields:\n\
-          \        is_ready = False\n        check_status = \"ABNORMAL_FIELD\"\n \
-          \       message = \"采购申请单字段存在异常，暂不能创建采购申请单。\"\n    else:\n        is_ready\
-          \ = True\n        check_status = \"PASS\"\n        message = \"采购申请单字段完整，可以创建采购申请单。\"\
-          \n\n    # ---------- 15. 返回给 Dify ----------\n    return {\n        \"is_ready\"\
-          : \"true\" if is_ready else \"false\",\n        \"check_status\": check_status,\n\
-          \        \"message\": message,\n        \"missing_fields_json\": json.dumps(cleaned_missing_fields,\
-          \ ensure_ascii=False),\n        \"abnormal_fields_json\": json.dumps(abnormal_fields,\
-          \ ensure_ascii=False),\n        \"purchase_application_json\": json.dumps(app,\
-          \ ensure_ascii=False)\n    }"
+        code: "import json\nimport re\nfrom datetime import datetime, date\n\n\ndef\
+          \ main(text: str) -> dict:\n    \"\"\"\n    商品采购申请单创建前校验节点\n\n    功能：\n\
+          \    1. 解析 LLM 输出的 JSON\n    2. 统一字段名称\n    3. 自动补全系统生成字段\n    4. 校验采购申请单必填字段\n\
+          \    5. 校验数量、单价、总金额和预计交付日期\n    6. 由代码节点统一计算最终 is_ready\n    \"\"\"\n\n\
+          \    # ---------- 构造异常返回 ----------\n    def build_error(\n        status,\n\
+          \        message,\n        abnormal_fields=None,\n        raw_output=None\n\
+          \    ):\n        issues = abnormal_fields or []\n\n        if raw_output\
+          \ is not None:\n            issues.append({\n                \"field\":\
+          \ \"llm_output\",\n                \"field_name\": \"LLM输出\",\n        \
+          \        \"reason\": message,\n                \"raw_output\": raw_output\n\
+          \            })\n\n        return {\n            \"is_ready\": \"false\"\
+          ,\n            \"check_status\": status,\n            \"message\": message,\n\
+          \            \"missing_fields_json\": \"[]\",\n            \"abnormal_fields_json\"\
+          : json.dumps(\n                issues,\n                ensure_ascii=False\n\
+          \            ),\n            \"purchase_application_json\": \"\"\n     \
+          \   }\n\n    # ---------- 1. 检查空输出 ----------\n    if text is None or not\
+          \ str(text).strip():\n        return build_error(\n            \"EMPTY_OUTPUT\"\
+          ,\n            \"LLM 输出为空，无法创建采购申请单。\",\n            [{\n              \
+          \  \"field\": \"llm_output\",\n                \"field_name\": \"LLM输出\"\
+          ,\n                \"reason\": \"LLM 输出为空\"\n            }]\n        )\n\
+          \n    raw = str(text).strip()\n\n    # ---------- 2. 清理 Markdown ----------\n\
+          \    raw = raw.replace(\"```json\", \"\")\n    raw = raw.replace(\"```JSON\"\
+          , \"\")\n    raw = raw.replace(\"```\", \"\")\n    raw = raw.strip()\n\n\
+          \    # ---------- 3. 兼容外层 text ----------\n    try:\n        outer = json.loads(raw)\n\
+          \n        if isinstance(outer, dict) and \"text\" in outer:\n\n        \
+          \    outer_text = outer.get(\"text\")\n\n            if isinstance(outer_text,\
+          \ str):\n                raw = outer_text.strip()\n\n            elif isinstance(outer_text,\
+          \ dict):\n                raw = json.dumps(\n                    outer_text,\n\
+          \                    ensure_ascii=False\n                )\n\n    except\
+          \ Exception:\n        pass\n\n    # ---------- 4. 提取 JSON 主体 ----------\n\
+          \    match = re.search(\n        r\"\\{[\\s\\S]*\\}\",\n        raw\n  \
+          \  )\n\n    if match:\n        raw = match.group(0)\n\n    # ----------\
+          \ 5. 解析 JSON ----------\n    try:\n        data = json.loads(raw)\n\n  \
+          \  except Exception as error:\n\n        return build_error(\n         \
+          \   \"JSON_PARSE_ERROR\",\n            f\"LLM 输出不是合法 JSON：{str(error)}\"\
+          ,\n            raw_output=text\n        )\n\n    if not isinstance(data,\
+          \ dict):\n\n        return build_error(\n            \"INVALID_OUTPUT\"\
+          ,\n            \"LLM 输出的最外层不是 JSON 对象。\"\n        )\n\n    # ----------\
+          \ 6. 获取采购申请单 ----------\n    app = data.get(\n        \"purchase_application\"\
+          \n    ) or {}\n\n    if not isinstance(app, dict):\n\n        return build_error(\n\
+          \            \"INVALID_APPLICATION\",\n            \"purchase_application\
+          \ 字段格式异常。\",\n            [{\n                \"field\": \"purchase_application\"\
+          ,\n                \"field_name\": \"采购申请单\",\n                \"reason\"\
+          : (\n                    \"purchase_application \"\n                   \
+          \ \"不是对象格式\"\n                )\n            }]\n        )\n\n    # ----------\
+          \ 7. 空值判断 ----------\n    empty_texts = {\n        \"\",\n        \"无\"\
+          ,\n        \"未知\",\n        \"未提及\",\n        \"未提供\",\n        \"未提取到\"\
+          ,\n        \"无法判断\",\n        \"n/a\",\n        \"null\",\n        \"none\"\
+          ,\n        \"undefined\"\n    }\n\n    def is_empty(value):\n\n        if\
+          \ value is None:\n            return True\n\n        if isinstance(value,\
+          \ str):\n\n            return (\n                value.strip().lower()\n\
+          \                in empty_texts\n            )\n\n        if isinstance(value,\
+          \ (list, dict)):\n\n            return len(value) == 0\n\n        return\
+          \ False\n\n    # ---------- 8. 数值转换 ----------\n    def to_number(value):\n\
+          \n        if value is None:\n            return None\n\n        if isinstance(value,\
+          \ bool):\n            return None\n\n        if isinstance(value, (int,\
+          \ float)):\n            return float(value)\n\n        if isinstance(value,\
+          \ str):\n\n            cleaned = value.strip()\n\n            cleaned =\
+          \ cleaned.replace(\n                \",\",\n                \"\"\n     \
+          \       )\n\n            cleaned = cleaned.replace(\n                \"\
+          ，\",\n                \"\"\n            )\n\n            cleaned = cleaned.replace(\n\
+          \                \"¥\",\n                \"\"\n            )\n\n       \
+          \     cleaned = cleaned.replace(\n                \"￥\",\n             \
+          \   \"\"\n            )\n\n            cleaned = cleaned.replace(\n    \
+          \            \"人民币\",\n                \"\"\n            )\n\n         \
+          \   cleaned = cleaned.replace(\n                \"RMB\",\n             \
+          \   \"\"\n            )\n\n            cleaned = cleaned.replace(\n    \
+          \            \"rmb\",\n                \"\"\n            )\n\n         \
+          \   cleaned = cleaned.replace(\n                \"元\",\n               \
+          \ \"\"\n            )\n\n            number_match = re.search(\n       \
+          \         r\"-?\\d+(?:\\.\\d+)?\",\n                cleaned\n          \
+          \  )\n\n            if number_match:\n\n                try:\n         \
+          \           return float(\n                        number_match.group(0)\n\
+          \                    )\n\n                except Exception:\n          \
+          \          return None\n\n        return None\n\n    # ---------- 9. 明确日期转换\
+          \ ----------\n    def normalize_explicit_date(value):\n\n        if isinstance(value,\
+          \ datetime):\n\n            return value.strftime(\n                \"%Y-%m-%d\"\
+          \n            )\n\n        if isinstance(value, date):\n\n            return\
+          \ value.strftime(\n                \"%Y-%m-%d\"\n            )\n\n     \
+          \   if not isinstance(value, str):\n\n            return None\n\n      \
+          \  value = value.strip()\n\n        if is_empty(value):\n\n            return\
+          \ None\n\n        relative_keywords = [\n            \"合同签订后\",\n      \
+          \      \"签订后\",\n            \"收到订单后\",\n            \"订单下达后\",\n      \
+          \      \"通知后\",\n            \"以甲方通知为准\",\n            \"以通知为准\",\n    \
+          \        \"若干日内\",\n            \"工作日内\",\n            \"自然日内\"\n      \
+          \  ]\n\n        for keyword in relative_keywords:\n\n            if keyword\
+          \ in value:\n\n                return None\n\n        patterns = [\n\n \
+          \           (\n                r\"(?P<year>\\d{4})\\s*年\"\n            \
+          \    r\"\\s*(?P<month>\\d{1,2})\\s*月\"\n                r\"\\s*(?P<day>\\\
+          d{1,2})\\s*日?\"\n            ),\n\n            (\n                r\"(?P<year>\\\
+          d{4})[-/.]\"\n                r\"(?P<month>\\d{1,2})[-/.]\"\n          \
+          \      r\"(?P<day>\\d{1,2})\"\n            ),\n\n            (\n       \
+          \         r\"(?<!\\d)\"\n                r\"(?P<year>\\d{4})\"\n       \
+          \         r\"(?P<month>\\d{2})\"\n                r\"(?P<day>\\d{2})\"\n\
+          \                r\"(?!\\d)\"\n            )\n        ]\n\n        for pattern\
+          \ in patterns:\n\n            date_match = re.search(\n                pattern,\n\
+          \                value\n            )\n\n            if not date_match:\n\
+          \n                continue\n\n            try:\n\n                parsed_date\
+          \ = datetime(\n\n                    int(\n                        date_match.group(\n\
+          \                            \"year\"\n                        )\n     \
+          \               ),\n\n                    int(\n                       \
+          \ date_match.group(\n                            \"month\"\n           \
+          \             )\n                    ),\n\n                    int(\n  \
+          \                      date_match.group(\n                            \"\
+          day\"\n                        )\n                    )\n              \
+          \  )\n\n                return parsed_date.strftime(\n                 \
+          \   \"%Y-%m-%d\"\n                )\n\n            except ValueError:\n\n\
+          \                return None\n\n        return None\n\n    # ----------\
+          \ 10. 字段别名 ----------\n    field_aliases = {\n\n        \"product_name\"\
+          :\n        \"item_name\",\n\n        \"product_model\":\n        \"item_model\"\
+          ,\n\n        \"delivery_date\":\n        \"expected_delivery_date\"\n  \
+          \  }\n\n    def normalize_field_name(\n        field_name\n    ):\n\n  \
+          \      if not isinstance(\n            field_name,\n            str\n  \
+          \      ):\n\n            return \"\"\n\n        field_name = (\n       \
+          \     field_name.strip()\n        )\n\n        return field_aliases.get(\n\
+          \            field_name,\n            field_name\n        )\n\n    # ----------\
+          \ 11. 统一申请单字段 ----------\n    for (\n        old_name,\n        new_name\n\
+          \    ) in field_aliases.items():\n\n        if (\n            is_empty(\n\
+          \                app.get(\n                    new_name\n              \
+          \  )\n            )\n            and\n            not is_empty(\n      \
+          \          app.get(\n                    old_name\n                )\n \
+          \           )\n        ):\n\n            app[new_name] = (\n           \
+          \     app.get(\n                    old_name\n                )\n      \
+          \      )\n\n    # 删除旧字段名称\n    for old_name in field_aliases:\n\n      \
+          \  app.pop(\n            old_name,\n            None\n        )\n\n    #\
+          \ ---------- 12. 自动生成系统字段 ----------\n    if is_empty(\n        app.get(\n\
+          \            \"application_title\"\n        )\n    ):\n\n        item_name\
+          \ = (\n\n            app.get(\n                \"item_name\"\n         \
+          \   )\n\n            or\n\n            \"商品\"\n        )\n\n        app[\n\
+          \            \"application_title\"\n        ] = (\n\n            f\"采购申请单-\"\
+          \n            f\"{item_name}\"\n        )\n\n    if is_empty(\n        app.get(\n\
+          \            \"apply_date\"\n        )\n    ):\n\n        app[\n       \
+          \     \"apply_date\"\n        ] = (\n\n            datetime.now()\n    \
+          \        .strftime(\n                \"%Y-%m-%d\"\n            )\n     \
+          \   )\n\n    if is_empty(\n        app.get(\n            \"application_type\"\
+          \n        )\n    ):\n\n        app[\n            \"application_type\"\n\
+          \        ] = \"商品采购\"\n\n    if is_empty(\n        app.get(\n          \
+          \  \"currency\"\n        )\n    ):\n\n        app[\n            \"currency\"\
+          \n        ] = \"CNY\"\n\n    if is_empty(\n        app.get(\n          \
+          \  \"application_status\"\n        )\n    ):\n\n        app[\n         \
+          \   \"application_status\"\n        ] = \"待提交\"\n\n    # ---------- 13.\
+          \ 问题字段名称 ----------\n    def get_field_name(issue):\n\n        if isinstance(\n\
+          \            issue,\n            str\n        ):\n\n            return (\n\
+          \                normalize_field_name(\n                    issue\n    \
+          \            )\n            )\n\n        if isinstance(\n            issue,\n\
+          \            dict\n        ):\n\n            return (\n                normalize_field_name(\n\
+          \n                    issue.get(\n                        \"field\"\n  \
+          \                  )\n\n                    or\n\n                    issue.get(\n\
+          \                        \"name\"\n                    )\n\n           \
+          \         or\n\n                    \"\"\n                )\n          \
+          \  )\n\n        return \"\"\n\n    # ---------- 14. 统一问题字段 ----------\n\
+          \    def normalize_issue(issue):\n\n        if isinstance(\n           \
+          \ issue,\n            str\n        ):\n\n            return (\n        \
+          \        normalize_field_name(\n                    issue\n            \
+          \    )\n            )\n\n        if isinstance(\n            issue,\n  \
+          \          dict\n        ):\n\n            normalized = dict(\n        \
+          \        issue\n            )\n\n            field_name = (\n          \
+          \      get_field_name(\n                    issue\n                )\n \
+          \           )\n\n            if field_name:\n\n                normalized[\n\
+          \                    \"field\"\n                ] = field_name\n\n     \
+          \       return normalized\n\n        return issue\n\n    # ---------- 15.\
+          \ 获取 LLM 问题 ----------\n    llm_missing_fields = (\n\n        data.get(\n\
+          \            \"missing_fields\"\n        )\n\n        or\n\n        []\n\
+          \    )\n\n    llm_abnormal_fields = (\n\n        data.get(\n           \
+          \ \"abnormal_fields\"\n        )\n\n        or\n\n        []\n    )\n\n\
+          \    if not isinstance(\n        llm_missing_fields,\n        list\n   \
+          \ ):\n\n        llm_missing_fields = []\n\n    if not isinstance(\n    \
+          \    llm_abnormal_fields,\n        list\n    ):\n\n        llm_abnormal_fields\
+          \ = []\n\n    llm_missing_fields = [\n\n        normalize_issue(\n     \
+          \       issue\n        )\n\n        for issue\n\n        in llm_missing_fields\n\
+          \    ]\n\n    abnormal_fields = [\n\n        normalize_issue(\n        \
+          \    issue\n        )\n\n        for issue\n\n        in llm_abnormal_fields\n\
+          \    ]\n\n    # ---------- 16. 清理缺失字段 ----------\n    auto_fill_fields =\
+          \ {\n\n        \"application_title\",\n\n        \"apply_date\",\n\n   \
+          \     \"application_type\",\n\n        \"currency\",\n\n        \"application_status\"\
+          \n    }\n\n    cleaned_missing_fields = []\n\n    for issue in llm_missing_fields:\n\
+          \n        field_name = (\n\n            get_field_name(\n              \
+          \  issue\n            )\n        )\n\n        if (\n            field_name\n\
+          \            in auto_fill_fields\n        ):\n\n            continue\n\n\
+          \        if (\n            field_name\n            and\n            not\
+          \ is_empty(\n                app.get(\n                    field_name\n\
+          \                )\n            )\n        ):\n\n            continue\n\n\
+          \        cleaned_missing_fields.append(\n            issue\n        )\n\n\
+          \    # ---------- 17. 必填字段 ----------\n    required_fields = [\n\n     \
+          \   {\n            \"field\":\n            \"supplier_name\",\n\n      \
+          \      \"field_name\":\n            \"供应商名称\"\n        },\n\n        {\n\
+          \            \"field\":\n            \"item_name\",\n\n            \"field_name\"\
+          :\n            \"商品名称\"\n        },\n\n        {\n            \"field\"\
+          :\n            \"item_model\",\n\n            \"field_name\":\n        \
+          \    \"规格型号\"\n        },\n\n        {\n            \"field\":\n       \
+          \     \"unit\",\n\n            \"field_name\":\n            \"单位\"\n   \
+          \     },\n\n        {\n            \"field\":\n            \"quantity\"\
+          ,\n\n            \"field_name\":\n            \"采购数量\"\n        },\n\n \
+          \       {\n            \"field\":\n            \"purchase_unit_price\",\n\
+          \n            \"field_name\":\n            \"采购单价\"\n        },\n\n    \
+          \    {\n            \"field\":\n            \"purchase_total_amount\",\n\
+          \n            \"field_name\":\n            \"采购总金额\"\n        },\n\n   \
+          \     {\n            \"field\":\n            \"expected_delivery_date\"\
+          ,\n\n            \"field_name\":\n            \"预计交付日期\"\n        },\n\n\
+          \        {\n            \"field\":\n            \"payment_terms\",\n\n \
+          \           \"field_name\":\n            \"付款条款\"\n        },\n\n      \
+          \  {\n            \"field\":\n            \"delivery_location\",\n\n   \
+          \         \"field_name\":\n            \"交付地点\"\n        }\n    ]\n\n  \
+          \  existing_missing_names = {\n\n        get_field_name(\n            issue\n\
+          \        )\n\n        for issue\n\n        in cleaned_missing_fields\n\n\
+          \        if get_field_name(\n            issue\n        )\n    }\n\n   \
+          \ for item in required_fields:\n\n        field = item[\n            \"\
+          field\"\n        ]\n\n        field_name = item[\n            \"field_name\"\
+          \n        ]\n\n        if (\n\n            is_empty(\n                app.get(\n\
+          \                    field\n                )\n            )\n\n       \
+          \     and\n\n            field\n\n            not in\n\n            existing_missing_names\n\
+          \        ):\n\n            cleaned_missing_fields.append({\n\n         \
+          \       \"field\":\n                field,\n\n                \"field_name\"\
+          :\n                field_name,\n\n                \"reason\":\n        \
+          \        (\n                    f\"{field_name}缺失，\"\n                 \
+          \   f\"无法创建采购申请单。\"\n                ),\n\n                \"suggestion\"\
+          :\n                (\n                    f\"请补充\"\n                   \
+          \ f\"{field_name}。\"\n                )\n            })\n\n            existing_missing_names.add(\n\
+          \                field\n            )\n\n    # ---------- 18. 数值校验 ----------\n\
+          \    quantity = to_number(\n\n        app.get(\n            \"quantity\"\
+          \n        )\n    )\n\n    unit_price = to_number(\n\n        app.get(\n\
+          \            \"purchase_unit_price\"\n        )\n    )\n\n    total_amount\
+          \ = to_number(\n\n        app.get(\n            \"purchase_total_amount\"\
+          \n        )\n    )\n\n    if not is_empty(\n        app.get(\n         \
+          \   \"quantity\"\n        )\n    ):\n\n        if (\n            quantity\
+          \ is None\n            or\n            quantity <= 0\n        ):\n\n   \
+          \         abnormal_fields.append({\n\n                \"field\":\n     \
+          \           \"quantity\",\n\n                \"field_name\":\n         \
+          \       \"采购数量\",\n\n                \"reason\":\n                (\n  \
+          \                  \"采购数量必须是\"\n                    \"大于0的数字。\"\n      \
+          \          ),\n\n                \"current_value\":\n                app.get(\n\
+          \                    \"quantity\"\n                ),\n\n              \
+          \  \"suggestion\":\n                (\n                    \"请检查采购数量\"\n\
+          \                    \"是否填写正确。\"\n                )\n            })\n\n\
+          \    if not is_empty(\n        app.get(\n            \"purchase_unit_price\"\
+          \n        )\n    ):\n\n        if (\n            unit_price is None\n  \
+          \          or\n            unit_price <= 0\n        ):\n\n            abnormal_fields.append({\n\
+          \n                \"field\":\n                \"purchase_unit_price\",\n\
+          \n                \"field_name\":\n                \"采购单价\",\n\n       \
+          \         \"reason\":\n                (\n                    \"采购单价必须是\"\
+          \n                    \"大于0的数字。\"\n                ),\n\n              \
+          \  \"current_value\":\n                app.get(\n                    \"\
+          purchase_unit_price\"\n                ),\n\n                \"suggestion\"\
+          :\n                (\n                    \"请检查采购单价\"\n                \
+          \    \"是否填写正确。\"\n                )\n            })\n\n    if not is_empty(\n\
+          \        app.get(\n            \"purchase_total_amount\"\n        )\n  \
+          \  ):\n\n        if (\n            total_amount is None\n            or\n\
+          \            total_amount <= 0\n        ):\n\n            abnormal_fields.append({\n\
+          \n                \"field\":\n                \"purchase_total_amount\"\
+          ,\n\n                \"field_name\":\n                \"采购总金额\",\n\n   \
+          \             \"reason\":\n                (\n                    \"采购总金额必须是\"\
+          \n                    \"大于0的数字。\"\n                ),\n\n              \
+          \  \"current_value\":\n                app.get(\n                    \"\
+          purchase_total_amount\"\n                ),\n\n                \"suggestion\"\
+          :\n                (\n                    \"请检查采购总金额\"\n               \
+          \     \"是否填写正确。\"\n                )\n            })\n\n    # ----------\
+          \ 19. 总金额一致性 ----------\n    if (\n\n        quantity is not None\n\n  \
+          \      and\n\n        unit_price is not None\n\n        and\n\n        total_amount\
+          \ is not None\n\n        and\n\n        quantity > 0\n\n        and\n\n\
+          \        unit_price > 0\n\n        and\n\n        total_amount > 0\n\n \
+          \   ):\n\n        calculated_total = (\n\n            quantity\n\n     \
+          \       *\n\n            unit_price\n        )\n\n        if abs(\n\n  \
+          \          calculated_total\n\n            -\n\n            total_amount\n\
+          \n        ) > 1:\n\n            abnormal_fields.append({\n\n           \
+          \     \"field\":\n                \"purchase_total_amount\",\n\n       \
+          \         \"field_name\":\n                \"采购总金额\",\n\n              \
+          \  \"reason\":\n                (\n                    \"采购总金额与\"\n    \
+          \                \"采购数量 × 采购单价\"\n                    \"不一致。\"\n       \
+          \         ),\n\n                \"current_value\":\n                total_amount,\n\
+          \n                \"calculated_value\":\n                calculated_total,\n\
+          \n                \"suggestion\":\n                (\n                 \
+          \   \"请检查采购数量、\"\n                    \"采购单价或采购总金额。\"\n                )\n\
+          \            })\n\n    # ---------- 20. 日期校验 ----------\n    expected_date\
+          \ = (\n\n        app.get(\n            \"expected_delivery_date\"\n    \
+          \    )\n    )\n\n    if not is_empty(\n        expected_date\n    ):\n\n\
+          \        normalized_date = (\n\n            normalize_explicit_date(\n \
+          \               expected_date\n            )\n        )\n\n        if normalized_date\
+          \ is None:\n\n            abnormal_fields.append({\n\n                \"\
+          field\":\n                \"expected_delivery_date\",\n\n              \
+          \  \"field_name\":\n                \"预计交付日期\",\n\n                \"reason\"\
+          :\n                (\n                    \"预计交付日期不是\"\n               \
+          \     \"可识别的明确日期。\"\n                ),\n\n                \"current_value\"\
+          :\n                expected_date,\n\n                \"suggestion\":\n \
+          \               (\n                    \"请补充明确日期，\"\n                  \
+          \  \"例如2026-07-15。\"\n                )\n            })\n\n        else:\n\
+          \n            app[\n                \"expected_delivery_date\"\n       \
+          \     ] = normalized_date\n\n    # ---------- 21. 问题去重 ----------\n    def\
+          \ deduplicate_issues(\n        issues\n    ):\n\n        result = []\n\n\
+          \        seen = set()\n\n        for issue in issues:\n\n            if\
+          \ isinstance(\n                issue,\n                dict\n          \
+          \  ):\n\n                key = (\n\n                    issue.get(\n   \
+          \                     \"field\",\n                        \"\"\n       \
+          \             ),\n\n                    issue.get(\n                   \
+          \     \"reason\",\n                        \"\"\n                    ),\n\
+          \n                    str(\n                        issue.get(\n       \
+          \                     \"current_value\",\n                            \"\
+          \"\n                        )\n                    )\n                )\n\
+          \n            else:\n\n                key = (\n\n                    str(\n\
+          \                        issue\n                    ),\n\n             \
+          \       \"\",\n\n                    \"\"\n                )\n\n       \
+          \     if key in seen:\n\n                continue\n\n            seen.add(\n\
+          \                key\n            )\n\n            result.append(\n    \
+          \            issue\n            )\n\n        return result\n\n    cleaned_missing_fields\
+          \ = (\n\n        deduplicate_issues(\n            cleaned_missing_fields\n\
+          \        )\n    )\n\n    abnormal_fields = (\n\n        deduplicate_issues(\n\
+          \            abnormal_fields\n        )\n    )\n\n    # ---------- 22. 最终状态\
+          \ ----------\n    if cleaned_missing_fields:\n\n        is_ready = False\n\
+          \n        check_status = (\n            \"MISSING_FIELD\"\n        )\n\n\
+          \        message = (\n            \"采购申请单字段缺失，\"\n            \"暂不能创建采购申请单。\"\
+          \n        )\n\n    elif abnormal_fields:\n\n        is_ready = False\n\n\
+          \        check_status = (\n            \"ABNORMAL_FIELD\"\n        )\n\n\
+          \        message = (\n            \"采购申请单字段存在异常，\"\n            \"暂不能创建采购申请单。\"\
+          \n        )\n\n    else:\n\n        is_ready = True\n\n        check_status\
+          \ = \"PASS\"\n\n        message = (\n            \"采购申请单字段完整，\"\n      \
+          \      \"可以创建采购申请单。\"\n        )\n\n    # ---------- 23. 返回 Dify ----------\n\
+          \    return {\n\n        \"is_ready\":\n\n        (\n            \"true\"\
+          \n\n            if is_ready\n\n            else\n\n            \"false\"\
+          \n        ),\n\n        \"check_status\":\n\n        check_status,\n\n \
+          \       \"message\":\n\n        message,\n\n        \"missing_fields_json\"\
+          :\n\n        json.dumps(\n\n            cleaned_missing_fields,\n\n    \
+          \        ensure_ascii=False\n        ),\n        \"abnormal_fields_json\"\
+          :\n        json.dumps(\n            abnormal_fields,\n            ensure_ascii=False\n\
+          \        ),\n        \"purchase_application_json\":\n        json.dumps(\n\
+          \            app,\n            ensure_ascii=False\n        )\n    }"
         code_language: python3
         outputs:
           abnormal_fields_json:
@@ -3527,11 +3719,11 @@ workflow:
       height: 51
       id: '1783340100112'
       position:
-        x: 1355.1704976343276
-        y: 130.54767647398305
+        x: 1385.5191804180038
+        y: 121.79693569985781
       positionAbsolute:
-        x: 1355.1704976343276
-        y: 130.54767647398305
+        x: 1385.5191804180038
+        y: 121.79693569985781
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3557,10 +3749,10 @@ workflow:
       id: '1783340183522'
       position:
         x: 1685.7137637871533
-        y: 123.02808016406718
+        y: 121.79693569985781
       positionAbsolute:
         x: 1685.7137637871533
-        y: 123.02808016406718
+        y: 121.79693569985781
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3580,11 +3772,11 @@ workflow:
       height: 88
       id: '1783340281792'
       position:
-        x: -597.3754871690786
-        y: -273.96126477228313
+        x: 246.33193286449
+        y: 1156.579689234895
       positionAbsolute:
-        x: -597.3754871690786
-        y: -273.96126477228313
+        x: 246.33193286449
+        y: 1156.579689234895
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3606,11 +3798,11 @@ workflow:
       height: 114
       id: '1783340317693'
       position:
-        x: 566.6569558542647
-        y: -254.6261481838134
+        x: 519.4989215543435
+        y: -264.2721097451609
       positionAbsolute:
-        x: 566.6569558542647
-        y: -254.6261481838134
+        x: 519.4989215543435
+        y: -264.2721097451609
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3630,11 +3822,11 @@ workflow:
       height: 88
       id: '1783340392631'
       position:
-        x: 542.3263291685392
-        y: -128.55129762997475
+        x: 525.1727659619141
+        y: -81.46526082546305
       positionAbsolute:
-        x: 542.3263291685392
-        y: -128.55129762997475
+        x: 525.1727659619141
+        y: -81.46526082546305
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3715,40 +3907,44 @@ workflow:
       type: custom-note
       width: 240
     - data:
-        code: "import json\nfrom datetime import datetime\n\n\ndef main(purchase_application_json:\
-          \ str) -> dict:\n    \"\"\"\n    模拟采购申请单创建节点\n\n    输入：\n    - purchase_application_json：上一步字段校验节点输出的采购申请单\
-          \ JSON\n\n    输出：\n    - create_success：是否创建成功\n    - application_no：采购申请单编号\n\
-          \    - application_status：申请单状态\n    - message：创建结果说明\n    - app_result_json：完整采购申请单创建结果\n\
-          \    \"\"\"\n\n    if not purchase_application_json or not purchase_application_json.strip():\n\
-          \        return {\n            \"create_success\": \"false\",\n        \
-          \    \"application_no\": \"\",\n            \"application_status\": \"创建失败\"\
-          ,\n            \"message\": \"采购申请单内容为空，无法创建采购申请单。\",\n            \"app_result_json\"\
-          : \"\"\n        }\n\n    try:\n        app = json.loads(purchase_application_json)\n\
-          \    except Exception as e:\n        return {\n            \"create_success\"\
-          : \"false\",\n            \"application_no\": \"\",\n            \"application_status\"\
-          : \"创建失败\",\n            \"message\": f\"采购申请单 JSON 解析失败：{str(e)}\",\n \
-          \           \"app_result_json\": \"\"\n        }\n\n    now = datetime.now()\n\
-          \n    # 生成模拟采购申请单编号\n    application_no = \"PA-\" + now.strftime(\"%Y%m%d%H%M%S\"\
-          )\n\n    # 设置申请单状态\n    application_status = \"已提交审批\"\n\n    # 组装完整采购申请单创建结果\n\
-          \    result = {\n        \"application_no\": application_no,\n        \"\
-          application_status\": application_status,\n        \"application_title\"\
-          : app.get(\"application_title\", \"\"),\n        \"application_type\": app.get(\"\
-          application_type\", \"商品采购\"),\n        \"apply_date\": app.get(\"apply_date\"\
-          , now.strftime(\"%Y-%m-%d\")),\n\n        \"supplier_name\": app.get(\"\
-          supplier_name\", \"\"),\n\n        \"item_name\": app.get(\"item_name\"\
-          , \"\"),\n        \"item_model\": app.get(\"item_model\", \"\"),\n     \
-          \   \"unit\": app.get(\"unit\", \"\"),\n        \"quantity\": app.get(\"\
-          quantity\", \"\"),\n\n        \"purchase_unit_price\": app.get(\"purchase_unit_price\"\
-          , \"\"),\n        \"purchase_total_amount\": app.get(\"purchase_total_amount\"\
-          , \"\"),\n        \"currency\": app.get(\"currency\", \"CNY\"),\n\n    \
-          \    \"expected_delivery_date\": app.get(\"expected_delivery_date\", \"\"\
-          ),\n        \"delivery_location\": app.get(\"delivery_location\", \"\"),\n\
-          \        \"payment_terms\": app.get(\"payment_terms\", \"\"),\n\n      \
-          \  \"create_time\": now.strftime(\"%Y-%m-%d %H:%M:%S\"),\n        \"message\"\
-          : \"采购申请单已自动创建并提交审批。\"\n    }\n\n    return {\n        \"create_success\"\
-          : \"true\",\n        \"application_no\": application_no,\n        \"application_status\"\
-          : application_status,\n        \"message\": \"采购申请单已自动创建并提交审批。\",\n    \
-          \    \"app_result_json\": json.dumps(result, ensure_ascii=False)\n    }"
+        code: "import json\r\nfrom datetime import datetime\r\n\r\n\r\ndef main(purchase_application_json:\
+          \ str) -> dict:\r\n    \"\"\"\r\n    模拟采购申请单创建节点\r\n\r\n    输入：\r\n    -\
+          \ purchase_application_json：上一步字段校验节点输出的采购申请单 JSON\r\n\r\n    输出：\r\n  \
+          \  - create_success：是否创建成功\r\n    - application_no：采购申请单编号\r\n    - application_status：申请单状态\r\
+          \n    - message：创建结果说明\r\n    - app_result_json：完整采购申请单创建结果\r\n    \"\"\"\
+          \r\n\r\n    if not purchase_application_json or not purchase_application_json.strip():\r\
+          \n        return {\r\n            \"create_success\": \"false\",\r\n   \
+          \         \"application_no\": \"\",\r\n            \"application_status\"\
+          : \"创建失败\",\r\n            \"message\": \"采购申请单内容为空，无法创建采购申请单。\",\r\n  \
+          \          \"app_result_json\": \"\"\r\n        }\r\n\r\n    try:\r\n  \
+          \      app = json.loads(purchase_application_json)\r\n    except Exception\
+          \ as e:\r\n        return {\r\n            \"create_success\": \"false\"\
+          ,\r\n            \"application_no\": \"\",\r\n            \"application_status\"\
+          : \"创建失败\",\r\n            \"message\": f\"采购申请单 JSON 解析失败：{str(e)}\",\r\
+          \n            \"app_result_json\": \"\"\r\n        }\r\n\r\n    now = datetime.now()\r\
+          \n\r\n    # 生成模拟采购申请单编号\r\n    application_no = \"PA-\" + now.strftime(\"\
+          %Y%m%d%H%M%S\")\r\n\r\n    # 设置申请单状态\r\n    application_status = \"已提交审批\"\
+          \r\n\r\n    # 组装完整采购申请单创建结果\r\n    result = {\r\n        \"application_no\"\
+          : application_no,\r\n        \"application_status\": application_status,\r\
+          \n        \"application_title\": app.get(\"application_title\", \"\"),\r\
+          \n        \"application_type\": app.get(\"application_type\", \"商品采购\"),\r\
+          \n        \"apply_date\": app.get(\"apply_date\", now.strftime(\"%Y-%m-%d\"\
+          )),\r\n\r\n        \"supplier_name\": app.get(\"supplier_name\", \"\"),\r\
+          \n\r\n        \"item_name\": app.get(\"item_name\", \"\"),\r\n        \"\
+          item_model\": app.get(\"item_model\", \"\"),\r\n        \"unit\": app.get(\"\
+          unit\", \"\"),\r\n        \"quantity\": app.get(\"quantity\", \"\"),\r\n\
+          \r\n        \"purchase_unit_price\": app.get(\"purchase_unit_price\", \"\
+          \"),\r\n        \"purchase_total_amount\": app.get(\"purchase_total_amount\"\
+          , \"\"),\r\n        \"currency\": app.get(\"currency\", \"CNY\"),\r\n\r\n\
+          \        \"expected_delivery_date\": app.get(\"expected_delivery_date\"\
+          , \"\"),\r\n        \"delivery_location\": app.get(\"delivery_location\"\
+          , \"\"),\r\n        \"payment_terms\": app.get(\"payment_terms\", \"\"),\r\
+          \n\r\n        \"create_time\": now.strftime(\"%Y-%m-%d %H:%M:%S\"),\r\n\
+          \        \"message\": \"采购申请单已自动创建并提交审批。\"\r\n    }\r\n\r\n    return {\r\
+          \n        \"create_success\": \"true\",\r\n        \"application_no\": application_no,\r\
+          \n        \"application_status\": application_status,\r\n        \"message\"\
+          : \"采购申请单已自动创建并提交审批。\",\r\n        \"app_result_json\": json.dumps(result,\
+          \ ensure_ascii=False)\r\n    }"
         code_language: python3
         outputs:
           app_result_json:
@@ -3778,11 +3974,11 @@ workflow:
       height: 51
       id: '1783340661478'
       position:
-        x: 1973.132507630498
-        y: 104.07243932699832
+        x: 1955.2886577422064
+        y: 151.2311854603414
       positionAbsolute:
-        x: 1973.132507630498
-        y: 104.07243932699832
+        x: 1955.2886577422064
+        y: 151.2311854603414
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3815,7 +4011,9 @@ workflow:
 
             4. 不要编造 JSON 中不存在的信息。
 
-            5. 使用中文回复，适合飞书消息通知。'
+            5. 使用中文回复，适合飞书消息通知。
+
+            6. 禁止使用Markdown 标题与语法，最终只输出面向用户的回复正文，不解释生成过程'
         reasoning_format: separated
         selected: false
         title: 申请单创建完成回复
@@ -3825,11 +4023,11 @@ workflow:
       height: 87
       id: '1783340801210'
       position:
-        x: 2268.744841451238
-        y: 97.91671700595138
+        x: 2256.768125262326
+        y: -48.2705017212407
       positionAbsolute:
-        x: 2268.744841451238
-        y: 97.91671700595138
+        x: 2256.768125262326
+        y: -48.2705017212407
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4089,7 +4287,7 @@ workflow:
         provider_show_name: Lark 消息和群组
         provider_type: builtin
         selected: false
-        title: 申请单创建完成回复
+        title: 提供审批界面
         tool_configurations:
           msg_type:
             type: constant
@@ -4104,7 +4302,9 @@ workflow:
         tool_parameters:
           content:
             type: mixed
-            value: '{{#1783340801210.text#}}'
+            value: '采购单创建完成！
+
+              请进入 {{#1784092913093.confirm_url#}} 进行审批'
           receive_id:
             type: mixed
             value: '{{#1782981177946.chat_id#}}'
@@ -4112,11 +4312,11 @@ workflow:
       height: 113
       id: '17833408553560'
       position:
-        x: 2274.1865765170555
-        y: -114.81102528869172
+        x: 2844.0121598506717
+        y: 151.2311854603414
       positionAbsolute:
-        x: 2274.1865765170555
-        y: -114.81102528869172
+        x: 2844.0121598506717
+        y: 151.2311854603414
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4136,11 +4336,11 @@ workflow:
       height: 88
       id: '1783431503792'
       position:
-        x: -2968.566624511418
-        y: 546.0293983092747
+        x: -1755.3190147952662
+        y: 1131.2177330310228
       positionAbsolute:
-        x: -2968.566624511418
-        y: 546.0293983092747
+        x: -1755.3190147952662
+        y: 1131.2177330310228
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4160,11 +4360,11 @@ workflow:
       height: 112
       id: '1783432075094'
       position:
-        x: -1388.9169075966408
-        y: 751.168912476555
+        x: -2053.5973093731254
+        y: 1116.0360266432208
       positionAbsolute:
-        x: -1388.9169075966408
-        y: 751.168912476555
+        x: -2053.5973093731254
+        y: 1116.0360266432208
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4184,11 +4384,11 @@ workflow:
       height: 88
       id: '1783482136998'
       position:
-        x: -1388.9169075966408
-        y: 863.8096494988313
+        x: -2038.0409595443139
+        y: 1262.617890564722
       positionAbsolute:
-        x: -1388.9169075966408
-        y: 863.8096494988313
+        x: -2038.0409595443139
+        y: 1262.617890564722
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4208,11 +4408,11 @@ workflow:
       height: 137
       id: '1783515980592'
       position:
-        x: -2968.566624511418
-        y: 647.8373806571219
+        x: -1755.3190147952662
+        y: 1249.1663422998035
       positionAbsolute:
-        x: -2968.566624511418
-        y: 647.8373806571219
+        x: -1755.3190147952662
+        y: 1249.1663422998035
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4235,11 +4435,11 @@ workflow:
       height: 274
       id: '1783517557364'
       position:
-        x: 1388.6298132089896
-        y: 1177.186408643984
+        x: 1052.7379223784367
+        y: 1131.2177330310228
       positionAbsolute:
-        x: 1388.6298132089896
-        y: 1177.186408643984
+        x: 1052.7379223784367
+        y: 1131.2177330310228
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4291,13 +4491,15 @@ workflow:
 
             2. 展示整体结论{{#1783339738594.summary#}}。
 
-            3. 根据{{#1783339738594.user_compare_text#}}提炼逐项比对结果，对于对比一致的结果仅输出一遍结果即可，不要使用Markdown表格。
+            3. 根据{{#1783339738594.user_compare_text#}}提炼逐项比对结果，对于对比一致的结果仅输出一遍结果即可。
 
             4. 如果存在{{#1783339738594.warning_issues_json#}}，请作为风险提示展示。
 
             5. 不要输出 JSON。
 
-            6. 不要编造输入中不存在的信息。'
+            6. 不要编造输入中不存在的信息。
+
+            7. 禁止使用Markdown 标题与语法，最终只输出面向用户的回复正文，不解释生成过程'
         reasoning_format: separated
         selected: false
         title: 对比通过后大模型输出
@@ -4645,11 +4847,11 @@ workflow:
       height: 113
       id: '1783580718006'
       position:
-        x: 1115.5040968643534
-        y: 324.79986639480205
+        x: 1093.623941037789
+        y: 329.08696036302746
       positionAbsolute:
-        x: 1115.5040968643534
-        y: 324.79986639480205
+        x: 1093.623941037789
+        y: 329.08696036302746
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4743,24 +4945,35 @@ workflow:
       height: 88
       id: '1783602097729'
       position:
-        x: -2847.9424401315855
-        y: 223.718365482962
+        x: -3099.6961574257334
+        y: -126.75157124599707
       positionAbsolute:
-        x: -2847.9424401315855
-        y: 223.718365482962
+        x: -3099.6961574257334
+        y: -126.75157124599707
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom-note
       width: 240
     - data:
-        instruction: '你是一位采购经理，{{#1783334960607.user_input#}}是截至刚才用户与你的聊天记录。你需要做到：
+        instruction: '你是一位企业采购业务流程中的意图分析助手，{{#1783334960607.user_input#}}是截至刚才用户与你的聊天记录。你需要做到：
 
           1、由于输入可能包含之前的对话，你需要从输入中分割出距离当前时间节点最近的、完整的那个输入语句，记作raw_input；
 
           2、判断raw_input是否为业务需求。若是，令has_intent为1，否则为0，bool型变量。
 
-          3、若raw_input是业务需求，将其提炼为一个字符串列表，名为user_intent。列表内元素依次为完成这个需求所需要进行的子需求。'
+          3、若raw_input是业务需求，根据与用户的聊天记录{{#1783334960607.user_input#}}与系统业务规则补充必要的前置步骤，生成一个字符串列表，名为user_intent。列表内元素依次为完成业务需求所需要进行的子需求。
+
+
+          当前采购业务流程规则如下：
+
+          1.当用户希望创建、生成、办理、提交或制作采购申请单时，意图为采购申请单创建，子意图包含采销合同对比与采购申请单创建
+
+          2.当用户希望检查、核对、比较、校验采购合同和销售合同时，意图为采销合同对比，子意图为采销合同对比
+
+          3.当用户表示补充、修改、更正或完善之前缺失或异常的采购申请信息或用户输出内容为补充采购申请单字段时，意图为补充采购申请单信息，子意图为补充采购申请单信息
+
+          4.当用户希望创建、生成、下采购订单时，意图为采购订单创建，子意图为采销合同对比、采购申请单创建、采购订单创建。'
         model:
           completion_params:
             temperature: 0.7
@@ -5340,7 +5553,7 @@ workflow:
           - id: key-value-1520
             key: ''
             type: text
-            value: '{"app_id": "cli_aacf95cc2bb8dcc0", "app_secret": "example"}'
+            value: '{"app_id": "replace_your_id", "app_secret": "replace_your_secret"}'
           type: json
         error_strategy: fail-branch
         headers: Content-Type:json
@@ -5482,20 +5695,20 @@ workflow:
             3. 如果{{#1783339738594.compare_status#}}为 MISSING_FIELD，则用中文名称对应列出实际缺失字段，明确告诉用户需要补充哪些信息，并提示用户可以直接使用自然语言回复\n\
             4.如果{{#1783339738594.compare_status#}}为 ABNORMAL_FIELD，则展示对应异常字段并说明异常原因和建议修改内容，并提示用户回复需要更正后的值，异常字段说明放在缺失字段说明后\n\
             5. 给出用户下一步处理建议。\n6.回复必须完整保留当前已经识别出的采购申请单信息和需要补充或修改的字段\n7. 不要编造输入中不存在的信息。\n\
-            8. 不要输出 JSON，直接输出自然语言消息，回复要简洁清晰，适合飞书消息通知。"
+            8. 不要输出 JSON，直接输出自然语言消息，回复要简洁清晰，适合飞书消息通知，禁止使用Markdown 标题与语法，不解释输出的生成过程。"
         selected: false
-        title: 申请单创建不通过回复
+        title: 申请单创建不成功回复
         type: llm
         vision:
           enabled: false
       height: 87
       id: '1783776448569'
       position:
-        x: 2011.0828666036018
-        y: 261.8800541373429
+        x: 1685.7137637871533
+        y: 255.50725060581004
       positionAbsolute:
-        x: 2011.0828666036018
-        y: 261.8800541373429
+        x: 1685.7137637871533
+        y: 255.50725060581004
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5778,11 +5991,11 @@ workflow:
       height: 113
       id: '17837765675610'
       position:
-        x: 2375.0076930575656
-        y: 252.03468815977794
+        x: 1685.7137637871533
+        y: 353.7946219645474
       positionAbsolute:
-        x: 2375.0076930575656
-        y: 252.03468815977794
+        x: 1685.7137637871533
+        y: 353.7946219645474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5807,7 +6020,7 @@ workflow:
       positionAbsolute:
         x: -597.3754871690786
         y: 447.52583105058454
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom-note
@@ -7220,10 +7433,10 @@ workflow:
       id: '1783869459565'
       position:
         x: -2030.8884886687058
-        y: 399.95637318575774
+        y: 425.44758731188915
       positionAbsolute:
         x: -2030.8884886687058
-        y: 399.95637318575774
+        y: 425.44758731188915
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8151,11 +8364,11 @@ workflow:
       height: 88
       id: '1783870259248'
       position:
-        x: 536.3258247138409
-        y: 399.95637318575774
+        x: 533.2943915808202
+        y: 434.8178542154969
       positionAbsolute:
-        x: 536.3258247138409
-        y: 399.95637318575774
+        x: 533.2943915808202
+        y: 434.8178542154969
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8210,12 +8423,12 @@ workflow:
           - '17833385592280'
           - sell_unit_price
           value_type: string
-          variable: sales_unit_price
+          variable: unit_price
         - value_selector:
           - '17833385592280'
           - sell_total_amount
           value_type: string
-          variable: sales_total_amount
+          variable: total_amount
         - value_selector:
           - '17833385592280'
           - sell_delivery_date
@@ -8291,12 +8504,12 @@ workflow:
           - '17838646041250'
           - sell_unit_price
           value_type: string
-          variable: sales_unit_price
+          variable: unit_price
         - value_selector:
           - '17838646041250'
           - sell_total_amount
           value_type: string
-          variable: sales_total_amount
+          variable: total_amount
         - value_selector:
           - '17838646041250'
           - sell_delivery_date
@@ -8518,10 +8731,10 @@ workflow:
       id: '1784000101343'
       position:
         x: -60.1633620094302
-        y: -134.7070199510217
+        y: -135.93816441523109
       positionAbsolute:
         x: -60.1633620094302
-        y: -134.7070199510217
+        y: -135.93816441523109
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8686,8 +8899,163 @@ workflow:
       targetPosition: left
       type: custom
       width: 241
+    - data:
+        author: Mizuki
+        desc: ''
+        height: 155
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"留个路径点，这里意图提取节点提示词还剩点没设计完，就是如果补充了采购申请单信息之后我还需要提取到上一轮的意图继续进行工作","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":"font-size:
+          14px;"}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 155
+      id: '1784023466666'
+      position:
+        x: -3085.5689659954337
+        y: 294.0212547895673
+      positionAbsolute:
+        x: -3085.5689659954337
+        y: 294.0212547895673
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-159
+            key: ''
+            type: text
+            value: '{{#1783340100112.purchase_application_json#}}'
+          type: json
+        headers: 'Content-Type:application/json
+
+          X-Internal-Key:dify-2-contract-agent-2026-securekey-x7z9'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 4
+        type: http-request
+        url: http://38.22.95.144:5173/api/internal/extractions
+        variables: []
+      height: 136
+      id: '1784041477300'
+      position:
+        x: 2256.768125262326
+        y: 151.2311854603414
+      positionAbsolute:
+        x: 2256.768125262326
+        y: 151.2311854603414
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(body_input) -> dict:\n    \"\"\"\n    从输入中提取 confirm_url，兼容两种形式：\n\
+          \    1. body_input 直接是 body JSON 字符串（如 '{\"code\":0,...}'）\n    2. body_input\
+          \ 是包含 \"body\" 键的完整响应字典\n    \"\"\"\n    import json\n\n    # 如果是字典且包含 \"\
+          body\" 键，则取出 body 字符串\n    if isinstance(body_input, dict) and \"body\"\
+          \ in body_input:\n        body_str = body_input[\"body\"]\n    elif isinstance(body_input,\
+          \ str):\n        body_str = body_input\n    else:\n        # 其他类型无法处理，返回空\n\
+          \        return {\"confirm_url\": \"\"}\n\n    try:\n        body_dict =\
+          \ json.loads(body_str)\n        confirm_url = body_dict.get(\"data\", {}).get(\"\
+          confirm_url\", \"\")\n    except (json.JSONDecodeError, TypeError):\n  \
+          \      confirm_url = \"\"\n\n    return {\"confirm_url\": confirm_url}"
+        code_language: python3
+        outputs:
+          confirm_url:
+            children: null
+            type: string
+        selected: false
+        title: 提取confirm_url
+        type: code
+        variables:
+        - value_selector:
+          - '1784041477300'
+          - body
+          value_type: string
+          variable: body_input
+      height: 51
+      id: '1784092913093'
+      position:
+        x: 2551.0940793264276
+        y: 151.2311854603414
+      positionAbsolute:
+        x: 2551.0940793264276
+        y: 151.2311854603414
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"http返回body，经由该节点提取confirm_url并转换为字符串","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1784093741989'
+      position:
+        x: 2578.4203182462447
+        y: 49.86608840316852
+      positionAbsolute:
+        x: 2578.4203182462447
+        y: 49.86608840316852
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Trantorman
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"todo:采购申请单有一些字段不符","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1784093800221'
+      position:
+        x: 1374.1329608024223
+        y: 219.70539919183568
+      positionAbsolute:
+        x: 1374.1329608024223
+        y: 219.70539919183568
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
     viewport:
-      x: -831.1321670539569
-      y: 279.2976631888701
-      zoom: 0.8122523627981996
+      x: 1961.7045429773805
+      y: 139.30910535597081
+      zoom: 0.5358867165081154
   rag_pipeline_variables: []

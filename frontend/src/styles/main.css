@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+@import "@fontsource/dm-sans/600.css";
+@import "@fontsource/dm-sans/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "./theme.css";
+
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+  td, th { word-break: break-word; }
+  th { white-space: nowrap; }
+}
+
+/* 设计稿通用工具类 */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 设计稿共享布局类（多视图复用，从 design/pages/任务列表.html 提取） */
+.hero { display: flex; justify-content: space-between; align-items: flex-start; gap: calc(var(--spacing) * 4); }
+.hero h2 { margin: 0; font-size: 1.7rem; }
+.hero p { margin: 0.45rem 0 0; color: var(--muted-foreground); }
+.hero-actions { display: flex; gap: calc(var(--spacing) * 3); flex-wrap: wrap; flex-shrink: 0; }
+.action-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 5);
+  border-radius: var(--radius); font-weight: 600; cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  border: 1px solid transparent; white-space: nowrap; font: inherit;
+}
+.action-btn.primary { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); font-weight: 600; }
+.action-btn.primary:hover { filter: brightness(0.96); }
+.action-btn.ghost { background: transparent; border-color: var(--border); color: var(--foreground); font-weight: 500; }
+.action-btn.ghost:hover { background: var(--accent); color: var(--accent-foreground); }
+.action-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.content-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th, .data-table td { padding: 10px calc(var(--spacing) * 5); border-bottom: 1px solid var(--border); text-align: left; }
+.data-table th {
+  background: var(--muted); color: var(--muted-foreground);
+  font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 500;
+}
+.data-table tbody tr { transition: background 0.15s ease; }
+.data-table tbody tr:hover { background: var(--accent); }
+.data-table td:last-child, .data-table th:last-child { text-align: right; }
+.cell-task-name { font-weight: 500; }
+.cell-mono { color: var(--muted-foreground); font-family: var(--font-mono); font-size: 0.85rem; }
+
+@media (max-width: 760px) {
+  .hero { flex-direction: column; }
+}

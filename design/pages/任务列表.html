@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同对比 Agent - 任务列表</title>
+    <style id="theme-vars">
+/* Source: structured-spec */
+/* Brand profile: google / dashboard / clean / analytical / modern */
+/* Theme mode: light-dark */
+/* Alias layer: enabled */
+
+/* Light mode source tokens */
+:root {
+  /* Core surface colors */
+  --background: #ffffff;
+  --foreground: #0e1115;
+  --card: #ffffff;
+  --card-foreground: #0e1115;
+  --popover: #f9f9fa;
+  --popover-foreground: #0e1115;
+
+  /* Semantic action colors */
+  --primary: #4285f4;
+  --primary-foreground: #ffffff;
+  --secondary: #dbeafe;
+  --secondary-foreground: #333942;
+  --muted: #eff1f4;
+  --muted-foreground: #7f8d9f;
+  --accent: #dbeafe;
+  --accent-foreground: #003e8f;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Borders, inputs, focus */
+  --border: #ebebeb;
+  --input: #e2e3e4;
+  --ring: #4285f4;
+
+  /* Data visualization */
+  --chart-1: #4285f4;
+  --chart-2: #ea4335;
+  --chart-3: #fbbc05;
+  --chart-4: #0043ad;
+  --chart-5: #34a853;
+
+  /* Sidebar */
+  --sidebar: #f0f6ff;
+  --sidebar-foreground: #0e1115;
+  --sidebar-primary: #4285f4;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #dbeafe;
+  --sidebar-accent-foreground: #003e8f;
+  --sidebar-border: #e7eaef;
+  --sidebar-ring: #4285f4;
+
+  /* Typography */
+  --font-sans: DM Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: DM Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-mono: JetBrains Mono, monospace;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Shadow primitives */
+  --shadow-x: 0;
+  --shadow-y: 3px;
+  --shadow-blur: 0px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0;
+  --shadow-color: #0e1115;
+
+  /* Elevation */
+  --shadow-2xs: 0 3px 0px 0px rgba(14, 17, 21, 0);
+  --shadow-xs: 0 3px 0px 0px rgba(14, 17, 21, 0);
+  --shadow-sm: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 1px 2px -1px rgba(14, 17, 21, 0);
+  --shadow: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 1px 2px -1px rgba(14, 17, 21, 0);
+  --shadow-md: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 2px 4px -1px rgba(14, 17, 21, 0);
+  --shadow-lg: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 4px 6px -1px rgba(14, 17, 21, 0);
+  --shadow-xl: 0 3px 0px 0px rgba(14, 17, 21, 0), 0 8px 10px -1px rgba(14, 17, 21, 0);
+  --shadow-2xl: 0 3px 0px 0px rgba(14, 17, 21, 0);
+
+  /* Rhythm */
+  --tracking-normal: 0em;
+  --spacing: 0.24rem;
+}
+
+/* Dark mode source tokens */
+.dark {
+  /* Core surface colors */
+  --background: #161616;
+  --foreground: #eff1f4;
+  --card: #1d1d1c;
+  --card-foreground: #eff1f4;
+  --popover: #2e2e2e;
+  --popover-foreground: #e5e5e5;
+
+  /* Semantic action colors */
+  --primary: #fc2c50;
+  --primary-foreground: #ffffff;
+  --secondary: #383838;
+  --secondary-foreground: #e5e5e5;
+  --muted: #383838;
+  --muted-foreground: #949494;
+  --accent: #4a2026;
+  --accent-foreground: #fc2c50;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Borders, inputs, focus */
+  --border: #1d1d1c;
+  --input: #000000;
+  --ring: #ffffff;
+
+  /* Data visualization */
+  --chart-1: #2dccd3;
+  --chart-2: #f1204a;
+  --chart-3: #edbbe8;
+  --chart-4: #fbeb35;
+  --chart-5: #baf6f0;
+
+  /* Sidebar */
+  --sidebar: #171717;
+  --sidebar-foreground: #e5e5e5;
+  --sidebar-primary: #0065fd;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #00266b;
+  --sidebar-accent-foreground: #bfdbfe;
+  --sidebar-border: #404040;
+  --sidebar-ring: #00266b;
+
+  /* Typography */
+  --font-sans: DM Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: DM Sans, ui-sans-serif, sans-serif, system-ui;
+  --font-mono: JetBrains Mono, monospace;
+
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Shadow primitives */
+  --shadow-x: 0;
+  --shadow-y: 3px;
+  --shadow-blur: 0px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0;
+  --shadow-color: #000000;
+
+  /* Elevation */
+  --shadow-2xs: 0 3px 0px 0px rgba(0, 0, 0, 0);
+  --shadow-xs: 0 3px 0px 0px rgba(0, 0, 0, 0);
+  --shadow-sm: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 1px 2px -1px rgba(0, 0, 0, 0);
+  --shadow: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 1px 2px -1px rgba(0, 0, 0, 0);
+  --shadow-md: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 2px 4px -1px rgba(0, 0, 0, 0);
+  --shadow-lg: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 4px 6px -1px rgba(0, 0, 0, 0);
+  --shadow-xl: 0 3px 0px 0px rgba(0, 0, 0, 0), 0 8px 10px -1px rgba(0, 0, 0, 0);
+  --shadow-2xl: 0 3px 0px 0px rgba(0, 0, 0, 0);
+}
+
+/* Alias layer */
+@theme inline {
+  /* Color aliases */
+  --google-color-background: var(--background);
+  --google-color-foreground: var(--foreground);
+  --google-color-card: var(--card);
+  --google-color-card-foreground: var(--card-foreground);
+  --google-color-popover: var(--popover);
+  --google-color-popover-foreground: var(--popover-foreground);
+  --google-color-primary: var(--primary);
+  --google-color-primary-foreground: var(--primary-foreground);
+  --google-color-secondary: var(--secondary);
+  --google-color-secondary-foreground: var(--secondary-foreground);
+  --google-color-muted: var(--muted);
+  --google-color-muted-foreground: var(--muted-foreground);
+  --google-color-accent: var(--accent);
+  --google-color-accent-foreground: var(--accent-foreground);
+  --google-color-destructive: var(--destructive);
+  --google-color-destructive-foreground: var(--destructive-foreground);
+  --google-color-border: var(--border);
+  --google-color-input: var(--input);
+  --google-color-ring: var(--ring);
+  --google-color-chart-1: var(--chart-1);
+  --google-color-chart-2: var(--chart-2);
+  --google-color-chart-3: var(--chart-3);
+  --google-color-chart-4: var(--chart-4);
+  --google-color-chart-5: var(--chart-5);
+  --google-color-sidebar: var(--sidebar);
+  --google-color-sidebar-foreground: var(--sidebar-foreground);
+  --google-color-sidebar-primary: var(--sidebar-primary);
+  --google-color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --google-color-sidebar-accent: var(--sidebar-accent);
+  --google-color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --google-color-sidebar-border: var(--sidebar-border);
+  --google-color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography aliases */
+  --google-font-sans: var(--font-sans);
+  --google-font-serif: var(--font-serif);
+  --google-font-mono: var(--font-mono);
+
+  /* Radius aliases */
+  --google-radius: var(--radius);
+  --google-radius-sm: calc(var(--radius) - 4px);
+  --google-radius-md: calc(var(--radius) - 2px);
+  --google-radius-lg: var(--radius);
+  --google-radius-xl: calc(var(--radius) + 4px);
+
+  /* Shadow aliases */
+  --google-shadow-x: var(--shadow-x);
+  --google-shadow-y: var(--shadow-y);
+  --google-shadow-blur: var(--shadow-blur);
+  --google-shadow-spread: var(--shadow-spread);
+  --google-shadow-opacity: var(--shadow-opacity);
+  --google-shadow-color: var(--shadow-color);
+  --google-shadow-2xs: var(--shadow-2xs);
+  --google-shadow-xs: var(--shadow-xs);
+  --google-shadow-sm: var(--shadow-sm);
+  --google-shadow: var(--shadow);
+  --google-shadow-md: var(--shadow-md);
+  --google-shadow-lg: var(--shadow-lg);
+  --google-shadow-xl: var(--shadow-xl);
+  --google-shadow-2xl: var(--shadow-2xl);
+
+  /* Rhythm aliases */
+  --google-tracking-normal: var(--tracking-normal);
+  --google-spacing: var(--spacing);
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-foreground: var(--card-foreground);
+  }
+  @layer base {
+    body { background: var(--card-background); color: var(--card-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <style>
+      /* App shell layout */
+      .app-shell { display: grid; grid-template-columns: 260px 1fr; height: 100vh; }
+
+      /* Sidebar */
+      .app-sidebar {
+        background: var(--sidebar);
+        color: var(--sidebar-foreground);
+        border-right: 1px solid var(--sidebar-border);
+        padding: calc(var(--spacing) * 6);
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--spacing) * 5);
+        transition: width 0.24s ease, padding 0.24s ease;
+        overflow: hidden;
+      }
+      .sidebar-brand { display: flex; align-items: center; gap: calc(var(--spacing) * 3); }
+      .sidebar-brand-mark {
+        width: 40px; height: 40px;
+        border-radius: calc(var(--radius) + 8px);
+        display: grid; place-items: center;
+        background: var(--sidebar-primary);
+        color: var(--sidebar-primary-foreground);
+        font-weight: 700; font-size: 0.95rem;
+        flex-shrink: 0;
+      }
+      .sidebar-brand-copy h1 { margin: 0; font-size: 1rem; }
+      .sidebar-brand-copy p { margin: 0.18rem 0 0; color: var(--muted-foreground); font-size: 0.82rem; }
+      .sidebar-nav { display: flex; flex-direction: column; gap: calc(var(--spacing) * 2); }
+      .sidebar-nav-btn {
+        display: flex; align-items: center; gap: calc(var(--spacing) * 3);
+        width: 100%; padding: calc(var(--spacing) * 3.5) calc(var(--spacing) * 4);
+        border: none; background: transparent; color: inherit;
+        border-radius: var(--radius); text-align: left;
+        cursor: pointer; font: inherit; transition: background 0.2s ease, color 0.2s ease;
+      }
+      .sidebar-nav-btn:hover { background: var(--sidebar-accent); }
+      .sidebar-nav-btn.active { background: var(--sidebar-primary); color: var(--sidebar-primary-foreground); }
+      .sidebar-nav-btn .nav-glyph { width: 1.2rem; text-align: center; flex: 0 0 1.2rem; display: grid; place-items: center; }
+      .sidebar-nav-btn .nav-label { white-space: nowrap; }
+      .sidebar-nav-btn .nav-icon { width: 20px; height: 20px; flex-shrink: 0; }
+      .sidebar-foot {
+        margin-top: auto; padding-top: calc(var(--spacing) * 4);
+        border-top: 1px solid var(--sidebar-border);
+        font-size: 0.82rem; color: var(--muted-foreground);
+      }
+
+      /* Main area */
+      .app-main { display: flex; flex-direction: column; min-width: 0; }
+
+      /* Topbar */
+      .app-topbar {
+        height: 76px; border-bottom: 1px solid var(--border);
+        display: flex; align-items: center; justify-content: space-between;
+        gap: calc(var(--spacing) * 4); padding: 0 calc(var(--spacing) * 6);
+        background: var(--background);
+      }
+      .topbar-left, .topbar-right { display: flex; align-items: center; gap: calc(var(--spacing) * 3); }
+      .topbar-search {
+        display: flex; align-items: center; gap: calc(var(--spacing) * 3);
+        width: min(420px, 46vw); padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+        border: 1px solid var(--input); border-radius: 999px; background: var(--popover);
+      }
+      .topbar-search input { border: none; outline: none; background: transparent; color: var(--foreground); width: 100%; font: inherit; }
+      .topbar-icon-btn {
+        width: 40px; height: 40px; display: grid; place-items: center;
+        border: 1px solid var(--border); background: var(--card); color: var(--foreground);
+        border-radius: var(--radius); cursor: pointer; transition: background 0.15s ease;
+      }
+      .topbar-icon-btn:hover { background: var(--accent); }
+      .topbar-avatar {
+        width: 40px; height: 40px; border-radius: 50%;
+        display: grid; place-items: center;
+        background: var(--primary); color: var(--primary-foreground);
+        font-weight: 700; font-size: 0.9rem;
+      }
+
+      /* Content */
+      .app-content {
+        padding: calc(var(--spacing) * 6);
+        display: flex; flex-direction: column; gap: calc(var(--spacing) * 5);
+        min-height: 0; overflow-y: auto;
+      }
+
+      /* Hero */
+      .hero { display: flex; justify-content: space-between; align-items: flex-start; gap: calc(var(--spacing) * 4); }
+      .hero h2 { margin: 0; font-size: 1.7rem; }
+      .hero p { margin: 0.45rem 0 0; color: var(--muted-foreground); }
+      .hero-actions { display: flex; gap: calc(var(--spacing) * 3); flex-wrap: wrap; flex-shrink: 0; }
+      .action-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        padding: calc(var(--spacing) * 3) calc(var(--spacing) * 5);
+        border-radius: var(--radius); font-weight: 600; cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        border: 1px solid transparent; white-space: nowrap;
+      }
+      .action-btn.primary { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+      .action-btn.primary:hover { filter: brightness(0.96); }
+      .action-btn.ghost { background: transparent; border-color: var(--border); color: var(--foreground); }
+      .action-btn.ghost:hover { background: var(--accent); color: var(--accent-foreground); }
+
+      /* Card */
+      .content-card {
+        background: var(--card); border: 1px solid var(--border);
+        border-radius: calc(var(--radius) + 6px);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+
+      /* Filter chips */
+      .filter-row {
+        display: flex; align-items: center; gap: calc(var(--spacing) * 2);
+        padding: calc(var(--spacing) * 4) calc(var(--spacing) * 5);
+        border-bottom: 1px solid var(--border);
+        flex-wrap: nowrap; overflow-x: auto;
+      }
+      .filter-chip {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 4);
+        border: 1px solid var(--border); border-radius: var(--radius);
+        background: var(--card); color: var(--muted-foreground);
+        cursor: pointer; font: 500 0.84rem/1 var(--font-sans);
+        white-space: nowrap; transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      }
+      .filter-chip:hover { background: var(--accent); color: var(--accent-foreground); }
+      .filter-chip.active { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+
+      /* Data table */
+      .data-table { width: 100%; border-collapse: collapse; }
+      .data-table th, .data-table td { padding: 10px calc(var(--spacing) * 5); border-bottom: 1px solid var(--border); text-align: left; }
+      .data-table th {
+        background: var(--muted); color: var(--muted-foreground);
+        font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+        font-weight: 500;
+      }
+      .data-table tbody tr { transition: background 0.15s ease; }
+      .data-table tbody tr:hover { background: var(--accent); }
+      .data-table td:last-child, .data-table th:last-child { text-align: right; }
+      .cell-task-name { font-weight: 500; }
+      .cell-mono { color: var(--muted-foreground); font-family: var(--font-mono); font-size: 0.85rem; }
+
+      /* Status badges */
+      .status-badge {
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.34rem 0.7rem; border-radius: 999px; font-size: 0.8rem; font-weight: 500;
+        white-space: nowrap;
+      }
+      .status-done { background: color-mix(in srgb, var(--chart-5) 16%, var(--background)); color: var(--chart-5); }
+      .status-running { background: color-mix(in srgb, var(--chart-1) 16%, var(--background)); color: var(--chart-1); }
+      .status-pending { background: var(--muted); color: var(--muted-foreground); }
+      .status-failed { background: color-mix(in srgb, var(--destructive) 16%, var(--background)); color: var(--destructive); }
+
+      /* Risk badges */
+      .risk-badge {
+        display: inline-flex; align-items: center; gap: 0.35rem;
+        padding: 0.34rem 0.7rem; border-radius: 999px; font-size: 0.8rem; font-weight: 500;
+        white-space: nowrap;
+      }
+      .risk-high { background: color-mix(in srgb, var(--chart-2) 16%, var(--background)); color: var(--chart-2); }
+      .risk-medium { background: color-mix(in srgb, var(--chart-3) 16%, var(--background)); color: var(--chart-3); }
+      .risk-low { background: color-mix(in srgb, var(--chart-5) 16%, var(--background)); color: var(--chart-5); }
+      .risk-none { color: var(--muted-foreground); }
+
+      /* Pagination */
+      .pagination {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: calc(var(--spacing) * 3) calc(var(--spacing) * 5);
+        font-size: 0.85rem; color: var(--muted-foreground);
+      }
+      .pagination-pages { display: flex; gap: 6px; align-items: center; }
+      .page-btn {
+        min-width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;
+        border: 1px solid var(--border); border-radius: var(--radius);
+        background: var(--card); color: var(--foreground); cursor: pointer; font: inherit;
+        transition: background 0.15s ease;
+      }
+      .page-btn:hover { background: var(--accent); color: var(--accent-foreground); }
+      .page-btn.active { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+
+      /* Responsive */
+      @media (max-width: 1100px) {
+        .app-shell { grid-template-columns: 84px 1fr; }
+        .app-sidebar { padding-inline: calc(var(--spacing) * 3.5); }
+        .sidebar-brand-copy h1,
+        .sidebar-brand-copy p,
+        .sidebar-nav-btn .nav-label,
+        .sidebar-foot { opacity: 0; max-width: 0; overflow: hidden; }
+        .topbar-search { width: min(280px, 100%); }
+      }
+      @media (max-width: 760px) {
+        .app-topbar, .app-content { padding-inline: calc(var(--spacing) * 4); }
+        .hero { flex-direction: column; }
+        .topbar-search { display: none; }
+      }
+    </style>
+
+    <div class="app-shell">
+      <!-- Sidebar -->
+      <aside class="app-sidebar">
+        <div class="sidebar-brand">
+          <div class="sidebar-brand-mark">CC</div>
+          <div class="sidebar-brand-copy">
+            <h1>合同对比 Agent</h1>
+            <p>Contract Comparison</p>
+          </div>
+        </div>
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <button class="sidebar-nav-btn active" type="button">
+            <span class="nav-glyph">
+              <span data-icon style="width:20px;height:20px;mask-image:url("../assets/image_0_tgt36j.svg");"></span>
+            </span>
+            <span class="nav-label">任务列表</span>
+          </button>
+          <button class="sidebar-nav-btn" type="button" data-dom-id="nav-admin-overview">
+            <span class="nav-glyph">
+              <span data-icon style="width:20px;height:20px;mask-image:url("../assets/image_1_tgt36j.svg");"></span>
+            </span>
+            <span class="nav-label">管理后台</span>
+          </button>
+        </nav>
+        <div class="sidebar-foot">
+          智能合同对比，精准风险分析
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <div class="app-main">
+        <!-- Topbar -->
+        <header class="app-topbar">
+          <div class="topbar-left">
+            <div class="topbar-search">
+              <span data-icon style="width:16px;height:16px;mask-image:url("../assets/image_2_tgt36j.svg");color:var(--muted-foreground);"></span>
+              <input type="text" placeholder="搜索任务名称、合同编号..." aria-label="搜索任务">
+            </div>
+          </div>
+          <div class="topbar-right">
+            <button class="topbar-icon-btn" type="button" aria-label="通知">
+              <span data-icon style="width:18px;height:18px;mask-image:url("../assets/image_3_tgt36j.svg");"></span>
+            </button>
+            <div class="topbar-avatar" aria-label="用户头像">张</div>
+          </div>
+        </header>
+
+        <!-- Content -->
+        <section class="app-content">
+          <!-- Hero -->
+          <div class="hero">
+            <div style="min-width:0;">
+              <h2 style="text-wrap:balance;word-break:keep-all;overflow-wrap:break-word;">我的对比任务</h2>
+              <p>创建和管理采购合同与销售合同的智能对比分析</p>
+            </div>
+            <div class="hero-actions">
+              <button class="action-btn primary" type="button">
+                <span data-icon style="width:16px;height:16px;mask-image:url("../assets/image_4_tgt36j.svg");"></span>
+                新建对比
+              </button>
+              <button class="action-btn ghost" type="button">
+                <span data-icon style="width:16px;height:16px;mask-image:url("../assets/image_5_tgt36j.svg");"></span>
+                导出报告
+              </button>
+            </div>
+          </div>
+
+          <!-- Task table card -->
+          <article class="content-card">
+            <!-- Filter chips -->
+            <div class="filter-row">
+              <button class="filter-chip active" type="button">全部</button>
+              <button class="filter-chip" type="button">已完成</button>
+              <button class="filter-chip" type="button">进行中</button>
+              <button class="filter-chip" type="button">待处理</button>
+              <button class="filter-chip" type="button">失败</button>
+            </div>
+
+            <!-- Table -->
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="min-width:160px;">任务名称</th>
+                  <th style="min-width:90px;">状态</th>
+                  <th style="min-width:90px;">风险等级</th>
+                  <th style="min-width:110px;">创建时间</th>
+                  <th style="min-width:110px;">更新时间</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-dom-id="task-row-1001">
+                  <td class="cell-task-name truncate" style="max-width:220px;">7月螺丝采购</td>
+                  <td><span class="status-badge status-done">已完成</span></td>
+                  <td><span class="risk-badge risk-high">高风险</span></td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-13</td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-13</td>
+                </tr>
+                <tr>
+                  <td class="cell-task-name truncate" style="max-width:220px;">Q3电子元件合同</td>
+                  <td><span class="status-badge status-running">进行中</span></td>
+                  <td><span class="risk-badge risk-medium">中风险</span></td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-12</td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-12</td>
+                </tr>
+                <tr>
+                  <td class="cell-task-name truncate" style="max-width:220px;">办公用品框架协议</td>
+                  <td><span class="status-badge status-pending">待处理</span></td>
+                  <td><span class="risk-none">&mdash;</span></td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-11</td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-11</td>
+                </tr>
+                <tr>
+                  <td class="cell-task-name truncate" style="max-width:220px;">物流服务合同</td>
+                  <td><span class="status-badge status-done">已完成</span></td>
+                  <td><span class="risk-badge risk-low">低风险</span></td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-10</td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-10</td>
+                </tr>
+                <tr>
+                  <td class="cell-task-name truncate" style="max-width:220px;">设备租赁合同对比</td>
+                  <td><span class="status-badge status-failed">失败</span></td>
+                  <td><span class="risk-none">&mdash;</span></td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-09</td>
+                  <td class="cell-mono whitespace-nowrap">2026-07-09</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Pagination -->
+            <div class="pagination">
+              <span>共 32 条</span>
+              <div class="pagination-pages">
+                <button class="page-btn" type="button" aria-label="上一页">
+                  <span data-icon style="width:14px;height:14px;mask-image:url("../assets/image_6_tgt36j.svg");"></span>
+                </button>
+                <button class="page-btn active" type="button">1</button>
+                <button class="page-btn" type="button">2</button>
+                <button class="page-btn" type="button">3</button>
+                <button class="page-btn" type="button">4</button>
+                <button class="page-btn" type="button">5</button>
+                <button class="page-btn" type="button" aria-label="下一页">
+                  <span data-icon style="width:14px;height:14px;mask-image:url("../assets/image_7_tgt36j.svg");"></span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
