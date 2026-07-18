@@ -1,0 +1,14 @@
+services:
+  backend:
+    environment:
+      # Production server connects to DeepSeek directly. The base compose proxy is
+      # only for the Windows development host running MyClash.
+      JAVA_TOOL_OPTIONS: ""
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+  frontend-admin:
+    build:
+      context: .
+      dockerfile: frontend-admin/Dockerfile

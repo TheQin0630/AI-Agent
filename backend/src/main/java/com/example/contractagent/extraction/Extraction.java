@@ -22,13 +22,16 @@ public class Extraction {
     private BigDecimal purchaseUnitPrice;
     private BigDecimal purchaseTotalAmount;
     private LocalDate expectedDeliveryDate;
+    private String shippingMethod;
     private String paymentTerms;
     private String deliveryLocation;
     private String applicationNo;
     private String applicationTitle;
     private LocalDate applyDate;
     private String applicationType;
+    private String applicantName;
     private String currency;
+    private String taxRateName;
     private String applicationStatus;
     private LocalDateTime createTime;
     private String message;
@@ -37,4 +40,7 @@ public class Extraction {
     private LocalDateTime extractedAt;
     private String sourceJson;
     private String resultJson;
+    private String sourceType;
+    private String sourceEventId;
+    private String sourceSenderId;
 }

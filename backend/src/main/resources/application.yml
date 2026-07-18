@@ -11,10 +11,14 @@ spring:
       max-file-size: 20MB
       max-request-size: 50MB
   datasource:
-    url: jdbc:mysql://localhost:3306/contract_agent?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8mb4
+    url: jdbc:mysql://localhost:3306/contract_agent?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 5
 
 mybatis-plus:
   configuration:
@@ -30,3 +34,6 @@ storage:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+internal:
+  dify-task-owner-username: ${DIFY_TASK_OWNER_USERNAME:admin}

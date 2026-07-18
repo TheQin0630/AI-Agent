@@ -14,6 +14,7 @@ public record ExtractionDetailDto(
         String applicationStatus,
         String applicationTitle,
         String applicationType,
+        String applicantName,
         LocalDate applyDate,
         String supplierName,
         String itemName,
@@ -22,15 +23,19 @@ public record ExtractionDetailDto(
         BigDecimal quantity,
         BigDecimal purchaseUnitPrice,
         BigDecimal purchaseTotalAmount,
+        BigDecimal taxInclusiveAmount,
         String currency,
+        String taxRateName,
         LocalDate expectedDeliveryDate,
+        String shippingMethod,
         String deliveryLocation,
         String paymentTerms,
         String message,
         LocalDateTime createTime,
         LocalDateTime extractedAt,
         String sourceJson,
-        String resultJson
+        String resultJson,
+        ExtractionWorkflowDto workflow
 ) {
     public static ExtractionDetailDto from(Extraction e) {
         return new ExtractionDetailDto(
@@ -40,6 +45,7 @@ public record ExtractionDetailDto(
                 e.getApplicationStatus(),
                 e.getApplicationTitle(),
                 e.getApplicationType(),
+                e.getApplicantName(),
                 e.getApplyDate(),
                 e.getSupplierName(),
                 e.getItemName(),
@@ -48,15 +54,29 @@ public record ExtractionDetailDto(
                 e.getQuantity(),
                 e.getPurchaseUnitPrice(),
                 e.getPurchaseTotalAmount(),
+                taxInclusiveAmount(e),
                 e.getCurrency(),
+                e.getTaxRateName(),
                 e.getExpectedDeliveryDate(),
+                e.getShippingMethod(),
                 e.getDeliveryLocation(),
                 e.getPaymentTerms(),
                 e.getMessage(),
                 e.getCreateTime(),
                 e.getExtractedAt(),
                 e.getSourceJson(),
-                e.getResultJson()
+                e.getResultJson(),
+                ExtractionWorkflowDto.from(e.getApplicationStatus())
         );
+    }
+
+    private static BigDecimal taxInclusiveAmount(Extraction e) {
+        if (e.getPurchaseTotalAmount() != null) {
+            return e.getPurchaseTotalAmount();
+        }
+        if (e.getQuantity() == null || e.getPurchaseUnitPrice() == null) {
+            return null;
+        }
+        return e.getQuantity().multiply(e.getPurchaseUnitPrice());
     }
 }

@@ -11,6 +11,7 @@ import com.example.contractagent.task.TaskStatus;
 import com.example.contractagent.task.dto.TaskListResponse;
 import com.example.contractagent.task.dto.TaskSummaryDto;
 import com.example.contractagent.task.dto.TaskDetailResponse;
+import com.example.contractagent.task.dto.TaskWorkflowDto;
 import com.example.contractagent.task.TaskDetailService;
 import com.example.contractagent.user.User;
 import com.example.contractagent.user.UserRepository;
@@ -76,7 +77,8 @@ public class AdminController {
         var p = taskRepository.selectPage(new com.baomidou.mybatisplus.extension.plugins.pagination.Page<>(page, size), wrapper);
         List<TaskSummaryDto> items = p.getRecords().stream()
                 .map(t -> new TaskSummaryDto(t.getId(), t.getTitle(), t.getStatus(), t.getRiskLevel(),
-                        t.getConfirmedAt(), t.getConfirmedBy(), t.getCreatedAt(), t.getUpdatedAt()))
+                        t.getConfirmedAt(), t.getConfirmedBy(), t.getCreatedAt(), t.getUpdatedAt(),
+                        TaskWorkflowDto.from(t.getStatus())))
                 .toList();
         return ApiResponse.ok(new TaskListResponse(p.getTotal(), items));
     }

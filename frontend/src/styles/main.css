@@ -12,6 +12,10 @@
     background: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
   td, th { word-break: break-word; }
   th { white-space: nowrap; }
@@ -23,41 +27,51 @@
 
 /* 设计稿共享布局类（多视图复用，从 design/pages/任务列表.html 提取） */
 .hero { display: flex; justify-content: space-between; align-items: flex-start; gap: calc(var(--spacing) * 4); }
-.hero h2 { margin: 0; font-size: 1.7rem; }
+.hero h2 { margin: 0; font-size: 1.75rem; line-height: 1.25; letter-spacing: -.025em; }
 .hero p { margin: 0.45rem 0 0; color: var(--muted-foreground); }
 .hero-actions { display: flex; gap: calc(var(--spacing) * 3); flex-wrap: wrap; flex-shrink: 0; }
 .action-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: calc(var(--spacing) * 3) calc(var(--spacing) * 5);
-  border-radius: var(--radius); font-weight: 600; cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  border-radius: 14px; font-weight: 600; cursor: pointer;
+  transition: all .24s cubic-bezier(.2,.8,.2,1);
   border: 1px solid transparent; white-space: nowrap; font: inherit;
 }
-.action-btn.primary { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); font-weight: 600; }
-.action-btn.primary:hover { filter: brightness(0.96); }
+.action-btn.primary { background: #e8f1ff; border-color: #c9ddfb; color: #155fc9; font-weight: 650; }
+.action-btn.primary:hover { background:#dceaff; border-color:#b8d2f8; transform:translateY(-2px); box-shadow:0 8px 18px rgba(23,105,224,.12); }
 .action-btn.ghost { background: transparent; border-color: var(--border); color: var(--foreground); font-weight: 500; }
 .action-btn.ghost:hover { background: var(--accent); color: var(--accent-foreground); }
 .action-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .content-card {
   background: var(--card); border: 1px solid var(--border);
-  border-radius: calc(var(--radius) + 6px);
+  border-radius: 22px;
   box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
 
+.surface-panel { background: var(--card); border: 1px solid var(--border); border-radius: 22px; box-shadow: var(--shadow-sm); }
+.section-kicker { margin: 0 0 4px; color: var(--primary); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.table-scroll { width: 100%; overflow-x: auto; }
+
 .data-table { width: 100%; border-collapse: collapse; }
-.data-table th, .data-table td { padding: 10px calc(var(--spacing) * 5); border-bottom: 1px solid var(--border); text-align: left; }
+.data-table th, .data-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); text-align: left; }
 .data-table th {
-  background: var(--muted); color: var(--muted-foreground);
-  font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-  font-weight: 500;
+  background: #f5f8fc; color: #52647d;
+  font-size: 0.75rem; letter-spacing: 0.035em;
+  font-weight: 650;
 }
-.data-table tbody tr { transition: background 0.15s ease; }
-.data-table tbody tr:hover { background: var(--accent); }
+.data-table tbody tr { transition: background 0.15s ease, transform .15s ease; }
+.data-table tbody tr:hover { background: #f7faff; }
 .data-table td:last-child, .data-table th:last-child { text-align: right; }
-.cell-task-name { font-weight: 500; }
+.cell-task-name { font-weight: 400; }
 .cell-mono { color: var(--muted-foreground); font-family: var(--font-mono); font-size: 0.85rem; }
+
+.skeleton { position: relative; overflow: hidden; background: #eef2f7; border-radius: 8px; }
+.skeleton::after { content:""; position:absolute; inset:0; transform:translateX(-100%); background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent); animation:shimmer 1.25s infinite; }
+@keyframes shimmer { to { transform:translateX(100%); } }
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid color-mix(in srgb,var(--primary) 26%,transparent); outline-offset: 2px; }
 
 @media (max-width: 760px) {
   .hero { flex-direction: column; }

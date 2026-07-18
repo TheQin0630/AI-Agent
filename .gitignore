@@ -21,10 +21,13 @@ HELP.md
 # Node / Vue
 node_modules/
 dist/
+.pnpm-store/
 .DS_Store
 *.local
 .env
 .env.local
+.env.*
+!.env.example
 
 # Spring Boot
 application-local.yml
@@ -32,6 +35,17 @@ application-dev.yml
 storage/
 logs/
 *.log
+
+# Local data, generated artifacts and private material
+backups/
+.uploads/
+.codebase-memory/
+*.sql
+*.tar
+*.tar.gz
+*.zip
+*.pem
+*.key
 
 # OS
 Thumbs.db

@@ -10,6 +10,7 @@ import com.example.contractagent.extraction.Extraction;
 import com.example.contractagent.extraction.ExtractionService;
 import com.example.contractagent.task.dto.ContractDetailDto;
 import com.example.contractagent.task.dto.TaskDetailResponse;
+import com.example.contractagent.task.dto.TaskWorkflowDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -52,6 +53,7 @@ public class TaskDetailService {
                 .buy(new ContractDetailDto(buy.getId(), buy.getOriginalFilename(), eBuy))
                 .sell(new ContractDetailDto(sell.getId(), sell.getOriginalFilename(), eSell))
                 .differences(cr.getDifferences())
+                .workflow(TaskWorkflowDto.from(t.getStatus()))
                 .build();
     }
 }

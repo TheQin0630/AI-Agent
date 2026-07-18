@@ -36,7 +36,7 @@ public class ChatService {
         chatRepo.insert(userMsg);
 
         // 2. 调用 LLM（无事务，避免长事务占用数据库连接）
-        ChatClient client = agent.forTask(taskId);
+        ChatClient client = agent.forTask(task);
         String reply;
         List<com.example.contractagent.chat.dto.ChatResponse.ToolCall> toolCalls;
         try {

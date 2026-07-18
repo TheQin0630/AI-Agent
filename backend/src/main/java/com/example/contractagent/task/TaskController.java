@@ -48,14 +48,22 @@ public class TaskController {
     }
 
     /**
-     * 人工确认创建采购单（仅 DONE 状态可调用）。
-     * 确认后任务转 CONFIRMED，BUY 侧 extraction 的 application_status 升为「已确认」。
+     * 审批合同对比结果（仅 DONE 状态可调用）。
+     * 审批后任务转 CONFIRMED，BUY 侧采购申请进入「待确认」，不在此阶段创建采购订单。
      */
     @PostMapping("/{id}/confirm")
     public ApiResponse<ConfirmPurchaseResponse> confirmPurchase(
             @AuthenticationPrincipal Long userId,
             @PathVariable Long id) {
         return ApiResponse.ok(taskService.confirmPurchase(userId, id));
+    }
+
+    @PostMapping("/{id}/reject")
+    public ApiResponse<RejectTaskResponse> rejectForSupplement(
+            @AuthenticationPrincipal Long userId,
+            @PathVariable Long id,
+            @jakarta.validation.Valid @RequestBody RejectTaskRequest request) {
+        return ApiResponse.ok(taskService.rejectForSupplement(userId, id, request.reason()));
     }
 
     @GetMapping(value = "/{id}/report", produces = "text/markdown; charset=utf-8")

@@ -14,7 +14,8 @@ public record ExtractionListItemDto(
         String itemName,
         String applicationType,
         LocalDateTime createTime,
-        LocalDateTime extractedAt
+        LocalDateTime extractedAt,
+        ExtractionWorkflowDto workflow
 ) {
     public static ExtractionListItemDto from(Extraction e) {
         return new ExtractionListItemDto(
@@ -26,7 +27,8 @@ public record ExtractionListItemDto(
                 e.getItemName(),
                 e.getApplicationType(),
                 e.getCreateTime(),
-                e.getExtractedAt()
+                e.getExtractedAt(),
+                ExtractionWorkflowDto.from(e.getApplicationStatus())
         );
     }
 }

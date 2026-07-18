@@ -38,6 +38,7 @@ const router = useRouter()
 const toast = useToastStore()
 
 async function onSubmit() {
+  if (loading.value) return
   if (!title.value) return toast.warning('请填任务名')
   if (!buy.value || !sell.value) return toast.warning('请上传两份合同')
   if (buy.value.size > 20 * 1024 * 1024 || sell.value.size > 20 * 1024 * 1024) return toast.warning('文件 ≤ 20MB')

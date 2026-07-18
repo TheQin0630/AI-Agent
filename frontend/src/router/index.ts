@@ -9,6 +9,9 @@ const routes = [
   { path: '/tasks/:id', component: () => import('@/views/TaskDetailView.vue'), meta: { auth: true } },
   { path: '/extractions', component: () => import('@/views/ExtractionListView.vue'), meta: { auth: true } },
   { path: '/extractions/:id/confirm', component: () => import('@/views/ExtractionConfirmView.vue'), meta: { auth: true } },
+  { path: '/purchase-orders', component: () => import('@/views/PurchaseOrderListView.vue'), meta: { auth: true } },
+  { path: '/purchase-orders/:id', component: () => import('@/views/PurchaseOrderDetailView.vue'), meta: { auth: true } },
+  { path: '/supplements/:id', component: () => import('@/views/SupplementView.vue'), meta: { auth: true } },
   { path: '/me', component: () => import('@/views/MeView.vue'), meta: { auth: true } }
 ]
 

@@ -17,6 +17,9 @@ public class ComparisonTask {
     private String summary;
     private RiskLevel riskLevel;
     private String comparisonResultJson;
+    private String sourceType;
+    private String sourceEventId;
+    private String sourceSenderId;
     private LocalDateTime confirmedAt;
     private Long confirmedBy;
     private LocalDateTime createdAt;

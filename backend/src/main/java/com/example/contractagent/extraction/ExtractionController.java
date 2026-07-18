@@ -1,7 +1,11 @@
 package com.example.contractagent.extraction;
 
 import com.example.contractagent.common.ApiResponse;
+import com.example.contractagent.supplement.SupplementResponse;
+import com.example.contractagent.task.ComparisonTaskService;
+import com.example.contractagent.task.dto.ConfirmPurchaseResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 public class ExtractionController {
 
     private final ExtractionService extractionService;
+    private final ComparisonTaskService taskService;
 
     /**
      * 分页查询申请单列表（按创建时间倒序）。
@@ -48,8 +53,15 @@ public class ExtractionController {
      * 确认申请单：状态从"待确认"改为"已确认"。
      */
     @PatchMapping("/{id}/confirm")
-    public ApiResponse<Void> confirm(@PathVariable Long id) {
-        extractionService.confirm(id);
-        return ApiResponse.ok(null);
+    public ApiResponse<ConfirmPurchaseResponse> confirm(
+            @AuthenticationPrincipal Long userId,
+            @PathVariable Long id) {
+        return ApiResponse.ok(taskService.confirmApplication(userId, id));
+    }
+
+    @PatchMapping("/{id}/reject")
+    public ApiResponse<SupplementResponse> reject(@PathVariable Long id,
+                                                    @jakarta.validation.Valid @RequestBody RejectExtractionRequest request) {
+        return ApiResponse.ok(extractionService.rejectAndCreateSupplement(id, request.reason()));
     }
 }

@@ -21,4 +21,5 @@ public class TaskDetailResponse {
     private ContractDetailDto buy;
     private ContractDetailDto sell;
     private List<FieldDifference> differences;
+    private TaskWorkflowDto workflow;
 }

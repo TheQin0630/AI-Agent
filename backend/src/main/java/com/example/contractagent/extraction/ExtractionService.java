@@ -4,12 +4,17 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.contractagent.common.BusinessException;
 import com.example.contractagent.common.ErrorCode;
 import com.example.contractagent.contract.Contract;
+import com.example.contractagent.contract.ContractSide;
 import com.example.contractagent.llm.LlmCallLogger;
+import com.example.contractagent.supplement.CreateSupplementRequest;
+import com.example.contractagent.supplement.SupplementResponse;
+import com.example.contractagent.supplement.SupplementService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -26,6 +31,7 @@ public class ExtractionService {
     private final ExtractionRepository repository;
     private final ChatClient chatClient;
     private final LlmCallLogger llmLogger;
+    private final SupplementService supplementService;
 
     /**
      * 实际使用的 LLM 模型名（从 spring.ai.openai.chat.options.model 注入）。
@@ -45,6 +51,12 @@ public class ExtractionService {
      */
     public ExtractionListResponse list(int page, int size, String status) {
         QueryWrapper<Extraction> baseWrapper = new QueryWrapper<Extraction>()
+                // 独立 Dify 申请没有 contract_id；手动对比只展示采购合同（BUY）侧。
+                .and(wrapper -> wrapper.isNull("contract_id")
+                        .or()
+                        .apply("EXISTS (SELECT 1 FROM contract c " +
+                                "WHERE c.id = extraction.contract_id AND c.side = 'BUY')"))
+                .isNotNull("application_no")
                 .orderByDesc("create_time");
         if (status != null && !status.isEmpty() && !"全部".equals(status)) {
             baseWrapper.eq("application_status", status);
@@ -65,7 +77,8 @@ public class ExtractionService {
     @Transactional
     public Extraction extractAndSave(Long taskId, Long userId, Contract contract) {
         ExtractionResultDto result = callLlm(taskId, userId, contract);
-        Extraction e = new Extraction();
+        Extraction e = repository.findByContractId(contract.getId()).orElseGet(Extraction::new);
+        boolean existing = e.getId() != null;
         e.setContractId(contract.getId());
         e.setSupplierName(result.supplierName());
         e.setItemName(result.itemName());
@@ -75,22 +88,43 @@ public class ExtractionService {
         e.setPurchaseUnitPrice(result.purchaseUnitPrice());
         e.setPurchaseTotalAmount(result.purchaseTotalAmount());
         e.setExpectedDeliveryDate(result.expectedDeliveryDate());
+        e.setShippingMethod(result.shippingMethod());
         e.setPaymentTerms(result.paymentTerms());
         e.setDeliveryLocation(result.deliveryLocation());
+        e.setApplicantName(result.applicantName());
+        e.setTaxRateName(result.taxRateName());
         e.setConfidence(result.confidence());
         e.setRawQuote(result.rawQuote());
-        // 自动填充字段
-        e.setApplicationNo(generateApplicationNo());
-        e.setApplicationType("商品采购");
+        // BUY 才是采购申请；SELL 只保留合同抽取结果供对比使用。
         e.setCurrency("CNY");
-        e.setApplicationStatus("待提交");
-        e.setApplyDate(LocalDate.now());
-        e.setApplicationTitle(buildTitle(result.supplierName(), result.itemName()));
         e.setCreateTime(java.time.LocalDateTime.now());
-        e.setMessage("抽取成功");
         e.setExtractedAt(java.time.LocalDateTime.now());
-        repository.insert(e);
+        applyManualApplicationMetadata(e, contract.getSide(), result);
+        if (existing) {
+            repository.updateById(e);
+        } else {
+            repository.insert(e);
+        }
         return e;
+    }
+
+    void applyManualApplicationMetadata(Extraction extraction, ContractSide side,
+                                        ExtractionResultDto result) {
+        if (side != ContractSide.BUY) {
+            extraction.setApplicationNo(null);
+            extraction.setApplicationStatus(null);
+            extraction.setApplicationTitle(null);
+            extraction.setApplicationType(null);
+            extraction.setApplyDate(null);
+            extraction.setMessage("销售合同抽取完成，仅用于合同对比");
+            return;
+        }
+        extraction.setApplicationNo(null);
+        extraction.setApplicationType(null);
+        extraction.setApplicationStatus(null);
+        extraction.setApplyDate(null);
+        extraction.setApplicationTitle(null);
+        extraction.setMessage("采购合同抽取完成，等待合同对比审批通过后创建采购申请");
     }
 
     public Extraction getByContractId(Long contractId) {
@@ -113,6 +147,27 @@ public class ExtractionService {
         repository.updateById(e);
     }
 
+    @Transactional
+    public Extraction prepareForConfirmation(Long extractionId) {
+        Extraction e = getById(extractionId);
+        if (e.getApplicationNo() == null || e.getApplicationNo().isBlank()) {
+            e.setApplicationNo(generateApplicationNo());
+        }
+        if (e.getApplicationType() == null || e.getApplicationType().isBlank()) {
+            e.setApplicationType("商品采购");
+        }
+        if (e.getApplyDate() == null) {
+            e.setApplyDate(LocalDate.now());
+        }
+        if (e.getApplicationTitle() == null || e.getApplicationTitle().isBlank()) {
+            e.setApplicationTitle(buildTitle(e.getSupplierName(), e.getItemName()));
+        }
+        e.setApplicationStatus("待确认");
+        e.setMessage("合同对比已审批通过，请确认采购申请后生成正式采购订单");
+        repository.updateById(e);
+        return e;
+    }
+
     /**
      * 确认申请单：将状态从"待确认"改为"已确认"。
      * 只允许待确认状态的申请单执行确认操作。
@@ -129,6 +184,18 @@ public class ExtractionService {
         repository.updateById(e);
     }
 
+    @Transactional
+    public SupplementResponse rejectAndCreateSupplement(Long extractionId, String reason) {
+        Extraction extraction = getById(extractionId);
+        extraction.setApplicationStatus("审批驳回");
+        extraction.setMessage("审批驳回：" + reason.trim());
+        repository.updateById(extraction);
+        var supplement = supplementService.createOrGet(new CreateSupplementRequest(
+                extraction.getApplicationNo() == null ? String.valueOf(extractionId) : extraction.getApplicationNo(),
+                "REJECTED", reason, null, "extraction:" + extractionId + ":REJECTED"));
+        return SupplementResponse.from(supplement);
+    }
+
     /**
      * 供 Dify 工作流通过 HTTP API 创建采购申请单（替代直连数据库）。
      * 写入状态为"待确认"，并记录原始输入 JSON 与组装结果 JSON。
@@ -139,11 +206,37 @@ public class ExtractionService {
      */
     @Transactional
     public Extraction createFromDify(DifyCreateExtractionRequest req, String sourceJson) {
+        return createFromDify(null, req, sourceJson, null, null);
+    }
+
+    @Transactional
+    public Extraction createFromDify(DifyCreateExtractionRequest req, String sourceJson,
+                                     String sourceEventId) {
+        return createFromDify(null, req, sourceJson, "DIFY_FEISHU", sourceEventId);
+    }
+
+    /** Persist Dify-provided structured fields and optionally bind them to a contract. */
+    @Transactional
+    public Extraction createFromDify(Long contractId, DifyCreateExtractionRequest req, String sourceJson) {
+        return createFromDify(contractId, req, sourceJson, null, null);
+    }
+
+    private Extraction createFromDify(Long contractId, DifyCreateExtractionRequest req, String sourceJson,
+                                      String sourceType, String sourceEventId) {
+        String cleanEventId = blankToNull(sourceEventId);
+        if (sourceType != null && cleanEventId != null) {
+            Extraction existing = repository.findBySourceEvent(sourceType, cleanEventId).orElse(null);
+            if (existing != null) return existing;
+        }
         java.time.LocalDateTime now = java.time.LocalDateTime.now();
         Extraction e = new Extraction();
+        e.setContractId(contractId);
         e.setApplicationNo(generateApplicationNo());
         e.setApplicationStatus("待确认");
-        e.setApplicationTitle(req.applicationTitle());
+        String title = blankToNull(req.applicationTitle());
+        if (title == null) title = buildTitle(req.supplierName(), req.itemName());
+        if (title == null) title = "采购申请-" + e.getApplicationNo();
+        e.setApplicationTitle(title);
         e.setApplicationType(req.applicationType() != null ? req.applicationType() : "商品采购");
         e.setApplyDate(req.applyDate() != null ? req.applyDate() : now.toLocalDate());
         e.setSupplierName(req.supplierName());
@@ -155,12 +248,18 @@ public class ExtractionService {
         e.setPurchaseTotalAmount(req.purchaseTotalAmount());
         e.setCurrency(req.currency() != null ? req.currency() : "CNY");
         e.setExpectedDeliveryDate(req.expectedDeliveryDate());
+        e.setShippingMethod(req.shippingMethod());
         e.setDeliveryLocation(req.deliveryLocation());
         e.setPaymentTerms(req.paymentTerms());
+        e.setApplicantName(req.applicantName());
+        e.setTaxRateName(req.taxRateName());
         e.setCreateTime(now);
         e.setExtractedAt(now);
         e.setMessage("Dify Agent 自动创建，待人工确认");
         e.setSourceJson(sourceJson);
+        e.setSourceType(sourceType);
+        e.setSourceEventId(cleanEventId);
+        e.setSourceSenderId(blankToNull(req.applicantName()));
 
         com.fasterxml.jackson.databind.ObjectMapper mapper =
                 new com.fasterxml.jackson.databind.ObjectMapper()
@@ -171,13 +270,29 @@ public class ExtractionService {
             e.setResultJson("{}");
         }
 
-        repository.insert(e);
+        try {
+            repository.insert(e);
+        } catch (DuplicateKeyException duplicate) {
+            if (sourceType != null && cleanEventId != null) {
+                return repository.findBySourceEvent(sourceType, cleanEventId)
+                        .orElseThrow(() -> duplicate);
+            }
+            throw duplicate;
+        }
         return e;
     }
 
     private String buildTitle(String supplier, String item) {
-        if (supplier == null && item == null) return null;
-        return ((supplier == null ? "" : supplier) + "-" + (item == null ? "" : item)).replaceAll("^-+|-+$", "");
+        String cleanSupplier = blankToNull(supplier);
+        String cleanItem = blankToNull(item);
+        if (cleanSupplier == null && cleanItem == null) return null;
+        if (cleanSupplier == null) return cleanItem + "采购申请";
+        if (cleanItem == null) return cleanSupplier + "采购申请";
+        return cleanSupplier + "-" + cleanItem;
+    }
+
+    private String blankToNull(String value) {
+        return value == null || value.isBlank() ? null : value.trim();
     }
 
     private String generateApplicationNo() {
@@ -253,7 +368,7 @@ public class ExtractionService {
         return s.trim();
     }
 
-    private String buildPrompt(String text) {
+    static String buildPrompt(String text) {
         return """
                 请从以下合同正文中抽取关键要素，严格按 JSON 输出。
                 字段缺失时填 null，不要编造。
@@ -267,13 +382,15 @@ public class ExtractionService {
                 - purchase_unit_price: 采购单价（数字，币种默认 CNY）
                 - purchase_total_amount: 采购总金额（数字）
                 - expected_delivery_date: 预计交付日期（YYYY-MM-DD）
+                - shipping_method: 发货方式（如物流配送、供应商送货、自提）
                 - payment_terms: 付款条款
                 - delivery_location: 交付地点
+                - applicant_name: 申请人或采购方经办人名称
+                - tax_rate_name: 税率名称（如增值税13%）
                 - raw_quote: 最相关的 1 句原文引用（便于溯源）
                 - confidence: 抽取置信度 0~1
 
                 合同正文：
-                %s
-                """.formatted(text);
+                """ + (text == null ? "" : text);
     }
 }

@@ -1,22 +1,20 @@
-# 阶段 1：构建（Maven + JDK 17）
+# 运行镜像：Jar 必须先由本机 Maven 构建并通过测试。
+# 这样 Docker 构建不再依赖容器内 Maven 仓库网络。
 FROM maven:3.9-eclipse-temurin-17 AS builder
 
 WORKDIR /build
 
-# 先只复制 pom.xml，利用 Docker 缓存加速依赖下载
-COPY backend/pom.xml .
-RUN mvn dependency:go-offline -B
-
-# 复制源码并构建
+COPY backend/pom.xml ./pom.xml
 COPY backend/src ./src
-RUN mvn package -DskipTests -B -q
+COPY .mvn-settings.xml /root/.m2/settings.xml
 
-# 阶段 2：运行（JRE 17）
+RUN mvn -B -DskipTests package
+
 FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-# 复制构建产物
+# 复制已验证的构建产物
 COPY --from=builder /build/target/*.jar app.jar
 
 # 存储目录

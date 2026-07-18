@@ -13,8 +13,11 @@ public record ExtractionResultDto(
         @JsonProperty("purchase_unit_price")      BigDecimal purchaseUnitPrice,
         @JsonProperty("purchase_total_amount")    BigDecimal purchaseTotalAmount,
         @JsonProperty("expected_delivery_date")   LocalDate expectedDeliveryDate,
+        @JsonProperty("shipping_method")          String shippingMethod,
         @JsonProperty("payment_terms")            String paymentTerms,
         @JsonProperty("delivery_location")        String deliveryLocation,
+        @JsonProperty("applicant_name")           String applicantName,
+        @JsonProperty("tax_rate_name")            String taxRateName,
         @JsonProperty("raw_quote")                String rawQuote,
         @JsonProperty("confidence")               BigDecimal confidence
 ) {}

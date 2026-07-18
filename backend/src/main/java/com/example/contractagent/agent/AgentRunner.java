@@ -11,10 +11,13 @@ import com.example.contractagent.contract.ContractService;
 import com.example.contractagent.contract.ContractSide;
 import com.example.contractagent.extraction.Extraction;
 import com.example.contractagent.extraction.ExtractionService;
+import com.example.contractagent.supplement.CreateSupplementRequest;
+import com.example.contractagent.supplement.SupplementService;
 import com.example.contractagent.task.ComparisonTask;
 import com.example.contractagent.task.ComparisonTaskService;
 import com.example.contractagent.task.RiskLevel;
 import com.example.contractagent.task.TaskStatus;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Async;
@@ -25,6 +28,7 @@ import java.time.LocalDateTime;
 import java.util.concurrent.CompletableFuture;
 
 @Component
+@Slf4j
 public class AgentRunner {
 
     private final ContractService contractService;
@@ -35,6 +39,7 @@ public class AgentRunner {
     private final ComparisonTaskService taskService;
     private final ChatMessageRepository chatRepo;
     private final ContractAgent agent;
+    private final SupplementService supplementService;
 
     public AgentRunner(ContractService contractService,
                        ExtractionService extractionService,
@@ -43,7 +48,8 @@ public class AgentRunner {
                        TaskExecutor taskExecutor,
                        @Lazy ComparisonTaskService taskService,
                        ChatMessageRepository chatRepo,
-                       ContractAgent agent) {
+                       ContractAgent agent,
+                       SupplementService supplementService) {
         this.contractService = contractService;
         this.extractionService = extractionService;
         this.comparisonService = comparisonService;
@@ -52,6 +58,7 @@ public class AgentRunner {
         this.taskService = taskService;
         this.chatRepo = chatRepo;
         this.agent = agent;
+        this.supplementService = supplementService;
     }
 
     @Async
@@ -72,13 +79,14 @@ public class AgentRunner {
             ComparisonResult result = comparisonService.compare(eBuy, eSell);
 
             // 让 Agent 基于结果生成自然语言总结
-            ChatClient client = agent.forTask(taskId);
+            ChatClient client = agent.forTask(task);
             String summary = client.prompt()
                     .user("compare_fields 已完成，结果如下：%s。请用自然语言总结成 3 段：核心差异 / 风险提示 / 建议。".formatted(result.toString()))
                     .call()
                     .content();
 
             taskService.updateResult(taskId, summary, result.getRiskLevel(), comparisonResultStore.write(result));
+            supplementService.resolveFailureRecovery(taskId);
 
             // 落库首条助手消息
             ChatMessage msg = new ChatMessage();
@@ -88,7 +96,13 @@ public class AgentRunner {
             msg.setCreatedAt(LocalDateTime.now());
             chatRepo.insert(msg);
         } catch (Exception e) {
+            log.error("合同对比任务执行失败，taskId={}", taskId, e);
             taskService.updateStatus(taskId, TaskStatus.FAILED);
+            String detail = e.getMessage() == null ? e.getClass().getSimpleName() : e.getMessage();
+            supplementService.createOrGet(new CreateSupplementRequest(
+                    String.valueOf(taskId), "FAILURE_RECOVERY",
+                    "合同处理失败，请补充材料或重新提交。原因：" + detail,
+                    null, "task:" + taskId + ":FAILURE_RECOVERY"));
         }
     }
 }

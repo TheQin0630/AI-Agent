@@ -19,9 +19,6 @@ design/
 contract-compare/
 README.md
 
-# 构建产物
-backend/target/
-
 # TypeScript 构建副产物
 **/*.tsbuildinfo
 **/vite.config.d.ts

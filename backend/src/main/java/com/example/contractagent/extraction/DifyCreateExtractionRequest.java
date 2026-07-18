@@ -1,6 +1,7 @@
 package com.example.contractagent.extraction;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -23,10 +24,13 @@ public record DifyCreateExtractionRequest(
         String unit,
         BigDecimal quantity,
         BigDecimal purchaseUnitPrice,
-        BigDecimal purchaseTotalAmount,
-        String currency,
+        @JsonAlias({"purchaseMoneyTax", "purchase_money_tax"}) BigDecimal purchaseTotalAmount,
+        @JsonAlias({"currencyName", "currency_name"}) String currency,
         LocalDate expectedDeliveryDate,
+        @JsonAlias({"sendMode", "send_mode", "delivery_method", "shipping_method"}) String shippingMethod,
         String deliveryLocation,
-        String paymentTerms
+        String paymentTerms,
+        @JsonAlias({"applicantName", "buyer_name", "applicant_name"}) String applicantName,
+        @JsonAlias({"taxRateName", "tax_rate_name", "tax_rate"}) String taxRateName
 ) {
 }
